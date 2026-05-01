@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第 01 集</title>
+    <style>
+        body { background: #111; margin: 0; padding: 0; text-align: center; }
+        .manga-img { max-width: 100%; display: block; margin: 0 auto 10px; }
+        .back-btn { display: inline-block; padding: 15px 30px; background: #fff; color: #000; text-decoration: none; margin: 20px; border-radius: 5px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div id="manga-container"></div>
+    <a href="index.html" class="back-btn">回目錄</a>
+
+    <script>
+        const container = document.getElementById('manga-container');
+        // 自動載入 22 張圖
+        for (let i = 1; i <= 22; i++) {
+            let num = i.toString().padStart(2, '0'); // 變成 01, 02...
+            let img = document.createElement('img');
+            img.src = `ep01/${num}.jpg`; // 這裡對應您的資料夾名稱
+            img.className = 'manga-img';
+            container.appendChild(img);
+        }
+    </script>
+</body>
+</html>
