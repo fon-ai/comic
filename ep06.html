@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第 06 集</title>
+    <style>
+        body { background: #111; margin: 0; padding: 0; text-align: center; }
+        .manga-img { max-width: 100%; height: auto; display: block; margin: 0 auto 10px; }
+        .back-btn { display: inline-block; padding: 15px 30px; background: #fff; color: #000; text-decoration: none; margin: 20px; border-radius: 5px; font-weight: bold; font-family: sans-serif; }
+    </style>
+</head>
+<body>
+    <div id="manga-container"></div>
+    <a href="index.html" class="back-btn">回目錄</a>
+
+    <script>
+        const container = document.getElementById('manga-container');
+        
+        // 已設定為讀取 ep06 資料夾
+        const folder = "ep06"; 
+        
+        // 如果這一集頁數不是 22 張，請修改下面這個數字
+        const totalPages = 22; 
+
+        for (let i = 1; i <= totalPages; i++) {
+            let num = i < 10 ? '0' + i : i; 
+            
+            let img = document.createElement('img');
+            img.src = folder + "/" + num + ".png"; 
+            img.className = 'manga-img';
+            img.loading = "lazy"; 
+            
+            img.onerror = function() { console.error("找不到圖片: " + this.src); };
+            
+            container.appendChild(img);
+        }
+    </script>
+</body>
+</html>
