@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《科學探險隊》角色介紹</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, #dff4ff 0, transparent 30%),
+        radial-gradient(circle at top right, #fff0c7 0, transparent 28%),
+        linear-gradient(180deg, #fffaf0 0%, #eef8ff 100%);
+      color: #2f2a25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #f1dfbd;
+      border-radius: 28px;
+      padding: 14px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 8px 22px rgba(90, 70, 40, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #2473b8;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #e96b6b;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #5d5147;
+    }
+
+    .nav a.active {
+      background: #5aa7e8;
+      color: white;
+      box-shadow: 0 4px 10px rgba(70, 130, 200, 0.25);
+    }
+
+    .hero {
+      margin-top: 22px;
+      background:
+        linear-gradient(135deg, rgba(229, 247, 255, 0.96), rgba(255, 249, 227, 0.96));
+      border: 2px solid #d7ecff;
+      border-radius: 34px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(80, 100, 120, 0.12);
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "✦  🔬  ✧  🫧  ✦  📘  ✧  ⚗  ✦";
+      position: absolute;
+      inset: 20px;
+      font-size: 28px;
+      opacity: 0.15;
+      letter-spacing: 22px;
+      line-height: 2.6;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: #2f80d0;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 0 #1f5f9f;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 78px);
+      color: #1f67ad;
+      text-shadow:
+        4px 4px 0 #ffffff,
+        7px 7px 0 rgba(230, 140, 120, 0.35);
+      letter-spacing: 3px;
+    }
+
+    .hero p {
+      display: inline-block;
+      margin: 20px auto 0;
+      background: rgba(255, 255, 255, 0.82);
+      border: 2px dashed #f0c982;
+      border-radius: 22px;
+      padding: 14px 24px;
+      font-size: 20px;
+      font-weight: 800;
+      color: #32618f;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      margin: 28px 0 14px;
+      font-size: 28px;
+      color: #2473b8;
+      font-weight: 900;
+    }
+
+    .character-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .character-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 2px solid #eadcc5;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .character-card::after {
+      content: "✦";
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      color: rgba(255, 190, 80, 0.75);
+      font-size: 24px;
+    }
+
+    .character-card.xiaoqing {
+      background: #fff4f1;
+      border-color: #f0c7c5;
+    }
+
+    .character-card.cat {
+      background: #f5fff1;
+      border-color: #cce8bd;
+    }
+
+    .character-card.q {
+      background: #f0fbff;
+      border-color: #b9dff3;
+    }
+
+    .portrait {
+      min-height: 190px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.7);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      border-radius: 24px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .portrait-emoji {
+      font-size: 86px;
+      filter: drop-shadow(0 8px 0 rgba(120, 90, 70, 0.08));
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      background: #5aa7e8;
+      color: white;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .character-card h2 {
+      margin: 0 0 8px;
+      color: #263d5b;
+      font-size: 28px;
+    }
+
+    .role {
+      margin: 0 0 14px;
+      color: #9a7b54;
+      font-weight: 900;
+      line-height: 1.5;
+    }
+
+    .character-card p {
+      margin: 0;
+      color: #66584a;
+      font-weight: 700;
+      line-height: 1.75;
+    }
+
+    .tag-list {
+      margin-top: 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid #eadcc5;
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-weight: 800;
+      color: #6b5542;
+      font-size: 14px;
+    }
+
+    .info-row {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 2px solid #eadcc5;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
+    }
+
+    .info-card h3 {
+      margin: 0 0 12px;
+      color: #2473b8;
+      font-size: 24px;
+    }
+
+    .info-card p {
+      margin: 0;
+      line-height: 1.75;
+      color: #66584a;
+      font-weight: 700;
+    }
+
+    .mini-list {
+      margin: 12px 0 0;
+      padding-left: 1.2em;
+      color: #66584a;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .cta {
+      margin-top: 24px;
+      background:
+        linear-gradient(135deg, rgba(255, 244, 241, 0.95), rgba(240, 251, 255, 0.95));
+      border: 2px solid #eadcc5;
+      border-radius: 28px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
+    }
+
+    .cta h3 {
+      margin: 0 0 12px;
+      color: #2473b8;
+      font-size: 26px;
+    }
+
+    .cta p {
+      margin: 0 0 18px;
+      line-height: 1.7;
+      color: #66584a;
+      font-weight: 700;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .main-btn {
+      display: inline-block;
+      background: #5aa7e8;
+      color: white;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 900;
+      box-shadow: 0 5px 0 #2f80d0;
+    }
+
+    .sub-btn {
+      display: inline-block;
+      background: #fff3f2;
+      color: #df626a;
+      border: 2px solid #f0b0b5;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 900;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding: 24px 0;
+      text-align: center;
+      color: #796b5e;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .character-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 10px;
+      }
+
+      .site-header {
+        position: static;
+        display: block;
+        padding: 14px;
+        border-radius: 22px;
+      }
+
+      .logo {
+        font-size: 24px;
+        margin-bottom: 12px;
+        text-align: center;
+        white-space: normal;
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .nav a {
+        flex: 0 0 auto;
+        padding: 9px 14px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding: 24px 16px;
+        border-radius: 24px;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        padding: 12px 16px;
+      }
+
+      .portrait {
+        min-height: 150px;
+      }
+
+      .portrait-emoji {
+        font-size: 70px;
+      }
+
+      .character-card {
+        padding: 18px;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <div class="logo">科學<span>探險隊</span> ✨</div>
+
+      <nav class="nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html">漫畫目錄</a>
+        <a href="characters.html" class="active">角色介紹</a>
+        <a href="#">科學小知識</a>
+        <a href="#">關於我們</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label">角色介紹</div>
+        <h1>探險隊成員</h1>
+        <p>認識小晴、博士貓和小Q，一齊用好奇心打開科學世界！</p>
+      </div>
+    </section>
+
+    <h2 class="section-title">🌟 主要角色</h2>
+
+    <main class="character-grid">
+      <article class="character-card xiaoqing">
+        <div class="portrait">
+          <!-- 有角色透明圖後，可把下面 emoji 換成：
+          <img src="images/xiaoqing.png" alt="小晴">
+          -->
+          <div class="portrait-emoji">👧</div>
+        </div>
+
+        <span class="badge">主角 / 好奇代表</span>
+        <h2>小晴</h2>
+        <p class="role">小學生女生，短深啡色 bob 頭，有瀏海，穿黃白條紋上衣和淺藍吊帶褲。</p>
+        <p>
+          小晴代表讀者的好奇心。她會提出生活中常見但很有趣的問題，
+          有時會誤會科學概念，但也正因為她敢問，大家才可以一起發現答案。
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">好奇心爆棚</span>
+          <span class="tag">表情豐富</span>
+          <span class="tag">敢問敢試</span>
+        </div>
+      </article>
+
+      <article class="character-card cat">
+        <div class="portrait">
+          <!-- 有角色透明圖後，可把下面 emoji 換成：
+          <img src="images/doctor-cat.png" alt="博士貓">
+          -->
+          <div class="portrait-emoji">🐱</div>
+        </div>
+
+        <span class="badge">科學導師 / 溫柔解說</span>
+        <h2>博士貓</h2>
+        <p class="role">白色毛茸茸貓咪，戴圓眼鏡，穿白色實驗袍，配綠色蝴蝶結，常拿指示棒。</p>
+        <p>
+          博士貓負責帶領大家進入科學場景，將複雜概念變成容易理解的圖像和故事。
+          牠可靠、溫柔，有時也會有少少搞笑。
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">可靠導師</span>
+          <span class="tag">溫柔講解</span>
+          <span class="tag">指示棒達人</span>
+        </div>
+      </article>
+
+      <article class="character-card q">
+        <div class="portrait">
+          <!-- 有角色透明圖後，可把下面 emoji 換成：
+          <img src="images/xiaoq.png" alt="小Q">
+          -->
+          <div class="portrait-emoji">🤖</div>
+        </div>
+
+        <span class="badge">AI 助手 / 圖解高手</span>
+        <h2>小Q</h2>
+        <p class="role">藍白色圓形浮空小機器人，可以投影、掃描、顯示流程圖和小測驗。</p>
+        <p>
+          小Q會把資料變成清楚的資訊框、流程圖和互動問題。
+          牠精準又可愛，偶爾還會吐槽小晴的奇怪想法。
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">資料投影</span>
+          <span class="tag">掃描分析</span>
+          <span class="tag">可愛吐槽</span>
+        </div>
+      </article>
+    </main>
+
+    <section class="info-row">
+      <div class="info-card">
+        <h3>🎨 這套漫畫的風格</h3>
+        <p>
+          《科學探險隊》使用日系溫柔手繪漫畫風，粉彩色調、柔和水彩質感和乾淨線條。
+          畫面可愛但不幼稚，適合小四至中一學生閱讀。
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>🔬 他們怎樣一起探險？</h3>
+        <ul class="mini-list">
+          <li>小晴提出生活中的科學疑問。</li>
+          <li>博士貓把問題變成清楚的科學概念。</li>
+          <li>小Q用投影、掃描和小測驗幫大家理解。</li>
+          <li>每集用冒險故事學 2–3 個核心概念。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h3>準備好加入探險隊未？</h3>
+      <p>
+        由身體大冒險開始，一集一集探索消化、呼吸、心臟、免疫、植物、地球、太空和科技！
+      </p>
+
+      <div class="button-row">
+        <a href="index.html" class="main-btn">📚 返回漫畫目錄</a>
+        <a href="ep01.html" class="sub-btn">🚀 由 EP01 開始閱讀</a>
+      </div>
+    </section>
+
+    <footer>
+      科學探險隊｜探索科學・啟發好奇・一齊冒險
+    </footer>
+
+  </div>
+</body>
+</html>
