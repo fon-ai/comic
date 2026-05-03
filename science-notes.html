@@ -4,864 +4,2067 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>《科學探險隊》科學小知識</title>
-
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, #dff4ff 0, transparent 30%),
-        radial-gradient(circle at top right, #fff0c7 0, transparent 28%),
-        linear-gradient(180deg, #fffaf0 0%, #eef8ff 100%);
-      color: #2f2a25;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .page {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 18px;
-    }
-
-    .site-header {
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid #f1dfbd;
-      border-radius: 28px;
-      padding: 14px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      box-shadow: 0 8px 22px rgba(90, 70, 40, 0.08);
-      backdrop-filter: blur(8px);
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-      color: #2473b8;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #e96b6b;
-    }
-
-    .nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 700;
-      color: #5d5147;
-    }
-
-    .nav a.active {
-      background: #5aa7e8;
-      color: white;
-      box-shadow: 0 4px 10px rgba(70, 130, 200, 0.25);
-    }
-
-    .hero {
-      margin-top: 22px;
-      background:
-        linear-gradient(135deg, rgba(229, 247, 255, 0.96), rgba(255, 249, 227, 0.96));
-      border: 2px solid #d7ecff;
-      border-radius: 34px;
-      padding: 34px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(80, 100, 120, 0.12);
-    }
-
-    .hero::before {
-      content: "✦  🧪  ✧  📘  ✦  🔬  ✧  🫧  ✦";
-      position: absolute;
-      inset: 20px;
-      font-size: 28px;
-      opacity: 0.14;
-      letter-spacing: 22px;
-      line-height: 2.6;
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
-      align-items: center;
-    }
-
-    .hero-label {
-      display: inline-block;
-      background: #2f80d0;
-      color: white;
-      padding: 8px 20px;
-      border-radius: 999px;
-      font-weight: 900;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 0 #1f5f9f;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(42px, 7vw, 78px);
-      color: #1f67ad;
-      text-shadow:
-        4px 4px 0 #ffffff,
-        7px 7px 0 rgba(230, 140, 120, 0.35);
-      letter-spacing: 3px;
-    }
-
-    .hero p {
-      margin: 18px 0 0;
-      background: rgba(255, 255, 255, 0.82);
-      border: 2px dashed #f0c982;
-      border-radius: 22px;
-      padding: 14px 22px;
-      font-size: 19px;
-      font-weight: 800;
-      color: #32618f;
-      line-height: 1.7;
-    }
-
-    .hero-mascot {
-      background: rgba(255, 255, 255, 0.68);
-      border: 2px solid #e6d5b8;
-      border-radius: 28px;
-      padding: 18px;
-      text-align: center;
-      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
-    }
-
-    .hero-mascot img {
-      width: 100%;
-      max-height: 260px;
-      object-fit: contain;
-      display: block;
-    }
-
-    .mascot-note {
-      margin-top: 10px;
-      font-weight: 900;
-      color: #6b5542;
-    }
-
-    .info-strip {
-      margin-top: 20px;
-      background: rgba(255, 255, 255, 0.84);
-      border: 2px solid #efdcb9;
-      border-radius: 26px;
-      padding: 18px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(90, 70, 40, 0.08);
-    }
-
-    .info-box {
-      border-right: 1px dashed #e2cfae;
-      font-weight: 800;
-      color: #66584a;
-    }
-
-    .info-box:last-child {
-      border-right: none;
-    }
-
-    .info-box strong {
-      display: block;
-      margin-top: 6px;
-      font-size: 24px;
-      color: #2473b8;
-    }
-
-    .controls {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .search-box {
-      width: 100%;
-      padding: 16px 20px;
-      border-radius: 999px;
-      border: 2px solid #d8cbb7;
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 18px;
-      outline: none;
-    }
-
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .filter-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 11px 18px;
-      font-weight: 900;
-      cursor: pointer;
-      background: #ffffff;
-      color: #5e554d;
-      border: 2px solid #e8d8bb;
-      transition: 0.2s;
-    }
-
-    .filter-btn.active {
-      background: #5aa7e8;
-      color: white;
-      border-color: #5aa7e8;
-    }
-
-    .section-title {
-      margin: 28px 0 12px;
-      font-size: 28px;
-      color: #2473b8;
-      font-weight: 900;
-    }
-
-    .notes-grid {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .note-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 2px solid #eadcc5;
-      border-radius: 28px;
-      padding: 20px;
-      min-height: 280px;
-      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .note-card::after {
-      content: "✦";
-      position: absolute;
-      right: 18px;
-      top: 14px;
-      color: rgba(255, 190, 80, 0.75);
-      font-size: 24px;
-    }
-
-    .note-card.body {
-      background: #f0fbff;
-      border-color: #b9dff3;
-    }
-
-    .note-card.health {
-      background: #f5fff1;
-      border-color: #cce8bd;
-    }
-
-    .note-card.food {
-      background: #fff4f1;
-      border-color: #f0c7c5;
-    }
-
-    .note-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .note-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      font-size: 32px;
-      background: rgba(255, 255, 255, 0.75);
-      border: 2px solid rgba(255, 255, 255, 0.9);
-      flex: 0 0 auto;
-    }
-
-    .ep-badge {
-      display: inline-block;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: #5aa7e8;
-      color: white;
-      font-weight: 900;
-      margin-bottom: 6px;
-      font-size: 14px;
-    }
-
-    .note-card h2 {
-      margin: 0;
-      color: #263d5b;
-      font-size: 22px;
-      line-height: 1.3;
-    }
-
-    .note-topic {
-      margin: 0;
-      color: #9a7b54;
-      font-weight: 900;
-      line-height: 1.4;
-    }
-
-    .note-card p {
-      margin: 0;
-      color: #66584a;
-      font-weight: 700;
-      line-height: 1.7;
-    }
-
-    .note-list {
-      margin: 0;
-      padding-left: 1.2em;
-      color: #66584a;
-      font-weight: 700;
-      line-height: 1.65;
-    }
-
-    .note-actions {
-      margin-top: auto;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding-top: 8px;
-    }
-
-    .read-btn,
-    .activity-btn {
-      display: inline-block;
-      border-radius: 999px;
-      padding: 9px 14px;
-      font-weight: 900;
-      font-size: 14px;
-    }
-
-    .read-btn {
-      background: #fff3f2;
-      color: #df626a;
-      border: 2px solid #f0b0b5;
-    }
-
-    .activity-btn {
-      background: #eef8ff;
-      color: #2473b8;
-      border: 2px solid #b9dff3;
-    }
-
-    .empty-message {
-      margin-top: 24px;
-      background: rgba(255, 255, 255, 0.85);
-      border: 2px dashed #e6c996;
-      border-radius: 24px;
-      padding: 26px;
-      text-align: center;
-      color: #7a6752;
-      font-weight: 800;
-      display: none;
-    }
-
-    .feature-row {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .feature-card {
-      background: rgba(255, 255, 255, 0.86);
-      border: 2px solid #eadcc5;
-      border-radius: 28px;
-      padding: 22px;
-      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
-    }
-
-    .feature-card h3 {
-      margin: 0 0 10px;
-      font-size: 24px;
-      color: #2473b8;
-    }
-
-    .feature-card p {
-      margin: 0;
-      line-height: 1.7;
-      color: #66584a;
-      font-weight: 700;
-    }
-
-    footer {
-      margin-top: 34px;
-      padding: 24px 0;
-      text-align: center;
-      color: #796b5e;
-      font-weight: 700;
-    }
-
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-mascot {
-        max-width: 360px;
-        margin: 0 auto;
-      }
-
-      .info-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .info-box {
-        border-right: none;
-        border-bottom: 1px dashed #e2cfae;
-        padding-bottom: 12px;
-      }
-
-      .info-box:last-child {
-        border-bottom: none;
-      }
-
-      .notes-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .feature-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .page {
-        padding: 10px;
-      }
-
-      .site-header {
-        position: static;
-        display: block;
-        padding: 14px;
-        border-radius: 22px;
-      }
-
-      .logo {
-        font-size: 24px;
-        margin-bottom: 12px;
-        text-align: center;
-        white-space: normal;
-      }
-
-      .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        gap: 8px;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .nav a {
-        flex: 0 0 auto;
-        padding: 9px 14px;
-        font-size: 14px;
-        white-space: nowrap;
-      }
-
-      .hero {
-        padding: 24px 16px;
-        border-radius: 24px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero p {
-        font-size: 16px;
-        padding: 12px 16px;
-      }
-
-      .notes-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .note-card {
-        min-height: auto;
-      }
-    }
+    *{box-sizing:border-box} body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:radial-gradient(circle at top left,#dff4ff 0,transparent 30%),radial-gradient(circle at top right,#fff0c7 0,transparent 28%),linear-gradient(180deg,#fffaf0 0%,#eef8ff 100%);color:#2f2a25} a{text-decoration:none;color:inherit}.page{max-width:1180px;margin:0 auto;padding:18px}.site-header{background:rgba(255,255,255,.9);border:2px solid #f1dfbd;border-radius:28px;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 8px 22px rgba(90,70,40,.08);backdrop-filter:blur(8px)}.logo{font-size:28px;font-weight:900;color:#2473b8;letter-spacing:1px;white-space:nowrap}.logo span{color:#e96b6b}.nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.nav a{padding:10px 16px;border-radius:999px;font-weight:700;color:#5d5147}.nav a.active{background:#5aa7e8;color:white;box-shadow:0 4px 10px rgba(70,130,200,.25)}
+    .hero{margin-top:22px;background:linear-gradient(135deg,rgba(229,247,255,.96),rgba(255,249,227,.96));border:2px solid #d7ecff;border-radius:34px;padding:34px;position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(80,100,120,.12)}.hero::before{content:"✦  🧪  ✧  📘  ✦  🔬  ✧  🫧  ✦";position:absolute;inset:20px;font-size:28px;opacity:.14;letter-spacing:22px;line-height:2.6;pointer-events:none}.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}.hero-label{display:inline-block;background:#2f80d0;color:white;padding:8px 20px;border-radius:999px;font-weight:900;margin-bottom:12px;box-shadow:0 4px 0 #1f5f9f}.hero h1{margin:0;font-size:clamp(42px,7vw,78px);color:#1f67ad;text-shadow:4px 4px 0 #fff,7px 7px 0 rgba(230,140,120,.35);letter-spacing:3px}.hero p{margin:18px 0 0;background:rgba(255,255,255,.82);border:2px dashed #f0c982;border-radius:22px;padding:14px 22px;font-size:19px;font-weight:800;color:#32618f;line-height:1.7}.hero-mascot{background:rgba(255,255,255,.68);border:2px solid #e6d5b8;border-radius:28px;padding:18px;text-align:center;box-shadow:0 8px 18px rgba(80,90,110,.08)}.hero-mascot img{width:100%;max-height:260px;object-fit:contain;display:block}.mascot-note{margin-top:10px;font-weight:900;color:#6b5542}
+    .info-strip{margin-top:20px;background:rgba(255,255,255,.84);border:2px solid #efdcb9;border-radius:26px;padding:18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;text-align:center;box-shadow:0 8px 20px rgba(90,70,40,.08)}.info-box{border-right:1px dashed #e2cfae;font-weight:800;color:#66584a}.info-box:last-child{border-right:none}.info-box strong{display:block;margin-top:6px;font-size:24px;color:#2473b8}.controls{margin-top:24px;display:grid;grid-template-columns:1fr;gap:14px}.search-box{width:100%;padding:16px 20px;border-radius:999px;border:2px solid #d8cbb7;background:rgba(255,255,255,.9);font-size:18px;outline:none}.filters{display:flex;flex-wrap:wrap;gap:10px}.filter-btn{border:none;border-radius:999px;padding:11px 18px;font-weight:900;cursor:pointer;background:#fff;color:#5e554d;border:2px solid #e8d8bb;transition:.2s}.filter-btn.active{background:#5aa7e8;color:white;border-color:#5aa7e8}.section-title{margin:28px 0 12px;font-size:28px;color:#2473b8;font-weight:900}.notes-grid{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.note-card{background:rgba(255,255,255,.88);border:2px solid #eadcc5;border-radius:28px;padding:20px;min-height:280px;box-shadow:0 8px 18px rgba(80,90,110,.08);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:10px}.note-card::after{content:"✦";position:absolute;right:18px;top:14px;color:rgba(255,190,80,.75);font-size:24px}.note-card.body{background:#f0fbff;border-color:#b9dff3}.note-card.health{background:#f5fff1;border-color:#cce8bd}.note-card.food{background:#fff4f1;border-color:#f0c7c5}.note-card.matter{background:#fff9df;border-color:#eadc9a}.note-card.earth{background:#f0f5ff;border-color:#c4d5f4}.note-card.tech{background:#f7f2ff;border-color:#d9c5f2}.note-top{display:flex;align-items:center;gap:12px}.note-icon{width:60px;height:60px;border-radius:20px;display:grid;place-items:center;font-size:32px;background:rgba(255,255,255,.75);border:2px solid rgba(255,255,255,.9);flex:0 0 auto}.ep-badge{display:inline-block;padding:5px 12px;border-radius:999px;background:#5aa7e8;color:white;font-weight:900;margin-bottom:6px;font-size:14px}.note-card h2{margin:0;color:#263d5b;font-size:22px;line-height:1.3}.note-topic{margin:0;color:#9a7b54;font-weight:900;line-height:1.4}.note-card p{margin:0;color:#66584a;font-weight:700;line-height:1.7}.note-list{margin:0;padding-left:1.2em;color:#66584a;font-weight:700;line-height:1.65}.note-actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;padding-top:8px}.read-btn,.activity-btn{display:inline-block;border-radius:999px;padding:9px 14px;font-weight:900;font-size:14px}.read-btn{background:#fff3f2;color:#df626a;border:2px solid #f0b0b5}.activity-btn{background:#eef8ff;color:#2473b8;border:2px solid #b9dff3}.empty-message{margin-top:24px;background:rgba(255,255,255,.85);border:2px dashed #e6c996;border-radius:24px;padding:26px;text-align:center;color:#7a6752;font-weight:800;display:none}footer{margin-top:34px;padding:24px 0;text-align:center;color:#796b5e;font-weight:700}
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-mascot{max-width:360px;margin:0 auto}.info-strip{grid-template-columns:1fr}.info-box{border-right:none;border-bottom:1px dashed #e2cfae;padding-bottom:12px}.info-box:last-child{border-bottom:none}.notes-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.page{padding:10px}.site-header{position:static;display:block;padding:14px;border-radius:22px}.logo{font-size:24px;margin-bottom:12px;text-align:center;white-space:normal}.nav{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}.nav a{flex:0 0 auto;padding:9px 14px;font-size:14px;white-space:nowrap}.hero{padding:24px 16px;border-radius:24px}.hero h1{font-size:42px}.hero p{font-size:16px;padding:12px 16px}.notes-grid{grid-template-columns:1fr}.note-card{min-height:auto}}
   </style>
 </head>
-
 <body>
   <div class="page">
-
-    <header class="site-header">
-      <div class="logo">科學<span>探險隊</span> ✨</div>
-
-      <nav class="nav">
-        <a href="index.html">首頁</a>
-        <a href="index.html">漫畫目錄</a>
-        <a href="characters.html">角色介紹</a>
-        <a href="science-notes.html" class="active">科學小知識</a>
-        <a href="#">關於我們</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-text">
-          <div class="hero-label">科學小知識</div>
-          <h1>小Q知識庫</h1>
-          <p>
-            每集看完漫畫後，可以來這裡重溫核心概念、小實驗和生活應用。
-            不用死背，跟住角色用故事理解科學！
-          </p>
-        </div>
-
-        <div class="hero-mascot">
-          <img src="images/xiaoq.png" alt="小Q">
-          <div class="mascot-note">小Q：資料投影準備好！</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="info-strip">
-      <div class="info-box">
-        目前小知識
-        <strong id="notesCount">9集</strong>
-      </div>
-
-      <div class="info-box">
-        每集重點
-        <strong>2–3 個概念</strong>
-      </div>
-
-      <div class="info-box">
-        適合
-        <strong>小四至中一</strong>
-      </div>
-    </section>
-
-    <section class="controls">
-      <input
-        type="text"
-        id="searchInput"
-        class="search-box"
-        placeholder="搜尋小知識，例如：消化、氧氣、心臟、洗手、睡眠"
-      />
-
-      <div class="filters">
-        <button class="filter-btn active" data-category="全部">全部</button>
-        <button class="filter-btn" data-category="身體系統">身體系統</button>
-        <button class="filter-btn" data-category="健康習慣">健康習慣</button>
-        <button class="filter-btn" data-category="免疫防護">免疫防護</button>
-        <button class="filter-btn" data-category="生活應用">生活應用</button>
-      </div>
-    </section>
-
-    <h2 class="section-title">📘 已推出小知識</h2>
-
-    <main id="notesGrid" class="notes-grid"></main>
-
-    <div id="emptyMessage" class="empty-message">
-      暫時未有符合條件的小知識。可以試試搜尋其他關鍵字，或者選擇「全部」。
-    </div>
-
-<section class="feature-row">
-  <div class="feature-card">
-    <h3>🧪 小實驗挑戰</h3>
-    <p>
-      看完每集小知識，可以試試卡片內的小任務。觀察、比較、記錄，
-      都是小科學家的重要技能！
-    </p>
+    <header class="site-header"><div class="logo">科學<span>探險隊</span> ✨</div><nav class="nav"><a href="index.html">首頁</a><a href="index.html">漫畫目錄</a><a href="characters.html">角色介紹</a><a href="science-notes.html" class="active">科學小知識</a><a href="#">關於我們</a></nav></header>
+    <section class="hero"><div class="hero-inner"><div class="hero-text"><div class="hero-label">科學小知識</div><h1>小Q知識庫</h1><p>每集看完漫畫後，可以來這裡重溫核心概念、小任務和生活應用。不用死背，跟住角色用故事理解科學！</p></div><div class="hero-mascot"><img src="images/xiaoq.png" alt="小Q"><div class="mascot-note">小Q：資料投影準備好！</div></div></div></section>
+    <section class="info-strip"><div class="info-box">目前小知識<strong id="notesCount">11集</strong></div><div class="info-box">每集重點<strong>2–3 個概念</strong></div><div class="info-box">全系列已預備<strong>120集</strong></div></section>
+    <section class="controls"><input type="text" id="searchInput" class="search-box" placeholder="搜尋小知識，例如：消化、氧氣、心臟、洗手、睡眠" /><div class="filters"><button class="filter-btn active" data-category="全部">全部</button><button class="filter-btn" data-category="身體系統">身體系統</button><button class="filter-btn" data-category="健康習慣">健康習慣</button><button class="filter-btn" data-category="免疫防護">免疫防護</button><button class="filter-btn" data-category="生命與環境">生命與環境</button><button class="filter-btn" data-category="物質與能量">物質與能量</button><button class="filter-btn" data-category="地球與太空">地球與太空</button><button class="filter-btn" data-category="科技與工程">科技與工程</button><button class="filter-btn" data-category="科學探究">科學探究</button><button class="filter-btn" data-category="生活應用">生活應用</button></div></section>
+    <h2 class="section-title">📘 已推出小知識</h2><main id="notesGrid" class="notes-grid"></main><div id="emptyMessage" class="empty-message">暫時未有符合條件的小知識。可以試試搜尋其他關鍵字，或者選擇「全部」。</div><footer>科學探險隊｜探索科學・啟發好奇・一齊冒險</footer>
   </div>
-
-  <div class="feature-card">
-    <h3>🌟 下一站科學冒險</h3>
-    <p>
-      更多小知識會跟隨漫畫集數逐步更新。記得回來和小晴、博士貓、小Q，
-      一起解開生活中的科學謎團！
-    </p>
-  </div>
-</section>
-    <footer>
-      科學探險隊｜探索科學・啟發好奇・一齊冒險
-    </footer>
-
-  </div>
-
   <script>
     const notes = [
       {
-        ep: "EP01",
-        title: "食物去了哪裡？",
-        topic: "消化系統",
-        category: "身體系統",
-        icon: "🍎",
-        style: "food",
-        link: "ep01.html",
-        status: "published",
-        summary: "食物不是在肚子裡神秘消失，而是經過口腔、食道、胃、小腸和大腸一步步被處理。",
-        points: [
-          "牙齒和唾液先幫食物變細、變濕。",
-          "胃像攪拌袋，會把食物攪成糊狀。",
-          "小腸負責吸收養分，大腸負責吸收水分。"
-        ],
-        activity: "觀察不同食物入口後，咀嚼次數和口感有什麼不同。"
+            "ep": "EP01",
+            "title": "食物去了哪裡？",
+            "topic": "消化系統",
+            "category": "身體系統",
+            "icon": "🍎",
+            "style": "food",
+            "link": "ep01.html",
+            "status": "published",
+            "summary": "食物不是在肚子裡神秘消失，而是經過口腔、食道、胃、小腸和大腸一步步被處理。",
+            "points": [
+                  "牙齒和唾液先幫食物變細、變濕。",
+                  "胃像攪拌袋，會把食物攪成糊狀。",
+                  "小腸負責吸收養分，大腸負責吸收水分。"
+            ],
+            "activity": "觀察不同食物入口後，咀嚼次數和口感有什麼不同。"
       },
       {
-        ep: "EP02",
-        title: "我們為什麼要呼吸？",
-        topic: "呼吸系統",
-        category: "身體系統",
-        icon: "🫁",
-        style: "body",
-        link: "ep02.html",
-        status: "published",
-        summary: "呼吸幫身體取得氧氣，也幫我們排走二氧化碳。運動時身體需要更多氧氣，所以會喘氣。",
-        points: [
-          "吸氣時，空氣進入肺部。",
-          "氧氣會進入血液，被送到全身。",
-          "二氧化碳會從血液回到肺部，再呼出去。"
-        ],
-        activity: "比較安靜坐著和原地踏步後，一分鐘呼吸次數有什麼分別。"
+            "ep": "EP02",
+            "title": "我們為什麼要呼吸？",
+            "topic": "呼吸系統",
+            "category": "身體系統",
+            "icon": "🫁",
+            "style": "body",
+            "link": "ep02.html",
+            "status": "published",
+            "summary": "呼吸幫身體取得氧氣，也幫我們排走二氧化碳。運動時身體需要更多氧氣，所以會喘氣。",
+            "points": [
+                  "吸氣時，空氣進入肺部。",
+                  "氧氣會進入血液，被送到全身。",
+                  "二氧化碳會從血液回到肺部，再呼出去。"
+            ],
+            "activity": "比較安靜坐著和原地踏步後，一分鐘呼吸次數有什麼分別。"
       },
       {
-        ep: "EP03",
-        title: "心臟為什麼一直跳？",
-        topic: "循環系統",
-        category: "身體系統",
-        icon: "❤️",
-        style: "food",
-        link: "ep03.html",
-        status: "published",
-        summary: "心臟像身體裡的泵，不停把血液送到全身，運送氧氣和養分。",
-        points: [
-          "血液會把氧氣和養分帶到身體各部分。",
-          "心跳是心臟收縮和放鬆的節奏。",
-          "運動時身體需要更多能量，心跳會加快。"
-        ],
-        activity: "摸摸手腕脈搏，比較運動前後心跳速度。"
+            "ep": "EP03",
+            "title": "心臟為什麼一直跳？",
+            "topic": "循環系統",
+            "category": "身體系統",
+            "icon": "❤️",
+            "style": "food",
+            "link": "ep03.html",
+            "status": "published",
+            "summary": "心臟像身體裡的泵，不停把血液送到全身，運送氧氣和養分。",
+            "points": [
+                  "血液會把氧氣和養分帶到身體各部分。",
+                  "心跳是心臟收縮和放鬆的節奏。",
+                  "運動時身體需要更多能量，心跳會加快。"
+            ],
+            "activity": "摸摸手腕脈搏，比較運動前後心跳速度。"
       },
       {
-        ep: "EP04",
-        title: "骨頭和肌肉怎樣幫我們動？",
-        topic: "骨骼、肌肉、關節",
-        category: "身體系統",
-        icon: "🦴",
-        style: "body",
-        link: "ep04.html",
-        status: "published",
-        summary: "骨頭支撐身體，關節讓身體可以彎曲，肌肉收縮和放鬆就能帶動動作。",
-        points: [
-          "骨骼像身體的支架。",
-          "關節讓骨頭之間可以活動。",
-          "肌肉通常一組一組合作，拉動骨頭。"
-        ],
-        activity: "彎曲手臂時，摸摸上臂肌肉有什麼變化。"
+            "ep": "EP04",
+            "title": "骨頭和肌肉怎樣幫我們動？",
+            "topic": "骨骼、肌肉、關節",
+            "category": "身體系統",
+            "icon": "🦴",
+            "style": "body",
+            "link": "ep04.html",
+            "status": "published",
+            "summary": "骨頭支撐身體，關節讓身體可以彎曲，肌肉收縮和放鬆就能帶動動作。",
+            "points": [
+                  "骨骼像身體的支架。",
+                  "關節讓骨頭之間可以活動。",
+                  "肌肉通常一組一組合作，拉動骨頭。"
+            ],
+            "activity": "彎曲手臂時，摸摸上臂肌肉有什麼變化。"
       },
       {
-        ep: "EP05",
-        title: "為什麼會生病？",
-        topic: "病菌、免疫、預防感染",
-        category: "免疫防護",
-        icon: "🦠",
-        style: "health",
-        link: "ep05.html",
-        status: "published",
-        summary: "有些細菌和病毒會令人生病。身體有免疫系統幫忙防守，但良好衛生習慣也很重要。",
-        points: [
-          "病菌可能經由手、飛沫或食物進入身體。",
-          "免疫系統會辨認和對抗入侵者。",
-          "洗手、休息和均衡飲食可以幫助保護身體。"
-        ],
-        activity: "想一想：一天中有哪三個時間最應該洗手？"
+            "ep": "EP05",
+            "title": "為什麼會生病？",
+            "topic": "病菌、免疫、預防感染",
+            "category": "免疫防護",
+            "icon": "🦠",
+            "style": "health",
+            "link": "ep05.html",
+            "status": "published",
+            "summary": "有些細菌和病毒會令人生病。身體有免疫系統幫忙防守，但良好衛生習慣也很重要。",
+            "points": [
+                  "病菌可能經由手、飛沫或食物進入身體。",
+                  "免疫系統會辨認和對抗入侵者。",
+                  "洗手、休息和均衡飲食可以幫助保護身體。"
+            ],
+            "activity": "想一想：一天中有哪三個時間最應該洗手？"
       },
       {
-        ep: "EP06",
-        title: "身體怎樣保護自己？",
-        topic: "皮膚、白血球、免疫防線",
-        category: "免疫防護",
-        icon: "🛡️",
-        style: "health",
-        link: "ep06.html",
-        status: "published",
-        summary: "身體有多重防線，例如皮膚、黏液和白血球，一起守護我們。",
-        points: [
-          "皮膚是身體的外層防線。",
-          "鼻毛和黏液可以攔住部分灰塵和病菌。",
-          "白血球像身體的守衛，會對付入侵者。"
-        ],
-        activity: "畫一張『身體城堡防線圖』，標示皮膚、鼻子和白血球。"
+            "ep": "EP06",
+            "title": "身體怎樣保護自己？",
+            "topic": "皮膚、白血球、免疫防線",
+            "category": "免疫防護",
+            "icon": "🛡️",
+            "style": "health",
+            "link": "ep06.html",
+            "status": "published",
+            "summary": "身體有多重防線，例如皮膚、黏液和白血球，一起守護我們。",
+            "points": [
+                  "皮膚是身體的外層防線。",
+                  "鼻毛和黏液可以攔住部分灰塵和病菌。",
+                  "白血球像身體的守衛，會對付入侵者。"
+            ],
+            "activity": "畫一張「身體城堡防線圖」，標示皮膚、鼻子和白血球。"
       },
       {
-        ep: "EP07",
-        title: "為什麼要洗手？",
-        topic: "微生物、傳播、衛生習慣",
-        category: "健康習慣",
-        icon: "🫧",
-        style: "body",
-        link: "ep07.html",
-        status: "published",
-        summary: "手會接觸很多地方，微生物可能黏在手上。用肥皂洗手可以減少病菌傳播。",
-        points: [
-          "看不見不代表沒有微生物。",
-          "病菌可以由手傳到眼、口、鼻。",
-          "洗手要搓手心、手背、指縫和指尖。"
-        ],
-        activity: "用閃粉模擬病菌，觀察它怎樣由一隻手傳到其他地方。"
+            "ep": "EP07",
+            "title": "為什麼要洗手？",
+            "topic": "微生物、傳播、衛生習慣",
+            "category": "健康習慣",
+            "icon": "🫧",
+            "style": "body",
+            "link": "ep07.html",
+            "status": "published",
+            "summary": "手會接觸很多地方，微生物可能黏在手上。用肥皂洗手可以減少病菌傳播。",
+            "points": [
+                  "看不見不代表沒有微生物。",
+                  "病菌可以由手傳到眼、口、鼻。",
+                  "洗手要搓手心、手背、指縫和指尖。"
+            ],
+            "activity": "用閃粉模擬病菌，觀察它怎樣由一隻手傳到其他地方。"
       },
       {
-        ep: "EP08",
-        title: "發燒是不是壞事？",
-        topic: "體溫、免疫反應",
-        category: "免疫防護",
-        icon: "🌡️",
-        style: "food",
-        link: "ep08.html",
-        status: "published",
-        summary: "發燒通常代表身體正在應對感染，但太高或太久就要留意和求助大人或醫生。",
-        points: [
-          "正常體溫會在一個小範圍內變化。",
-          "發燒是免疫反應的一部分。",
-          "多休息、補充水分，並留意身體狀況。"
-        ],
-        activity: "認識溫度計：觀察體溫讀數，學會正確記錄時間和度數。"
+            "ep": "EP08",
+            "title": "發燒是不是壞事？",
+            "topic": "體溫、免疫反應",
+            "category": "免疫防護",
+            "icon": "🌡️",
+            "style": "food",
+            "link": "ep08.html",
+            "status": "published",
+            "summary": "發燒通常代表身體正在應對感染，但太高或太久就要留意和求助大人或醫生。",
+            "points": [
+                  "正常體溫會在一個小範圍內變化。",
+                  "發燒是免疫反應的一部分。",
+                  "多休息、補充水分，並留意身體狀況。"
+            ],
+            "activity": "認識溫度計：觀察體溫讀數，學會正確記錄時間和度數。"
       },
       {
-        ep: "EP09",
-        title: "為什麼要睡覺？",
-        topic: "睡眠、大腦、身體修復",
-        category: "健康習慣",
-        icon: "🌙",
-        style: "body",
-        link: "ep09.html",
-        status: "published",
-        summary: "睡眠不是浪費時間。睡覺時，大腦會整理記憶，身體也會進行修復和恢復能量。",
-        points: [
-          "睡眠有助記憶和學習。",
-          "身體會在休息時修復和成長。",
-          "穩定作息和睡前少看螢幕，有助睡得更好。"
-        ],
-        activity: "記錄一星期睡覺和起床時間，看看哪天精神最好。"
+            "ep": "EP09",
+            "title": "為什麼要睡覺？",
+            "topic": "睡眠、大腦、身體修復",
+            "category": "健康習慣",
+            "icon": "🌙",
+            "style": "body",
+            "link": "ep09.html",
+            "status": "published",
+            "summary": "睡眠不是浪費時間。睡覺時，大腦會整理記憶，身體也會進行修復和恢復能量。",
+            "points": [
+                  "睡眠有助記憶和學習。",
+                  "身體會在休息時修復和成長。",
+                  "穩定作息和睡前少看螢幕，有助睡得更好。"
+            ],
+            "activity": "記錄一星期睡覺和起床時間，看看哪天精神最好。"
       },
       {
-        ep: "EP10",
-        title: "為什麼要均衡飲食？",
-        topic: "營養、食物種類、健康",
-        category: "健康習慣",
-        icon: "🥗",
-        style: "health",
-        link: "ep10.html",
-        status: "published",
-        summary: "不同食物提供不同營養，均衡飲食能幫助身體成長、活動和維持健康。",
-        points: [
-          "主食提供能量。",
-          "蔬果提供纖維和維他命。",
-          "蛋白質幫助身體成長和修復。"
-        ],
-        activity: "畫出自己一天的餐盤，看看食物種類是否夠多。"
+            "ep": "EP10",
+            "title": "為什麼要均衡飲食？",
+            "topic": "營養、食物種類、健康",
+            "category": "健康習慣",
+            "icon": "🥗",
+            "style": "health",
+            "link": "ep10.html",
+            "status": "published",
+            "summary": "不同食物提供不同營養，均衡飲食能幫助身體成長、活動和維持健康。",
+            "points": [
+                  "主食提供能量。",
+                  "蔬果提供纖維和維他命。",
+                  "蛋白質幫助身體成長和修復。"
+            ],
+            "activity": "畫出自己一天的餐盤，看看食物種類是否夠多。"
+      },
+      {
+            "ep": "EP11",
+            "title": "為什麼要飲水？",
+            "topic": "水分、身體平衡",
+            "category": "健康習慣",
+            "icon": "💧",
+            "style": "body",
+            "link": "ep11.html",
+            "status": "published",
+            "summary": "水是身體很重要的部分，幫助運送物質、調節體溫，也讓身體保持正常運作。",
+            "points": [
+                  "身體需要水分幫助運送養分和廢物。",
+                  "流汗、呼吸和排尿都會令身體失去水分。",
+                  "口渴、尿液顏色變深，可能代表身體需要補充水分。"
+            ],
+            "activity": "記錄一天飲水次數，觀察運動後或天氣熱時，自己會不會更容易口渴。"
+      },
+      {
+            "ep": "EP12",
+            "title": "為什麼會流汗？",
+            "topic": "體溫調節",
+            "category": "身體系統",
+            "icon": "💦",
+            "style": "body",
+            "link": "ep12.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「體溫調節」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「體溫調節」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「體溫調節」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP13",
+            "title": "眼睛怎樣看見東西？",
+            "topic": "眼睛、光、保護視力",
+            "category": "身體系統",
+            "icon": "👀",
+            "style": "body",
+            "link": "ep13.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「眼睛、光、保護視力」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「眼睛」的基本意思。",
+                  "觀察「光」在生活或自然中的例子。",
+                  "理解「保護視力」和主題之間的關係。"
+            ],
+            "activity": "找一個與「眼睛」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP14",
+            "title": "耳朵怎樣聽見聲音？",
+            "topic": "耳朵、聲音、保護聽覺",
+            "category": "身體系統",
+            "icon": "👂",
+            "style": "body",
+            "link": "ep14.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「耳朵、聲音、保護聽覺」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「耳朵」的基本意思。",
+                  "觀察「聲音」在生活或自然中的例子。",
+                  "理解「保護聽覺」和主題之間的關係。"
+            ],
+            "activity": "找一個與「耳朵」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP15",
+            "title": "牙齒為什麼會蛀？",
+            "topic": "牙齒、細菌、口腔衛生",
+            "category": "健康習慣",
+            "icon": "🦷",
+            "style": "health",
+            "link": "ep15.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「牙齒、細菌、口腔衛生」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「牙齒」的基本意思。",
+                  "觀察「細菌」在生活或自然中的例子。",
+                  "理解「口腔衛生」和主題之間的關係。"
+            ],
+            "activity": "找一個與「牙齒」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP16",
+            "title": "皮膚有什麼用？",
+            "topic": "皮膚、保護、感覺",
+            "category": "身體系統",
+            "icon": "✋",
+            "style": "health",
+            "link": "ep16.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「皮膚、保護、感覺」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「皮膚」的基本意思。",
+                  "觀察「保護」在生活或自然中的例子。",
+                  "理解「感覺」和主題之間的關係。"
+            ],
+            "activity": "找一個與「皮膚」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP17",
+            "title": "大腦怎樣指揮身體？",
+            "topic": "大腦、神經、身體控制",
+            "category": "身體系統",
+            "icon": "🧠",
+            "style": "food",
+            "link": "ep17.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「大腦、神經、身體控制」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「大腦」的基本意思。",
+                  "觀察「神經」在生活或自然中的例子。",
+                  "理解「身體控制」和主題之間的關係。"
+            ],
+            "activity": "找一個與「大腦」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP18",
+            "title": "為什麼會有情緒？",
+            "topic": "大腦、荷爾蒙、情緒管理",
+            "category": "健康習慣",
+            "icon": "😊",
+            "style": "food",
+            "link": "ep18.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「大腦、荷爾蒙、情緒管理」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「大腦」的基本意思。",
+                  "觀察「荷爾蒙」在生活或自然中的例子。",
+                  "理解「情緒管理」和主題之間的關係。"
+            ],
+            "activity": "找一個與「大腦」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP19",
+            "title": "運動後身體發生什麼事？",
+            "topic": "心跳、呼吸、能量需求",
+            "category": "健康習慣",
+            "icon": "🏃",
+            "style": "body",
+            "link": "ep19.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「心跳、呼吸、能量需求」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「心跳」的基本意思。",
+                  "觀察「呼吸」在生活或自然中的例子。",
+                  "理解「能量需求」和主題之間的關係。"
+            ],
+            "activity": "找一個與「心跳」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP20",
+            "title": "為什麼會近視？",
+            "topic": "眼球、光線、用眼習慣",
+            "category": "健康習慣",
+            "icon": "👓",
+            "style": "body",
+            "link": "ep20.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「眼球、光線、用眼習慣」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「眼球」的基本意思。",
+                  "觀察「光線」在生活或自然中的例子。",
+                  "理解「用眼習慣」和主題之間的關係。"
+            ],
+            "activity": "找一個與「眼球」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP21",
+            "title": "為什麼會過敏？",
+            "topic": "免疫反應、致敏原",
+            "category": "免疫防護",
+            "icon": "🌼",
+            "style": "health",
+            "link": "ep21.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「免疫反應、致敏原」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「免疫反應」的基本意思。",
+                  "觀察「致敏原」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「免疫反應」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP22",
+            "title": "傷口為什麼會結痂？",
+            "topic": "皮膚修復、血液凝固",
+            "category": "免疫防護",
+            "icon": "🩹",
+            "style": "health",
+            "link": "ep22.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「皮膚修復、血液凝固」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「皮膚修復」的基本意思。",
+                  "觀察「血液凝固」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「皮膚修復」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP23",
+            "title": "青春期身體為什麼會改變？",
+            "topic": "成長、青春期、尊重身體",
+            "category": "健康習慣",
+            "icon": "🌱",
+            "style": "food",
+            "link": "ep23.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「成長、青春期、尊重身體」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「成長」的基本意思。",
+                  "觀察「青春期」在生活或自然中的例子。",
+                  "理解「尊重身體」和主題之間的關係。"
+            ],
+            "activity": "找一個與「成長」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP24",
+            "title": "怎樣保持身心健康？",
+            "topic": "運動、睡眠、情緒、生活習慣",
+            "category": "健康習慣",
+            "icon": "🌈",
+            "style": "health",
+            "link": "ep24.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「運動、睡眠、情緒、生活習慣」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「運動」的基本意思。",
+                  "觀察「睡眠」在生活或自然中的例子。",
+                  "理解「情緒」和主題之間的關係。"
+            ],
+            "activity": "找一個與「運動」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP25",
+            "title": "植物為什麼需要陽光？",
+            "topic": "植物、光、水、空氣",
+            "category": "生命與環境",
+            "icon": "🌞",
+            "style": "health",
+            "link": "ep25.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「植物、光、水、空氣」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「植物」的基本意思。",
+                  "觀察「光」在生活或自然中的例子。",
+                  "理解「水」和主題之間的關係。"
+            ],
+            "activity": "找一個與「植物」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP26",
+            "title": "種子怎樣長成植物？",
+            "topic": "種子、發芽、植物生長",
+            "category": "生命與環境",
+            "icon": "🌱",
+            "style": "health",
+            "link": "ep26.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「種子、發芽、植物生長」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「種子」的基本意思。",
+                  "觀察「發芽」在生活或自然中的例子。",
+                  "理解「植物生長」和主題之間的關係。"
+            ],
+            "activity": "找一個與「種子」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP27",
+            "title": "花為什麼會結果？",
+            "topic": "開花植物、授粉、繁殖",
+            "category": "生命與環境",
+            "icon": "🌸",
+            "style": "health",
+            "link": "ep27.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「開花植物、授粉、繁殖」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「開花植物」的基本意思。",
+                  "觀察「授粉」在生活或自然中的例子。",
+                  "理解「繁殖」和主題之間的關係。"
+            ],
+            "activity": "找一個與「開花植物」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP28",
+            "title": "植物怎樣喝水？",
+            "topic": "根、莖、葉、運輸水分",
+            "category": "生命與環境",
+            "icon": "🌿",
+            "style": "health",
+            "link": "ep28.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「根、莖、葉、運輸水分」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「根」的基本意思。",
+                  "觀察「莖」在生活或自然中的例子。",
+                  "理解「葉」和主題之間的關係。"
+            ],
+            "activity": "找一個與「根」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP29",
+            "title": "葉子為什麼重要？",
+            "topic": "葉、光合作用、製造養分",
+            "category": "生命與環境",
+            "icon": "🍃",
+            "style": "health",
+            "link": "ep29.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「葉、光合作用、製造養分」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「葉」的基本意思。",
+                  "觀察「光合作用」在生活或自然中的例子。",
+                  "理解「製造養分」和主題之間的關係。"
+            ],
+            "activity": "找一個與「葉」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP30",
+            "title": "動物有什麼共同特徵？",
+            "topic": "動物分類、生命特徵",
+            "category": "生命與環境",
+            "icon": "🐾",
+            "style": "food",
+            "link": "ep30.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「動物分類、生命特徵」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「動物分類」的基本意思。",
+                  "觀察「生命特徵」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「動物分類」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP31",
+            "title": "昆蟲是不是動物？",
+            "topic": "昆蟲特徵、分類",
+            "category": "生命與環境",
+            "icon": "🐞",
+            "style": "food",
+            "link": "ep31.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「昆蟲特徵、分類」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「昆蟲特徵」的基本意思。",
+                  "觀察「分類」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「昆蟲特徵」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP32",
+            "title": "魚為什麼能在水中生活？",
+            "topic": "魚、鰓、適應環境",
+            "category": "生命與環境",
+            "icon": "🐟",
+            "style": "body",
+            "link": "ep32.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「魚、鰓、適應環境」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「魚」的基本意思。",
+                  "觀察「鰓」在生活或自然中的例子。",
+                  "理解「適應環境」和主題之間的關係。"
+            ],
+            "activity": "找一個與「魚」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP33",
+            "title": "鳥為什麼會飛？",
+            "topic": "鳥類、羽毛、身體結構",
+            "category": "生命與環境",
+            "icon": "🐦",
+            "style": "body",
+            "link": "ep33.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「鳥類、羽毛、身體結構」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「鳥類」的基本意思。",
+                  "觀察「羽毛」在生活或自然中的例子。",
+                  "理解「身體結構」和主題之間的關係。"
+            ],
+            "activity": "找一個與「鳥類」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP34",
+            "title": "動物怎樣保護自己？",
+            "topic": "保護色、防禦、適應",
+            "category": "生命與環境",
+            "icon": "🦎",
+            "style": "food",
+            "link": "ep34.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「保護色、防禦、適應」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「保護色」的基本意思。",
+                  "觀察「防禦」在生活或自然中的例子。",
+                  "理解「適應」和主題之間的關係。"
+            ],
+            "activity": "找一個與「保護色」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP35",
+            "title": "什麼是棲息地？",
+            "topic": "生境、生物需要",
+            "category": "生命與環境",
+            "icon": "🏡",
+            "style": "health",
+            "link": "ep35.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「生境、生物需要」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「生境」的基本意思。",
+                  "觀察「生物需要」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「生境」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP36",
+            "title": "食物鏈是什麼？",
+            "topic": "生產者、消費者、食物鏈",
+            "category": "生命與環境",
+            "icon": "🔗",
+            "style": "health",
+            "link": "ep36.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「生產者、消費者、食物鏈」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「生產者」的基本意思。",
+                  "觀察「消費者」在生活或自然中的例子。",
+                  "理解「食物鏈」和主題之間的關係。"
+            ],
+            "activity": "找一個與「生產者」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP37",
+            "title": "如果一種動物消失會怎樣？",
+            "topic": "生態平衡、食物網",
+            "category": "生命與環境",
+            "icon": "🕸️",
+            "style": "health",
+            "link": "ep37.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「生態平衡、食物網」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「生態平衡」的基本意思。",
+                  "觀察「食物網」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「生態平衡」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP38",
+            "title": "微生物都是壞的嗎？",
+            "topic": "有益微生物、有害微生物",
+            "category": "生命與環境",
+            "icon": "🧫",
+            "style": "health",
+            "link": "ep38.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「有益微生物、有害微生物」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「有益微生物」的基本意思。",
+                  "觀察「有害微生物」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「有益微生物」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP39",
+            "title": "蜜蜂為什麼重要？",
+            "topic": "授粉、生態角色",
+            "category": "生命與環境",
+            "icon": "🐝",
+            "style": "health",
+            "link": "ep39.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「授粉、生態角色」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「授粉」的基本意思。",
+                  "觀察「生態角色」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「授粉」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP40",
+            "title": "森林為什麼像一個家？",
+            "topic": "森林生態系、棲息地",
+            "category": "生命與環境",
+            "icon": "🌳",
+            "style": "health",
+            "link": "ep40.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「森林生態系、棲息地」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「森林生態系」的基本意思。",
+                  "觀察「棲息地」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「森林生態系」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP41",
+            "title": "海洋裡有什麼秘密？",
+            "topic": "海洋生態、食物鏈",
+            "category": "生命與環境",
+            "icon": "🌊",
+            "style": "body",
+            "link": "ep41.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「海洋生態、食物鏈」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「海洋生態」的基本意思。",
+                  "觀察「食物鏈」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「海洋生態」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP42",
+            "title": "動物怎樣適應環境？",
+            "topic": "適應、身體特徵、行為",
+            "category": "生命與環境",
+            "icon": "🦊",
+            "style": "food",
+            "link": "ep42.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「適應、身體特徵、行為」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「適應」的基本意思。",
+                  "觀察「身體特徵」在生活或自然中的例子。",
+                  "理解「行為」和主題之間的關係。"
+            ],
+            "activity": "找一個與「適應」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP43",
+            "title": "植物怎樣適應環境？",
+            "topic": "植物適應、環境條件",
+            "category": "生命與環境",
+            "icon": "🌵",
+            "style": "health",
+            "link": "ep43.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「植物適應、環境條件」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「植物適應」的基本意思。",
+                  "觀察「環境條件」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「植物適應」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP44",
+            "title": "人類怎樣影響生態？",
+            "topic": "人類活動、環境影響",
+            "category": "生活應用",
+            "icon": "🏙️",
+            "style": "earth",
+            "link": "ep44.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「人類活動、環境影響」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「人類活動」的基本意思。",
+                  "觀察「環境影響」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「人類活動」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP45",
+            "title": "保護生物多樣性有什麼用？",
+            "topic": "生物多樣性、保育",
+            "category": "生命與環境",
+            "icon": "🦋",
+            "style": "health",
+            "link": "ep45.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「生物多樣性、保育」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「生物多樣性」的基本意思。",
+                  "觀察「保育」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「生物多樣性」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP46",
+            "title": "寵物需要什麼照顧？",
+            "topic": "動物需要、責任",
+            "category": "生活應用",
+            "icon": "🐱",
+            "style": "food",
+            "link": "ep46.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「動物需要、責任」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「動物需要」的基本意思。",
+                  "觀察「責任」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「動物需要」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP47",
+            "title": "怎樣觀察小生物？",
+            "topic": "觀察、記錄、分類",
+            "category": "科學探究",
+            "icon": "🔍",
+            "style": "tech",
+            "link": "ep47.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「觀察、記錄、分類」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「觀察」的基本意思。",
+                  "觀察「記錄」在生活或自然中的例子。",
+                  "理解「分類」和主題之間的關係。"
+            ],
+            "activity": "找一個與「觀察」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP48",
+            "title": "小小生態任務：建一個迷你生境",
+            "topic": "生態系統、探究活動",
+            "category": "科學探究",
+            "icon": "🪴",
+            "style": "tech",
+            "link": "ep48.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「生態系統、探究活動」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「生態系統」的基本意思。",
+                  "觀察「探究活動」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「生態系統」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP49",
+            "title": "水為什麼會變成冰和水蒸氣？",
+            "topic": "固體、液體、氣體、物態變化",
+            "category": "物質與能量",
+            "icon": "🧊",
+            "style": "matter",
+            "link": "ep49.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「固體、液體、氣體、物態變化」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「固體」的基本意思。",
+                  "觀察「液體」在生活或自然中的例子。",
+                  "理解「氣體」和主題之間的關係。"
+            ],
+            "activity": "找一個與「固體」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP50",
+            "title": "空氣真的存在嗎？",
+            "topic": "空氣、佔空間、有重量",
+            "category": "物質與能量",
+            "icon": "💨",
+            "style": "matter",
+            "link": "ep50.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「空氣、佔空間、有重量」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「空氣」的基本意思。",
+                  "觀察「佔空間」在生活或自然中的例子。",
+                  "理解「有重量」和主題之間的關係。"
+            ],
+            "activity": "找一個與「空氣」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP51",
+            "title": "糖溶在水裡去了哪裡？",
+            "topic": "溶解、溶質、溶劑",
+            "category": "物質與能量",
+            "icon": "🥄",
+            "style": "matter",
+            "link": "ep51.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「溶解、溶質、溶劑」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「溶解」的基本意思。",
+                  "觀察「溶質」在生活或自然中的例子。",
+                  "理解「溶劑」和主題之間的關係。"
+            ],
+            "activity": "找一個與「溶解」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP52",
+            "title": "鹽水怎樣變回鹽？",
+            "topic": "蒸發、結晶",
+            "category": "物質與能量",
+            "icon": "🧂",
+            "style": "matter",
+            "link": "ep52.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「蒸發、結晶」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「蒸發」的基本意思。",
+                  "觀察「結晶」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「蒸發」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP53",
+            "title": "怎樣分開混合物？",
+            "topic": "過濾、篩分、磁力分離",
+            "category": "物質與能量",
+            "icon": "🧪",
+            "style": "matter",
+            "link": "ep53.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「過濾、篩分、磁力分離」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「過濾」的基本意思。",
+                  "觀察「篩分」在生活或自然中的例子。",
+                  "理解「磁力分離」和主題之間的關係。"
+            ],
+            "activity": "找一個與「過濾」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP54",
+            "title": "物件為什麼會浮或沉？",
+            "topic": "浮沉、材料、密度概念",
+            "category": "物質與能量",
+            "icon": "🛟",
+            "style": "matter",
+            "link": "ep54.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「浮沉、材料、密度概念」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「浮沉」的基本意思。",
+                  "觀察「材料」在生活或自然中的例子。",
+                  "理解「密度概念」和主題之間的關係。"
+            ],
+            "activity": "找一個與「浮沉」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP55",
+            "title": "材料有什麼不同？",
+            "topic": "硬度、彈性、吸水性",
+            "category": "物質與能量",
+            "icon": "🧱",
+            "style": "matter",
+            "link": "ep55.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「硬度、彈性、吸水性」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「硬度」的基本意思。",
+                  "觀察「彈性」在生活或自然中的例子。",
+                  "理解「吸水性」和主題之間的關係。"
+            ],
+            "activity": "找一個與「硬度」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP56",
+            "title": "紙、金屬、塑膠有什麼用途？",
+            "topic": "物料特性與用途",
+            "category": "物質與能量",
+            "icon": "📦",
+            "style": "matter",
+            "link": "ep56.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「物料特性與用途」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「物料特性與用途」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「物料特性與用途」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP57",
+            "title": "為什麼鐵會生鏽？",
+            "topic": "氧氣、水、鏽蝕",
+            "category": "物質與能量",
+            "icon": "🔩",
+            "style": "matter",
+            "link": "ep57.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「氧氣、水、鏽蝕」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「氧氣」的基本意思。",
+                  "觀察「水」在生活或自然中的例子。",
+                  "理解「鏽蝕」和主題之間的關係。"
+            ],
+            "activity": "找一個與「氧氣」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP58",
+            "title": "食物為什麼會變壞？",
+            "topic": "腐壞、微生物、保存",
+            "category": "物質與能量",
+            "icon": "🍞",
+            "style": "matter",
+            "link": "ep58.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「腐壞、微生物、保存」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「腐壞」的基本意思。",
+                  "觀察「微生物」在生活或自然中的例子。",
+                  "理解「保存」和主題之間的關係。"
+            ],
+            "activity": "找一個與「腐壞」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP59",
+            "title": "煮蛋為什麼不能變回生蛋？",
+            "topic": "可逆變化、不可逆變化",
+            "category": "物質與能量",
+            "icon": "🥚",
+            "style": "matter",
+            "link": "ep59.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「可逆變化、不可逆變化」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「可逆變化」的基本意思。",
+                  "觀察「不可逆變化」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「可逆變化」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP60",
+            "title": "燃燒需要什麼？",
+            "topic": "燃燒三要素",
+            "category": "物質與能量",
+            "icon": "🔥",
+            "style": "matter",
+            "link": "ep60.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「燃燒三要素」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「燃燒三要素」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「燃燒三要素」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP61",
+            "title": "火為什麼危險？",
+            "topic": "火警安全、燃燒、滅火",
+            "category": "物質與能量",
+            "icon": "🚒",
+            "style": "matter",
+            "link": "ep61.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「火警安全、燃燒、滅火」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「火警安全」的基本意思。",
+                  "觀察「燃燒」在生活或自然中的例子。",
+                  "理解「滅火」和主題之間的關係。"
+            ],
+            "activity": "找一個與「火警安全」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP62",
+            "title": "熱會怎樣傳開？",
+            "topic": "傳導、對流、輻射",
+            "category": "物質與能量",
+            "icon": "♨️",
+            "style": "matter",
+            "link": "ep62.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「傳導、對流、輻射」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「傳導」的基本意思。",
+                  "觀察「對流」在生活或自然中的例子。",
+                  "理解「輻射」和主題之間的關係。"
+            ],
+            "activity": "找一個與「傳導」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP63",
+            "title": "為什麼保溫瓶能保溫？",
+            "topic": "熱傳遞、保溫設計",
+            "category": "物質與能量",
+            "icon": "🫙",
+            "style": "matter",
+            "link": "ep63.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「熱傳遞、保溫設計」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「熱傳遞」的基本意思。",
+                  "觀察「保溫設計」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「熱傳遞」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP64",
+            "title": "光是怎樣走的？",
+            "topic": "光的直線傳播",
+            "category": "物質與能量",
+            "icon": "💡",
+            "style": "matter",
+            "link": "ep64.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「光的直線傳播」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「光的直線傳播」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「光的直線傳播」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP65",
+            "title": "影子為什麼會變？",
+            "topic": "光源、遮擋、距離",
+            "category": "物質與能量",
+            "icon": "🌗",
+            "style": "matter",
+            "link": "ep65.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「光源、遮擋、距離」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「光源」的基本意思。",
+                  "觀察「遮擋」在生活或自然中的例子。",
+                  "理解「距離」和主題之間的關係。"
+            ],
+            "activity": "找一個與「光源」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP66",
+            "title": "鏡子為什麼會反光？",
+            "topic": "反射、鏡面",
+            "category": "物質與能量",
+            "icon": "🪞",
+            "style": "matter",
+            "link": "ep66.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「反射、鏡面」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「反射」的基本意思。",
+                  "觀察「鏡面」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「反射」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP67",
+            "title": "聲音是怎樣產生的？",
+            "topic": "振動、聲音",
+            "category": "物質與能量",
+            "icon": "🎵",
+            "style": "matter",
+            "link": "ep67.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「振動、聲音」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「振動」的基本意思。",
+                  "觀察「聲音」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「振動」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP68",
+            "title": "聲音怎樣傳到耳朵？",
+            "topic": "聲音傳播、介質",
+            "category": "物質與能量",
+            "icon": "📣",
+            "style": "matter",
+            "link": "ep68.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「聲音傳播、介質」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「聲音傳播」的基本意思。",
+                  "觀察「介質」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「聲音傳播」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP69",
+            "title": "磁石為什麼會吸東西？",
+            "topic": "磁力、磁極",
+            "category": "物質與能量",
+            "icon": "🧲",
+            "style": "matter",
+            "link": "ep69.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「磁力、磁極」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「磁力」的基本意思。",
+                  "觀察「磁極」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「磁力」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP70",
+            "title": "電從哪裡來？",
+            "topic": "電源、電能",
+            "category": "物質與能量",
+            "icon": "⚡",
+            "style": "matter",
+            "link": "ep70.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「電源、電能」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「電源」的基本意思。",
+                  "觀察「電能」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「電源」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP71",
+            "title": "燈泡為什麼會亮？",
+            "topic": "簡單電路",
+            "category": "物質與能量",
+            "icon": "🔦",
+            "style": "matter",
+            "link": "ep71.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「簡單電路」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「簡單電路」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「簡單電路」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP72",
+            "title": "為什麼不能亂玩插座？",
+            "topic": "用電安全",
+            "category": "物質與能量",
+            "icon": "🔌",
+            "style": "matter",
+            "link": "ep72.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「用電安全」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「用電安全」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「用電安全」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP73",
+            "title": "能量會變身嗎？",
+            "topic": "能量轉換",
+            "category": "物質與能量",
+            "icon": "🔋",
+            "style": "matter",
+            "link": "ep73.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「能量轉換」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「能量轉換」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「能量轉換」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP74",
+            "title": "玩具車為什麼會動？",
+            "topic": "能量、力與運動",
+            "category": "物質與能量",
+            "icon": "🚗",
+            "style": "matter",
+            "link": "ep74.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「能量、力與運動」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「能量」的基本意思。",
+                  "觀察「力與運動」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「能量」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP75",
+            "title": "為什麼會摩擦？",
+            "topic": "摩擦力",
+            "category": "物質與能量",
+            "icon": "🛞",
+            "style": "matter",
+            "link": "ep75.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「摩擦力」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「摩擦力」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「摩擦力」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP76",
+            "title": "怎樣令物件動得更快或更慢？",
+            "topic": "推拉、力、速度",
+            "category": "物質與能量",
+            "icon": "🏎️",
+            "style": "matter",
+            "link": "ep76.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「推拉、力、速度」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「推拉」的基本意思。",
+                  "觀察「力」在生活或自然中的例子。",
+                  "理解「速度」和主題之間的關係。"
+            ],
+            "activity": "找一個與「推拉」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP77",
+            "title": "為什麼東西會掉下來？",
+            "topic": "重力",
+            "category": "物質與能量",
+            "icon": "🍎",
+            "style": "matter",
+            "link": "ep77.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「重力」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「重力」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「重力」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP78",
+            "title": "推和拉有什麼不同？",
+            "topic": "力的作用",
+            "category": "物質與能量",
+            "icon": "👐",
+            "style": "matter",
+            "link": "ep78.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「力的作用」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「力的作用」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「力的作用」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP79",
+            "title": "滑梯為什麼會滑？",
+            "topic": "斜面、摩擦力",
+            "category": "物質與能量",
+            "icon": "🛝",
+            "style": "matter",
+            "link": "ep79.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「斜面、摩擦力」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「斜面」的基本意思。",
+                  "觀察「摩擦力」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「斜面」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP80",
+            "title": "船為什麼會浮起來？",
+            "topic": "浮力、浮沉",
+            "category": "物質與能量",
+            "icon": "⛵",
+            "style": "matter",
+            "link": "ep80.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「浮力、浮沉」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「浮力」的基本意思。",
+                  "觀察「浮沉」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「浮力」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP81",
+            "title": "過山車為什麼不會掉下來？",
+            "topic": "重力、速度、能量轉換",
+            "category": "物質與能量",
+            "icon": "🎢",
+            "style": "matter",
+            "link": "ep81.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「重力、速度、能量轉換」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「重力」的基本意思。",
+                  "觀察「速度」在生活或自然中的例子。",
+                  "理解「能量轉換」和主題之間的關係。"
+            ],
+            "activity": "找一個與「重力」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP82",
+            "title": "橋為什麼不會塌？",
+            "topic": "結構、支撐、承重",
+            "category": "科技與工程",
+            "icon": "🌉",
+            "style": "tech",
+            "link": "ep82.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「結構、支撐、承重」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「結構」的基本意思。",
+                  "觀察「支撐」在生活或自然中的例子。",
+                  "理解「承重」和主題之間的關係。"
+            ],
+            "activity": "找一個與「結構」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP83",
+            "title": "高樓為什麼站得穩？",
+            "topic": "重心、地基、抗風",
+            "category": "科技與工程",
+            "icon": "🏙️",
+            "style": "tech",
+            "link": "ep83.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「重心、地基、抗風」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「重心」的基本意思。",
+                  "觀察「地基」在生活或自然中的例子。",
+                  "理解「抗風」和主題之間的關係。"
+            ],
+            "activity": "找一個與「重心」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP84",
+            "title": "升降機為什麼安全？",
+            "topic": "滑輪、制動、安全裝置",
+            "category": "科技與工程",
+            "icon": "🛗",
+            "style": "tech",
+            "link": "ep84.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「滑輪、制動、安全裝置」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「滑輪」的基本意思。",
+                  "觀察「制動」在生活或自然中的例子。",
+                  "理解「安全裝置」和主題之間的關係。"
+            ],
+            "activity": "找一個與「滑輪」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP85",
+            "title": "地球裡面是什麼？",
+            "topic": "地球結構",
+            "category": "地球與太空",
+            "icon": "🌍",
+            "style": "earth",
+            "link": "ep85.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「地球結構」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「地球結構」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「地球結構」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP86",
+            "title": "石頭有什麼故事？",
+            "topic": "岩石、礦物",
+            "category": "地球與太空",
+            "icon": "🪨",
+            "style": "earth",
+            "link": "ep86.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「岩石、礦物」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「岩石」的基本意思。",
+                  "觀察「礦物」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「岩石」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP87",
+            "title": "泥土從哪裡來？",
+            "topic": "風化、泥土形成",
+            "category": "地球與太空",
+            "icon": "🌱",
+            "style": "earth",
+            "link": "ep87.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「風化、泥土形成」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「風化」的基本意思。",
+                  "觀察「泥土形成」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「風化」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP88",
+            "title": "水去了哪裡？",
+            "topic": "水循環",
+            "category": "地球與太空",
+            "icon": "💧",
+            "style": "earth",
+            "link": "ep88.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「水循環」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「水循環」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「水循環」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP89",
+            "title": "雲是怎樣形成的？",
+            "topic": "蒸發、凝結、雲",
+            "category": "地球與太空",
+            "icon": "☁️",
+            "style": "earth",
+            "link": "ep89.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「蒸發、凝結、雲」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「蒸發」的基本意思。",
+                  "觀察「凝結」在生活或自然中的例子。",
+                  "理解「雲」和主題之間的關係。"
+            ],
+            "activity": "找一個與「蒸發」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP90",
+            "title": "為什麼會下雨？",
+            "topic": "降雨、水循環",
+            "category": "地球與太空",
+            "icon": "🌧️",
+            "style": "earth",
+            "link": "ep90.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「降雨、水循環」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「降雨」的基本意思。",
+                  "觀察「水循環」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「降雨」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP91",
+            "title": "風從哪裡來？",
+            "topic": "空氣流動、氣壓概念",
+            "category": "地球與太空",
+            "icon": "🌬️",
+            "style": "earth",
+            "link": "ep91.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「空氣流動、氣壓概念」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「空氣流動」的基本意思。",
+                  "觀察「氣壓概念」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「空氣流動」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP92",
+            "title": "天氣預報怎樣來？",
+            "topic": "氣象觀察、量度、天氣資料",
+            "category": "科學探究",
+            "icon": "📡",
+            "style": "tech",
+            "link": "ep92.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「氣象觀察、量度、天氣資料」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「氣象觀察」的基本意思。",
+                  "觀察「量度」在生活或自然中的例子。",
+                  "理解「天氣資料」和主題之間的關係。"
+            ],
+            "activity": "找一個與「氣象觀察」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP93",
+            "title": "香港為什麼潮濕？",
+            "topic": "濕度、季節、空氣中的水汽",
+            "category": "地球與太空",
+            "icon": "💦",
+            "style": "earth",
+            "link": "ep93.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「濕度、季節、空氣中的水汽」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「濕度」的基本意思。",
+                  "觀察「季節」在生活或自然中的例子。",
+                  "理解「空氣中的水汽」和主題之間的關係。"
+            ],
+            "activity": "找一個與「濕度」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP94",
+            "title": "回南天為什麼牆會出水？",
+            "topic": "凝結、露點概念",
+            "category": "地球與太空",
+            "icon": "🧱",
+            "style": "earth",
+            "link": "ep94.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「凝結、露點概念」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「凝結」的基本意思。",
+                  "觀察「露點概念」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「凝結」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP95",
+            "title": "颱風是怎樣形成的？",
+            "topic": "熱帶氣旋、氣壓、風",
+            "category": "地球與太空",
+            "icon": "🌀",
+            "style": "earth",
+            "link": "ep95.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「熱帶氣旋、氣壓、風」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「熱帶氣旋」的基本意思。",
+                  "觀察「氣壓」在生活或自然中的例子。",
+                  "理解「風」和主題之間的關係。"
+            ],
+            "activity": "找一個與「熱帶氣旋」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP96",
+            "title": "山泥傾瀉為什麼會發生？",
+            "topic": "雨水、斜坡、重力",
+            "category": "地球與太空",
+            "icon": "⛰️",
+            "style": "earth",
+            "link": "ep96.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「雨水、斜坡、重力」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「雨水」的基本意思。",
+                  "觀察「斜坡」在生活或自然中的例子。",
+                  "理解「重力」和主題之間的關係。"
+            ],
+            "activity": "找一個與「雨水」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP97",
+            "title": "地震為什麼會發生？",
+            "topic": "地殼活動、地震",
+            "category": "地球與太空",
+            "icon": "🏚️",
+            "style": "earth",
+            "link": "ep97.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「地殼活動、地震」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「地殼活動」的基本意思。",
+                  "觀察「地震」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「地殼活動」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP98",
+            "title": "火山為什麼會爆發？",
+            "topic": "火山活動、岩漿",
+            "category": "地球與太空",
+            "icon": "🌋",
+            "style": "earth",
+            "link": "ep98.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「火山活動、岩漿」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「火山活動」的基本意思。",
+                  "觀察「岩漿」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「火山活動」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP99",
+            "title": "白天黑夜怎樣來？",
+            "topic": "地球自轉",
+            "category": "地球與太空",
+            "icon": "🌗",
+            "style": "earth",
+            "link": "ep99.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「地球自轉」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「地球自轉」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「地球自轉」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP100",
+            "title": "為什麼會有四季？",
+            "topic": "地球公轉、地軸",
+            "category": "地球與太空",
+            "icon": "🍂",
+            "style": "earth",
+            "link": "ep100.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「地球公轉、地軸」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「地球公轉」的基本意思。",
+                  "觀察「地軸」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「地球公轉」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP101",
+            "title": "月亮為什麼會變形？",
+            "topic": "月相",
+            "category": "地球與太空",
+            "icon": "🌙",
+            "style": "earth",
+            "link": "ep101.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「月相」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「月相」的基本意思。",
+                  "觀察「生活例子」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「月相」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP102",
+            "title": "太陽對地球有多重要？",
+            "topic": "太陽、能量、生命",
+            "category": "地球與太空",
+            "icon": "☀️",
+            "style": "earth",
+            "link": "ep102.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「太陽、能量、生命」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「太陽」的基本意思。",
+                  "觀察「能量」在生活或自然中的例子。",
+                  "理解「生命」和主題之間的關係。"
+            ],
+            "activity": "找一個與「太陽」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP103",
+            "title": "太陽系有什麼？",
+            "topic": "太陽系、行星",
+            "category": "地球與太空",
+            "icon": "🪐",
+            "style": "earth",
+            "link": "ep103.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「太陽系、行星」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「太陽系」的基本意思。",
+                  "觀察「行星」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「太陽系」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP104",
+            "title": "太空探測有什麼用？",
+            "topic": "衛星、探測器、太空科技",
+            "category": "科技與工程",
+            "icon": "🛰️",
+            "style": "tech",
+            "link": "ep104.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「衛星、探測器、太空科技」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「衛星」的基本意思。",
+                  "觀察「探測器」在生活或自然中的例子。",
+                  "理解「太空科技」和主題之間的關係。"
+            ],
+            "activity": "找一個與「衛星」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP105",
+            "title": "海水為什麼會有潮汐？",
+            "topic": "月球引力、潮汐",
+            "category": "地球與太空",
+            "icon": "🌊",
+            "style": "earth",
+            "link": "ep105.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「月球引力、潮汐」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「月球引力」的基本意思。",
+                  "觀察「潮汐」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「月球引力」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP106",
+            "title": "地球會越來越熱嗎？",
+            "topic": "全球暖化、溫室氣體",
+            "category": "地球與太空",
+            "icon": "🌡️",
+            "style": "earth",
+            "link": "ep106.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「全球暖化、溫室氣體」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「全球暖化」的基本意思。",
+                  "觀察「溫室氣體」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「全球暖化」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP107",
+            "title": "極端天氣為什麼變多？",
+            "topic": "氣候變化、極端天氣",
+            "category": "地球與太空",
+            "icon": "⛈️",
+            "style": "earth",
+            "link": "ep107.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「氣候變化、極端天氣」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「氣候變化」的基本意思。",
+                  "觀察「極端天氣」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「氣候變化」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP108",
+            "title": "我們可以怎樣幫地球降溫？",
+            "topic": "節能減碳、環保行動",
+            "category": "生活應用",
+            "icon": "🌱",
+            "style": "earth",
+            "link": "ep108.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「節能減碳、環保行動」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「節能減碳」的基本意思。",
+                  "觀察「環保行動」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「節能減碳」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP109",
+            "title": "科學家怎樣解決問題？",
+            "topic": "觀察、提問、假設",
+            "category": "科學探究",
+            "icon": "🔎",
+            "style": "tech",
+            "link": "ep109.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「觀察、提問、假設」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「觀察」的基本意思。",
+                  "觀察「提問」在生活或自然中的例子。",
+                  "理解「假設」和主題之間的關係。"
+            ],
+            "activity": "找一個與「觀察」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP110",
+            "title": "怎樣做一個公平測試？",
+            "topic": "公平測試、只改變一個因素",
+            "category": "科學探究",
+            "icon": "⚖️",
+            "style": "tech",
+            "link": "ep110.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「公平測試、只改變一個因素」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「公平測試」的基本意思。",
+                  "觀察「只改變一個因素」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「公平測試」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP111",
+            "title": "怎樣觀察和記錄？",
+            "topic": "觀察、量度、記錄",
+            "category": "科學探究",
+            "icon": "📋",
+            "style": "tech",
+            "link": "ep111.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「觀察、量度、記錄」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「觀察」的基本意思。",
+                  "觀察「量度」在生活或自然中的例子。",
+                  "理解「記錄」和主題之間的關係。"
+            ],
+            "activity": "找一個與「觀察」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP112",
+            "title": "圖表怎樣幫我們看結果？",
+            "topic": "表格、柱狀圖、折線圖",
+            "category": "科學探究",
+            "icon": "📊",
+            "style": "tech",
+            "link": "ep112.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「表格、柱狀圖、折線圖」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「表格」的基本意思。",
+                  "觀察「柱狀圖」在生活或自然中的例子。",
+                  "理解「折線圖」和主題之間的關係。"
+            ],
+            "activity": "找一個與「表格」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP113",
+            "title": "失敗的實驗有用嗎？",
+            "topic": "改良、重複測試",
+            "category": "科學探究",
+            "icon": "🔁",
+            "style": "tech",
+            "link": "ep113.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「改良、重複測試」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「改良」的基本意思。",
+                  "觀察「重複測試」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「改良」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP114",
+            "title": "工程師怎樣設計好產品？",
+            "topic": "工程設計、測試、改良",
+            "category": "科技與工程",
+            "icon": "🛠️",
+            "style": "tech",
+            "link": "ep114.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「工程設計、測試、改良」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「工程設計」的基本意思。",
+                  "觀察「測試」在生活或自然中的例子。",
+                  "理解「改良」和主題之間的關係。"
+            ],
+            "activity": "找一個與「工程設計」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP115",
+            "title": "自動門怎樣知道有人？",
+            "topic": "感應器、輸入與輸出",
+            "category": "科技與工程",
+            "icon": "🚪",
+            "style": "tech",
+            "link": "ep115.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「感應器、輸入與輸出」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「感應器」的基本意思。",
+                  "觀察「輸入與輸出」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「感應器」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP116",
+            "title": "機械人怎樣工作？",
+            "topic": "感應器、控制、程式",
+            "category": "科技與工程",
+            "icon": "🤖",
+            "style": "tech",
+            "link": "ep116.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「感應器、控制、程式」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「感應器」的基本意思。",
+                  "觀察「控制」在生活或自然中的例子。",
+                  "理解「程式」和主題之間的關係。"
+            ],
+            "activity": "找一個與「感應器」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP117",
+            "title": "AI 是什麼？",
+            "topic": "人工智能、資料、模式",
+            "category": "科技與工程",
+            "icon": "🧠",
+            "style": "tech",
+            "link": "ep117.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「人工智能、資料、模式」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「人工智能」的基本意思。",
+                  "觀察「資料」在生活或自然中的例子。",
+                  "理解「模式」和主題之間的關係。"
+            ],
+            "activity": "找一個與「人工智能」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP118",
+            "title": "手機為什麼能傳訊息？",
+            "topic": "訊號、通訊科技",
+            "category": "科技與工程",
+            "icon": "📱",
+            "style": "tech",
+            "link": "ep118.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「訊號、通訊科技」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「訊號」的基本意思。",
+                  "觀察「通訊科技」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「訊號」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP119",
+            "title": "太陽能板怎樣發電？",
+            "topic": "太陽能、能源轉換",
+            "category": "科技與工程",
+            "icon": "☀️",
+            "style": "tech",
+            "link": "ep119.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「太陽能、能源轉換」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「太陽能」的基本意思。",
+                  "觀察「能源轉換」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「太陽能」有關的生活例子，畫下來或用一句話記錄。"
+      },
+      {
+            "ep": "EP120",
+            "title": "小科學家畢業任務",
+            "topic": "綜合探究、科學思維",
+            "category": "科學探究",
+            "icon": "🎓",
+            "style": "tech",
+            "link": "ep120.html",
+            "status": "hidden",
+            "summary": "這一集會用故事和圖解認識「綜合探究、科學思維」，把生活中的問題變成容易明白的科學概念。",
+            "points": [
+                  "認識「綜合探究」的基本意思。",
+                  "觀察「科學思維」在生活或自然中的例子。",
+                  "理解「生活例子」和主題之間的關係。"
+            ],
+            "activity": "找一個與「綜合探究」有關的生活例子，畫下來或用一句話記錄。"
       }
-    ];
-
-    const notesGrid = document.getElementById("notesGrid");
-    const searchInput = document.getElementById("searchInput");
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const emptyMessage = document.getElementById("emptyMessage");
-
-    let currentCategory = "全部";
-
-    function renderNotes() {
-      const keyword = searchInput.value.trim().toLowerCase();
-
-      const filteredNotes = notes.filter((note) => {
-        const isPublished = note.status === "published";
-
-        const matchCategory =
-          currentCategory === "全部" || note.category === currentCategory;
-
-        const searchText = `
-          ${note.ep}
-          ${note.title}
-          ${note.topic}
-          ${note.category}
-          ${note.summary}
-          ${note.points.join(" ")}
-          ${note.activity}
-        `.toLowerCase();
-
-        const matchKeyword = searchText.includes(keyword);
-
-        return isPublished && matchCategory && matchKeyword;
-      });
-
-      notesGrid.innerHTML = filteredNotes.map((note) => {
-        return `
-          <article class="note-card ${note.style}">
-            <div class="note-top">
-              <div class="note-icon">${note.icon}</div>
-              <div>
-                <span class="ep-badge">${note.ep}</span>
-                <h2>${note.title}</h2>
-              </div>
-            </div>
-
-            <p class="note-topic">${note.topic}</p>
-            <p>${note.summary}</p>
-
-            <ul class="note-list">
-              ${note.points.map(point => `<li>${point}</li>`).join("")}
-            </ul>
-
-            <p><strong>小任務：</strong>${note.activity}</p>
-
-            <div class="note-actions">
-              <a href="${note.link}" class="read-btn">📖 閱讀漫畫</a>
-              <span class="activity-btn">🧪 小實驗 / 活動</span>
-            </div>
-          </article>
-        `;
-      }).join("");
-
-      emptyMessage.style.display = filteredNotes.length === 0 ? "block" : "none";
-      document.getElementById("notesCount").textContent = `${filteredNotes.length}集`;
-    }
-
-    searchInput.addEventListener("input", renderNotes);
-
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-        currentCategory = button.dataset.category;
-        renderNotes();
-      });
-    });
-
-    renderNotes();
+];
+    const notesGrid=document.getElementById("notesGrid"),searchInput=document.getElementById("searchInput"),filterButtons=document.querySelectorAll(".filter-btn"),emptyMessage=document.getElementById("emptyMessage");let currentCategory="全部";
+    function renderNotes(){const keyword=searchInput.value.trim().toLowerCase();const filteredNotes=notes.filter(note=>{const isPublished=note.status==="published";const matchCategory=currentCategory==="全部"||note.category===currentCategory;const searchText=`${note.ep} ${note.title} ${note.topic} ${note.category} ${note.summary} ${note.points.join(" ")} ${note.activity}`.toLowerCase();return isPublished&&matchCategory&&searchText.includes(keyword)});notesGrid.innerHTML=filteredNotes.map(note=>`<article class="note-card ${note.style}"><div class="note-top"><div class="note-icon">${note.icon}</div><div><span class="ep-badge">${note.ep}</span><h2>${note.title}</h2></div></div><p class="note-topic">${note.topic}</p><p>${note.summary}</p><ul class="note-list">${note.points.map(point=>`<li>${point}</li>`).join("")}</ul><p><strong>小任務：</strong>${note.activity}</p><div class="note-actions"><a href="${note.link}" class="read-btn">📖 閱讀漫畫</a><span class="activity-btn">🧪 小實驗 / 活動</span></div></article>`).join("");emptyMessage.style.display=filteredNotes.length===0?"block":"none";document.getElementById("notesCount").textContent=`${notes.filter(note=>note.status==="published").length}集`}
+    searchInput.addEventListener("input",renderNotes);filterButtons.forEach(button=>{button.addEventListener("click",()=>{filterButtons.forEach(btn=>btn.classList.remove("active"));button.classList.add("active");currentCategory=button.dataset.category;renderNotes()})});renderNotes();
   </script>
 </body>
 </html>
