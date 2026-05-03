@@ -472,41 +472,61 @@
 }
 
 @media (max-width: 620px) {
+  .page {
+    padding: 10px;
+  }
+
   .site-header {
     position: static;
-    align-items: flex-start;
-    gap: 12px;
-    flex-direction: column;
-  }
-
-  .nav {
-    justify-content: flex-start;
-  }
-
-.hero {
-  min-height: auto;
-  background: #fffaf0;
-  padding: 6px;
-  border-radius: 24px;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 20px;
-}
-
-  .episode-grid {
-    grid-template-columns: 1fr;
+    display: block;
+    padding: 14px;
+    border-radius: 22px;
   }
 
   .logo {
     font-size: 24px;
+    margin-bottom: 12px;
+    text-align: center;
+    white-space: normal;
   }
-}
+
+  .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    padding: 9px 14px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .hero {
+    min-height: auto;
+    background: #fffaf0;
+    padding: 6px;
+    border-radius: 24px;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 20px;
+  }
+
+      .episode-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
