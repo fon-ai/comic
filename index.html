@@ -1,29 +1,673 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的漫畫目錄</title>
-    <style>
-        body { font-family: sans-serif; background: #f4f4f4; text-align: center; padding: 50px 20px; }
-        .list-container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        .ep-link { display: block; padding: 20px; background: #007bff; color: white; text-decoration: none; margin-bottom: 15px; border-radius: 10px; font-size: 18px; font-weight: bold; transition: background 0.3s; }
-        .ep-link:hover { background: #0056b3; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《科學探險隊》漫畫目錄</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, #dff4ff 0, transparent 30%),
+        radial-gradient(circle at top right, #fff0c7 0, transparent 28%),
+        linear-gradient(180deg, #fffaf0 0%, #eef8ff 100%);
+      color: #2f2a25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    /* ===== Header ===== */
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.88);
+      border: 2px solid #f1dfbd;
+      border-radius: 28px;
+      padding: 14px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 22px rgba(90, 70, 40, 0.08);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #2473b8;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #e96b6b;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #5d5147;
+    }
+
+    .nav a.active {
+      background: #5aa7e8;
+      color: white;
+      box-shadow: 0 4px 10px rgba(70, 130, 200, 0.25);
+    }
+
+    /* ===== Hero ===== */
+
+    .hero {
+      margin-top: 22px;
+      min-height: 330px;
+      background:
+        linear-gradient(135deg, rgba(229, 247, 255, 0.92), rgba(255, 249, 227, 0.95)),
+        url("");
+      border: 2px solid #d7ecff;
+      border-radius: 34px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(80, 100, 120, 0.12);
+    }
+
+    .hero::before {
+      content: "✦  ⚗  ✧  🫧  ✦  🔬  ✧  🪐";
+      position: absolute;
+      inset: 20px;
+      font-size: 28px;
+      opacity: 0.18;
+      letter-spacing: 24px;
+      line-height: 2.6;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: #2f80d0;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 0 #1f5f9f;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(48px, 8vw, 86px);
+      color: #1f67ad;
+      text-shadow:
+        4px 4px 0 #ffffff,
+        7px 7px 0 rgba(230, 140, 120, 0.35);
+      letter-spacing: 4px;
+    }
+
+    .hero p {
+      display: inline-block;
+      margin-top: 22px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 2px dashed #f0c982;
+      border-radius: 22px;
+      padding: 14px 26px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #32618f;
+    }
+
+    .hero-characters {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .character-bubble {
+      background: rgba(255, 255, 255, 0.72);
+      border: 2px solid #e6d5b8;
+      border-radius: 24px;
+      padding: 12px 18px;
+      font-weight: 800;
+      color: #6b5542;
+      box-shadow: 0 6px 14px rgba(90, 70, 40, 0.08);
+    }
+
+    /* ===== Info strip ===== */
+
+    .info-strip {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 2px solid #efdcb9;
+      border-radius: 26px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(90, 70, 40, 0.08);
+    }
+
+    .info-box {
+      border-right: 1px dashed #e2cfae;
+      font-weight: 800;
+      color: #66584a;
+    }
+
+    .info-box:last-child {
+      border-right: none;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 26px;
+      color: #2473b8;
+    }
+
+    .info-box .red {
+      color: #e85f67;
+    }
+
+    /* ===== Controls ===== */
+
+    .controls {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 999px;
+      border: 2px solid #d8cbb7;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      outline: none;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 900;
+      cursor: pointer;
+      background: #ffffff;
+      color: #5e554d;
+      border: 2px solid #e8d8bb;
+      transition: 0.2s;
+    }
+
+    .filter-btn.active {
+      background: #5aa7e8;
+      color: white;
+      border-color: #5aa7e8;
+    }
+
+    /* ===== Episode grid ===== */
+
+    .episode-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .episode-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 2px solid #eadcc5;
+      border-radius: 26px;
+      padding: 18px;
+      min-height: 190px;
+      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
+      position: relative;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+
+    .episode-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(80, 90, 110, 0.14);
+    }
+
+    .episode-card::after {
+      content: "✦";
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      color: rgba(255, 190, 80, 0.7);
+      font-size: 24px;
+    }
+
+    .episode-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      background: #f6fbff;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      margin-bottom: 12px;
+    }
+
+    .ep-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #5aa7e8;
+      color: white;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .episode-card h2 {
+      margin: 4px 0 6px;
+      font-size: 22px;
+      line-height: 1.25;
+      color: #263d5b;
+    }
+
+    .episode-card p {
+      margin: 0 0 14px;
+      color: #6c6257;
+      font-weight: 700;
+    }
+
+    .read-btn {
+      display: inline-block;
+      background: #fff3f2;
+      color: #df626a;
+      border: 2px solid #f0b0b5;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 900;
+    }
+
+    .card-life {
+      background: #fff4f1;
+      border-color: #f0c7c5;
+    }
+
+    .card-body {
+      background: #f0fbff;
+      border-color: #b9dff3;
+    }
+
+    .card-health {
+      background: #f5fff1;
+      border-color: #cce8bd;
+    }
+
+    /* ===== Feature ===== */
+
+    .feature-row {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 2px solid #eadcc5;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #2473b8;
+    }
+
+    .feature-card p {
+      margin: 0;
+      line-height: 1.7;
+      color: #66584a;
+      font-weight: 700;
+    }
+
+    .load-more {
+      margin: 26px auto 0;
+      display: block;
+      border: none;
+      background: #5aa7e8;
+      color: white;
+      border-radius: 999px;
+      padding: 14px 26px;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #2f80d0;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding: 24px 0;
+      text-align: center;
+      color: #796b5e;
+      font-weight: 700;
+    }
+
+    /* ===== Mobile ===== */
+
+    @media (max-width: 900px) {
+      .episode-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .info-box {
+        border-right: none;
+        border-bottom: 1px dashed #e2cfae;
+        padding-bottom: 12px;
+      }
+
+      .info-box:last-child {
+        border-bottom: none;
+      }
+
+      .feature-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .site-header {
+        position: static;
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 24px 18px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .episode-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="list-container">
-        <h1>我的漫畫目錄</h1>
-        <a href="ep01.html" class="ep-link">EP01｜食物去了哪裡？｜消化系統</a>
-        <a href="ep02.html" class="ep-link">EP02｜我們為什麼要呼吸？｜呼吸系統</a>
-        <a href="ep03.html" class="ep-link">EP03｜心臟為什麼一直跳？｜循環系統</a>
-        <a href="ep04.html" class="ep-link">EP04｜骨頭和肌肉怎樣幫我們動？｜骨骼、肌肉、關節</a>
-        <a href="ep05.html" class="ep-link">EP05｜為什麼會生病？｜病菌、免疫、預防感染</a>
-        <a href="ep06.html" class="ep-link">EP06｜身體怎樣保護自己？｜皮膚、白血球、免疫防線</a>
-        <a href="ep07.html" class="ep-link">EP07｜為什麼要洗手？｜微生物、傳播、衛生習慣</a>
-        <a href="ep08.html" class="ep-link">EP08｜發燒是不是壞事？｜體溫、免疫反應</a>
-        <a href="ep09.html" class="ep-link">EP09｜為什麼要睡覺？｜睡眠、大腦、身體修復</a>
-    </div>
+  <div class="page">
+
+    <header class="site-header">
+      <div class="logo">科學<span>探險隊</span> ✨</div>
+
+      <nav class="nav">
+        <a href="#">首頁</a>
+        <a href="#" class="active">漫畫目錄</a>
+        <a href="#">角色介紹</a>
+        <a href="#">科學小知識</a>
+        <a href="#">關於我們</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label">《科學探險隊》</div>
+        <h1>漫畫目錄</h1>
+        <p>跟住小晴、博士貓、小Q，一齊展開科學大冒險！</p>
+
+        <div class="hero-characters">
+          <div class="character-bubble">👧 小晴：今日又有問題！</div>
+          <div class="character-bubble">🐱 博士貓：用科學解開謎團！</div>
+          <div class="character-bubble">🤖 小Q：資料投影準備好！</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-strip">
+      <div class="info-box">
+        我們的漫畫持續更新中！
+        <strong>每集一個科學冒險</strong>
+      </div>
+
+      <div class="info-box">
+        目前已更新
+        <strong>EP01–EP09</strong>
+      </div>
+
+      <div class="info-box">
+        全系列預計
+        <strong class="red">120集</strong>
+      </div>
+    </section>
+
+    <section class="controls">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-box"
+        placeholder="搜尋主題，例如：呼吸、睡覺、洗手"
+      />
+
+      <div class="filters">
+        <button class="filter-btn active" data-category="全部">全部</button>
+        <button class="filter-btn" data-category="生命與環境">生命與環境</button>
+        <button class="filter-btn" data-category="物質與能量">物質與能量</button>
+        <button class="filter-btn" data-category="地球與太空">地球與太空</button>
+        <button class="filter-btn" data-category="科技與工程">科技與工程</button>
+        <button class="filter-btn" data-category="科學探究">科學探究</button>
+      </div>
+    </section>
+
+    <main id="episodeGrid" class="episode-grid"></main>
+
+    <section class="feature-row">
+      <div class="feature-card">
+        <h3>⭐ 最新更新：EP09</h3>
+        <p>
+          《為什麼要睡覺？》帶大家進入睡眠世界，
+          看看大腦和身體如何趁我們睡覺時修復和整理記憶。
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🚀 即將登場</h3>
+        <p>
+          更多集數會逐步更新，未來將持續擴充至 EP120。
+          小晴、博士貓和小Q會繼續帶大家探索生活中的科學！
+        </p>
+      </div>
+    </section>
+
+    <button class="load-more">載入更多集數 ↓</button>
+
+    <footer>
+      科學探險隊｜探索科學・啟發好奇・一齊冒險
+    </footer>
+
+  </div>
+
+  <script>
+    const episodes = [
+      {
+        ep: "EP01",
+        title: "食物去了哪裡？",
+        topic: "消化系統",
+        category: "生命與環境",
+        link: "ep01.html",
+        icon: "🍎",
+        style: "card-life"
+      },
+      {
+        ep: "EP02",
+        title: "我們為什麼要呼吸？",
+        topic: "呼吸系統",
+        category: "生命與環境",
+        link: "ep02.html",
+        icon: "🫁",
+        style: "card-body"
+      },
+      {
+        ep: "EP03",
+        title: "心臟為什麼一直跳？",
+        topic: "循環系統",
+        category: "生命與環境",
+        link: "ep03.html",
+        icon: "❤️",
+        style: "card-life"
+      },
+      {
+        ep: "EP04",
+        title: "骨頭和肌肉怎樣幫我們動？",
+        topic: "骨骼、肌肉、關節",
+        category: "生命與環境",
+        link: "ep04.html",
+        icon: "🦴",
+        style: "card-body"
+      },
+      {
+        ep: "EP05",
+        title: "為什麼會生病？",
+        topic: "病菌、免疫、預防感染",
+        category: "生命與環境",
+        link: "ep05.html",
+        icon: "🦠",
+        style: "card-health"
+      },
+      {
+        ep: "EP06",
+        title: "身體怎樣保護自己？",
+        topic: "皮膚、白血球、免疫防線",
+        category: "生命與環境",
+        link: "ep06.html",
+        icon: "🛡️",
+        style: "card-health"
+      },
+      {
+        ep: "EP07",
+        title: "為什麼要洗手？",
+        topic: "微生物、傳播、衛生習慣",
+        category: "生命與環境",
+        link: "ep07.html",
+        icon: "🫧",
+        style: "card-body"
+      },
+      {
+        ep: "EP08",
+        title: "發燒是不是壞事？",
+        topic: "體溫、免疫反應",
+        category: "生命與環境",
+        link: "ep08.html",
+        icon: "🌡️",
+        style: "card-life"
+      },
+      {
+        ep: "EP09",
+        title: "為什麼要睡覺？",
+        topic: "睡眠、大腦、身體修復",
+        category: "生命與環境",
+        link: "ep09.html",
+        icon: "🌙",
+        style: "card-body"
+      }
+    ];
+
+    const episodeGrid = document.getElementById("episodeGrid");
+    const searchInput = document.getElementById("searchInput");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    let currentCategory = "全部";
+
+    function renderEpisodes() {
+      const keyword = searchInput.value.trim();
+
+      const filteredEpisodes = episodes.filter((episode) => {
+        const matchCategory =
+          currentCategory === "全部" || episode.category === currentCategory;
+
+        const matchKeyword =
+          episode.ep.includes(keyword.toUpperCase()) ||
+          episode.title.includes(keyword) ||
+          episode.topic.includes(keyword) ||
+          episode.category.includes(keyword);
+
+        return matchCategory && matchKeyword;
+      });
+
+      episodeGrid.innerHTML = filteredEpisodes.map((episode) => {
+        return `
+          <a href="${episode.link}" class="episode-card ${episode.style}">
+            <div class="episode-icon">${episode.icon}</div>
+            <div class="ep-badge">${episode.ep}</div>
+            <h2>${episode.title}</h2>
+            <p>${episode.topic}</p>
+            <span class="read-btn">📖 開始閱讀</span>
+          </a>
+        `;
+      }).join("");
+    }
+
+    searchInput.addEventListener("input", renderEpisodes);
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        currentCategory = button.dataset.category;
+        renderEpisodes();
+      });
+    });
+
+    renderEpisodes();
+  </script>
 </body>
 </html>
