@@ -91,7 +91,11 @@
 .hero-with-image {
   padding: 0;
 }
-
+    
+.hero picture {
+  display: block;
+}
+    
 .hero-image {
   display: block;
   width: 100%;
@@ -524,11 +528,18 @@
 
 
 <section class="hero hero-with-image">
-  <img
-    src="images/index-banner.png"
-    alt="《科學探險隊》漫畫目錄主視覺"
-    class="hero-image"
-  />
+  <picture>
+    <source
+      media="(max-width: 620px)"
+      srcset="images/index-banner-mobile.png"
+    />
+
+    <img
+      src="images/index-banner.png"
+      alt="《科學探險隊》漫畫目錄主視覺"
+      class="hero-image"
+    />
+  </picture>
 
   <div class="hero-fallback">
     <div class="hero-label">《科學探險隊》</div>
