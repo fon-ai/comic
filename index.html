@@ -121,16 +121,7 @@
   display: block;
 }
 
-    .hero::before {
-      content: "✦  ⚗  ✧  🫧  ✦  🔬  ✧  🪐  ✦";
-      position: absolute;
-      inset: 20px;
-      font-size: 28px;
-      opacity: 0.18;
-      letter-spacing: 22px;
-      line-height: 2.6;
-      pointer-events: none;
-    }
+    
 
     .hero-content {
       position: relative;
@@ -441,12 +432,13 @@
       font-weight: 700;
     }
 
-.hero-image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-}
+@media (max-width: 900px) {
+  .hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+  }
 
   .episode-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -523,10 +515,10 @@
     border-radius: 20px;
   }
 
-      .episode-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+  .episode-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
