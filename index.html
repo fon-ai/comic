@@ -79,18 +79,46 @@
       box-shadow: 0 4px 10px rgba(70, 130, 200, 0.25);
     }
 
-    .hero {
-      margin-top: 22px;
-      min-height: 330px;
-      background:
-        linear-gradient(135deg, rgba(229, 247, 255, 0.92), rgba(255, 249, 227, 0.95));
-      border: 2px solid #d7ecff;
-      border-radius: 34px;
-      padding: 34px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(80, 100, 120, 0.12);
-    }
+.hero {
+  margin-top: 22px;
+  min-height: 330px;
+  background:
+    linear-gradient(135deg, rgba(229, 247, 255, 0.92), rgba(255, 249, 227, 0.95));
+  border: 2px solid #d7ecff;
+  border-radius: 34px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(80, 100, 120, 0.12);
+}
+
+.hero-with-image {
+  padding: 0;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 8 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 32px;
+}
+
+.hero-fallback {
+  display: none;
+  padding: 34px;
+  text-align: center;
+}
+
+.hero-image[src=""],
+.hero-image:not([src]) {
+  display: none;
+}
+
+.hero-image[src=""] + .hero-fallback,
+.hero-image:not([src]) + .hero-fallback {
+  display: block;
+}
 
     .hero::before {
       content: "✦  ⚗  ✧  🫧  ✦  🔬  ✧  🪐  ✦";
@@ -412,58 +440,67 @@
       font-weight: 700;
     }
 
-    @media (max-width: 900px) {
-      .episode-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+@media (max-width: 900px) {
+  .hero-image {
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+    object-position: center;
+  }
 
-      .info-strip {
-        grid-template-columns: 1fr;
-      }
+  .episode-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-      .info-box {
-        border-right: none;
-        border-bottom: 1px dashed #e2cfae;
-        padding-bottom: 12px;
-      }
+  .info-strip {
+    grid-template-columns: 1fr;
+  }
 
-      .info-box:last-child {
-        border-bottom: none;
-      }
+  .info-box {
+    border-right: none;
+    border-bottom: 1px dashed #e2cfae;
+    padding-bottom: 12px;
+  }
 
-      .feature-row {
-        grid-template-columns: 1fr;
-      }
-    }
+  .info-box:last-child {
+    border-bottom: none;
+  }
 
-    @media (max-width: 620px) {
-      .site-header {
-        position: static;
-        align-items: flex-start;
-        gap: 12px;
-        flex-direction: column;
-      }
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+}
 
-      .nav {
-        justify-content: flex-start;
-      }
+@media (max-width: 620px) {
+  .site-header {
+    position: static;
+    align-items: flex-start;
+    gap: 12px;
+    flex-direction: column;
+  }
 
-      .hero {
-        padding: 24px 18px;
-      }
+  .nav {
+    justify-content: flex-start;
+  }
 
-      .hero p {
-        font-size: 17px;
-      }
+  .hero {
+    min-height: 240px;
+  }
 
-      .episode-grid {
-        grid-template-columns: 1fr;
-      }
+  .hero-image {
+    aspect-ratio: 4 / 3;
+    min-height: 240px;
+    object-fit: cover;
+    object-position: center;
+  }
 
-      .logo {
-        font-size: 24px;
-      }
-    }
+  .episode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
   </style>
 </head>
 
@@ -482,19 +519,26 @@
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-label">《科學探險隊》</div>
-        <h1>漫畫目錄</h1>
-        <p>跟住小晴、博士貓、小Q，一齊展開科學大冒險！</p>
+   <section class="hero hero-with-image">
+  <img
+    src="images/index-banner.png"
+    alt="《科學探險隊》漫畫目錄主視覺"
+    class="hero-image"
+  />
 
-        <div class="hero-characters">
-          <div class="character-bubble">👧 小晴：今日又有問題！</div>
-          <div class="character-bubble">🐱 博士貓：用科學解開謎團！</div>
-          <div class="character-bubble">🤖 小Q：資料投影準備好！</div>
-        </div>
-      </div>
-    </section>
+<section class="hero hero-with-image">
+  <img
+    src="images/index-banner.png"
+    alt="《科學探險隊》漫畫目錄主視覺"
+    class="hero-image"
+  />
+
+  <div class="hero-fallback">
+    <div class="hero-label">《科學探險隊》</div>
+    <h1>漫畫目錄</h1>
+    <p>跟住小晴、博士貓、小Q，一齊展開科學大冒險！</p>
+  </div>
+</section>
 
     <section class="info-strip">
       <div class="info-box">
