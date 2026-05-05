@@ -253,7 +253,7 @@ window.EPISODES_DATA = [
     "topic": "待更新",
     "season": "待更新季度",
     "seasonTitle": "待更新",
-    "status": "hidden",
+    "status": "published",
     "folder": "comics/ep20/",
     "pageCount": 22,
     "filePrefix": "",
