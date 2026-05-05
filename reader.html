@@ -6,16 +6,43 @@
   <title>《科學探險隊》漫畫閱讀器</title>
   <style>
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif; background: radial-gradient(circle at top left, #dff4ff 0, transparent 30%), radial-gradient(circle at top right, #fff0c7 0, transparent 28%), linear-gradient(180deg, #fffaf0 0%, #eef8ff 100%); color: #2f2a25; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, #dff4ff 0, transparent 30%),
+        radial-gradient(circle at top right, #fff0c7 0, transparent 28%),
+        linear-gradient(180deg, #fffaf0 0%, #eef8ff 100%);
+      color: #2f2a25;
+    }
     a { text-decoration: none; color: inherit; }
     .page { max-width: 980px; margin: 0 auto; padding: 18px; }
-    .site-header { background: rgba(255,255,255,.9); border: 2px solid #f1dfbd; border-radius: 28px; padding: 14px 22px; display:flex; justify-content:space-between; align-items:center; gap:16px; box-shadow:0 8px 22px rgba(90,70,40,.08); margin-bottom:22px; }
+    .site-header {
+      background: rgba(255,255,255,.9);
+      border: 2px solid #f1dfbd;
+      border-radius: 28px;
+      padding: 14px 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      box-shadow:0 8px 22px rgba(90,70,40,.08);
+      margin-bottom:22px;
+    }
     .logo { font-size: 28px; font-weight:900; color:#2473b8; letter-spacing:1px; white-space:nowrap; }
     .logo span { color:#e96b6b; }
     .nav { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
     .nav a { padding:10px 16px; border-radius:999px; font-weight:700; color:#5d5147; }
     .nav a.active { background:#5aa7e8; color:white; box-shadow:0 4px 10px rgba(70,130,200,.25); }
-    .episode-header { background:rgba(255,255,255,.88); border:2px solid #eadcc5; border-radius:30px; padding:24px; box-shadow:0 10px 24px rgba(80,90,110,.1); text-align:center; margin-bottom:18px; }
+    .episode-header {
+      background:rgba(255,255,255,.88);
+      border:2px solid #eadcc5;
+      border-radius:30px;
+      padding:24px;
+      box-shadow:0 10px 24px rgba(80,90,110,.1);
+      text-align:center;
+      margin-bottom:18px;
+    }
     .ep-badge { display:inline-block; padding:6px 14px; border-radius:999px; background:#5aa7e8; color:white; font-weight:900; margin-bottom:10px; }
     h1 { margin:0; font-size:clamp(30px,5vw,48px); color:#1f67ad; line-height:1.25; text-shadow:3px 3px 0 #fff; }
     .topic { margin:12px 0 0; color:#6b5542; font-weight:800; font-size:18px; line-height:1.5; }
@@ -70,11 +97,15 @@
     <footer>科學探險隊｜探索科學・啟發好奇・一齊冒險</footer>
   </div>
 
-  <script src="episodes-data.js"></script>
+  <script src="episodes-data.js?v=10"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const requestedEp = (params.get("ep") || "").toLowerCase();
-    const episodes = Array.isArray(EPISODES_DATA) ? EPISODES_DATA : [];
+
+    const episodes =
+      Array.isArray(window.EPISODES_DATA) ? window.EPISODES_DATA :
+      (typeof EPISODES_DATA !== "undefined" && Array.isArray(EPISODES_DATA) ? EPISODES_DATA : []);
+
     const episode = episodes.find(item => item.id === requestedEp || item.ep.toLowerCase() === requestedEp);
 
     const episodeHeader = document.getElementById("episodeHeader");
@@ -86,8 +117,8 @@
     function padPageNumber(num) { return String(num).padStart(2, "0"); }
 
     function buildImageSrc(episode, pageNumber) {
-      const prefix = episode.filePrefix || "p";
-      const ext = episode.fileExt || "jpg";
+      const prefix = episode.filePrefix ?? "";
+      const ext = episode.fileExt || "png";
       return `${episode.folder}${prefix}${padPageNumber(pageNumber)}.${ext}`;
     }
 
@@ -114,13 +145,14 @@
 
     function showError(message) {
       episodeHeader.innerHTML = `<span class="ep-badge">找不到集數</span><h1>未能開啟漫畫</h1><p class="topic">${message}</p>`;
-      comicPages.innerHTML = `<div class="error-box">請確認網址是否正確，例如：<br><strong>reader.html?ep=ep19</strong><br><br>也請確認 episodes-data.js 內該集 status 是否為 published。</div>`;
+      comicPages.innerHTML = `<div class="error-box">請確認網址是否正確，例如：<br><strong>reader.html?ep=ep19</strong><br><br>也請確認 episodes-data.js 內該集 status 是否為 published。<br><br>目前讀到的集數資料：${episodes.length} 筆。</div>`;
       prevBtn.style.display = "none";
       nextBtn.style.display = "none";
     }
 
     function renderEpisode() {
       if (!requestedEp) return showError("網址缺少 ep 參數。");
+      if (episodes.length === 0) return showError("episodes-data.js 未成功載入，或資料格式不正確。");
       if (!episode) return showError("找不到這一集的資料。");
       if (episode.status !== "published") return showError("這一集暫時未公開。");
 
