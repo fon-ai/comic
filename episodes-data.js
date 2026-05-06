@@ -1571,5 +1571,70 @@ window.EPISODES_DATA = [
   "pageCount": 22,
   "filePrefix": "",
   "fileExt": "png"
+},
+{
+  "id": "bonus-p4-people-13a",
+  "ep": "番外篇",
+  "title": "小四人民科｜第13課 上",
+  "topic": "課本知識整理、重點溫習、生活應用",
+  "season": "課本番外篇",
+  "seasonTitle": "小四人民科",
+  "status": "published",
+  "folder": "comics/bonus-p4-people-13a/",
+  "pageCount": 12,
+  "filePrefix": "",
+  "fileExt": "png"
+},
+{
+  "id": "bonus-p4-people-13b",
+  "ep": "番外篇",
+  "title": "小四人民科｜第13課 下",
+  "topic": "課本知識整理、重點溫習、生活應用",
+  "season": "課本番外篇",
+  "seasonTitle": "小四人民科",
+  "status": "published",
+  "folder": "comics/bonus-p4-people-13b/",
+  "pageCount": 12,
+  "filePrefix": "",
+  "fileExt": "png"
+},
+{
+  "id": "bonus-p4-people-14a",
+  "ep": "番外篇",
+  "title": "小四人民科｜第14課 上",
+  "topic": "課本知識整理、重點溫習、生活應用",
+  "season": "課本番外篇",
+  "seasonTitle": "小四人民科",
+  "status": "published",
+  "folder": "comics/bonus-p4-people-14a/",
+  "pageCount": 16,
+  "filePrefix": "",
+  "fileExt": "png"
+},
+{
+  "id": "bonus-p4-people-14b",
+  "ep": "番外篇",
+  "title": "小四人民科｜第14課 下",
+  "topic": "課本知識整理、重點溫習、生活應用",
+  "season": "課本番外篇",
+  "seasonTitle": "小四人民科",
+  "status": "published",
+  "folder": "comics/bonus-p4-people-14b/",
+  "pageCount": 16,
+  "filePrefix": "",
+  "fileExt": "png"
+},
+{
+  "id": "bonus-p4-people-16",
+  "ep": "番外篇",
+  "title": "小四人民科｜第16課",
+  "topic": "課本知識整理、重點溫習、生活應用",
+  "season": "課本番外篇",
+  "seasonTitle": "小四人民科",
+  "status": "published",
+  "folder": "comics/bonus-p4-people-16/",
+  "pageCount": 22,
+  "filePrefix": "",
+  "fileExt": "png"
 }
 ];
