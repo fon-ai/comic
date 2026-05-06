@@ -1558,5 +1558,18 @@ window.EPISODES_DATA = [
     "pageCount": 22,
     "filePrefix": "",
     "fileExt": "png"
-  }
+  },
+{
+  "id": "bonus-p4-people-12",
+  "ep": "番外篇",
+  "title": "小四人民科｜第12課",
+  "topic": "課本知識整理、重點溫習、生活應用",
+  "season": "課本番外篇",
+  "seasonTitle": "小四人民科",
+  "status": "published",
+  "folder": "comics/bonus-p4-people-12/",
+  "pageCount": 22,
+  "filePrefix": "",
+  "fileExt": "png"
+}
 ];

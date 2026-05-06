@@ -1600,5 +1600,19 @@
             "icon": "✨",
             "style": "card-tech",
             "status": "hidden"
-      }
+      },
+{
+  "id": "bonus-p4-people-12",
+  "ep": "番外篇",
+
+  "title": "小四人民科｜第12課",
+  "topic": "課本知識整理、重點溫習、生活應用",
+  "season": "課本番外篇",
+  "seasonTitle": "小四人民科",
+  "category": "課本番外篇",
+  "link": "reader.html?ep=bonus-p4-people-12",
+  "icon": "📘",
+  "style": "card-tech",
+  "status": "published"
+}
 ];let currentCategory="全部",currentSeason="全部";const grid=document.getElementById("episodeGrid"),searchInput=document.getElementById("searchInput"),empty=document.getElementById("emptyMessage");function renderEpisodes(){const kw=searchInput.value.trim().toLowerCase();const filtered=episodes.filter(e=>e.status==="published"&&(currentCategory==="全部"||e.category===currentCategory)&&(currentSeason==="全部"||e.season===currentSeason)&&`${e.ep} ${e.title} ${e.topic} ${e.category} ${e.season} ${e.seasonTitle}`.toLowerCase().includes(kw));grid.innerHTML=filtered.map(e=>`<a href="${e.link}" class="episode-card ${e.style}"><div class="episode-icon">${e.icon}</div><span class="season-name">${e.season}｜${e.seasonTitle}</span><div class="ep-badge">${e.ep}</div><h2>${e.title}</h2><p>${e.topic}</p><span class="read-btn">📖 開始閱讀</span></a>`).join("");empty.style.display=filtered.length?"none":"block";const pub=episodes.filter(e=>e.status==="published");document.getElementById("publishedRange").textContent=`${pub[0]?.ep||"EP--"}–${pub[pub.length-1]?.ep||"EP--"}`;}searchInput.addEventListener("input",renderEpisodes);document.querySelectorAll(".filter-btn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentCategory=b.dataset.category;renderEpisodes();}));document.querySelectorAll(".season-btn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".season-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentSeason=b.dataset.season;renderEpisodes();}));renderEpisodes();</script></body></html>
