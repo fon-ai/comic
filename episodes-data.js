@@ -272,32 +272,32 @@ window.EPISODES_DATA = [
     "filePrefix": "",
     "fileExt": "png"
   },
-  {
-    "id": "ep22",
-    "ep": "EP22",
-    "title": "傷口為什麼會結痂？",
-    "topic": "皮膚修復、血液凝固",
-    "season": "第二季",
-    "seasonTitle": "感官與健康",
-    "status": "hidden",
-    "folder": "comics/ep22/",
-    "pageCount": 22,
-    "filePrefix": "",
-    "fileExt": "png"
-  },
-  {
-    "id": "ep23",
-    "ep": "EP23",
-    "title": "青春期身體為什麼會改變？",
-    "topic": "成長、青春期、尊重身體",
-    "season": "第二季",
-    "seasonTitle": "感官與健康",
-    "status": "hidden",
-    "folder": "comics/ep23/",
-    "pageCount": 22,
-    "filePrefix": "",
-    "fileExt": "png"
-  },
+ {
+  "id": "ep22",
+  "ep": "EP22",
+  "title": "青春期身體為什麼會改變？女孩子篇",
+  "topic": "成長、月經、身體尊重",
+  "season": "第二季",
+  "seasonTitle": "感官與健康",
+  "status": "published",
+  "folder": "comics/ep22/",
+  "pageCount": 22,
+  "filePrefix": "",
+  "fileExt": "png"
+},
+ {
+  "id": "ep23",
+  "ep": "EP23",
+  "title": "青春期身體為什麼會改變？男孩子篇",
+  "topic": "成長、變聲、夢遺、身體尊重",
+  "season": "第二季",
+  "seasonTitle": "感官與健康",
+  "status": "published",
+  "folder": "comics/ep23/",
+  "pageCount": 22,
+  "filePrefix": "",
+  "fileExt": "png"
+},
   {
     "id": "ep24",
     "ep": "EP24",
