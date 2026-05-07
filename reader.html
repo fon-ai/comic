@@ -55,6 +55,7 @@
     .comic-img { display:block; width:100%; height:auto; border-radius:20px; background:#fffaf0; }
     .error-box { background:rgba(255,255,255,.9); border:2px dashed #e6c996; border-radius:24px; padding:24px; color:#7a6752; font-weight:800; line-height:1.7; text-align:center; }
     footer { margin-top:34px; padding:24px 0; text-align:center; color:#796b5e; font-weight:700; }
+    .bottom-reader-tools { margin-top: 24px; }
     @media (max-width:620px) {
       .page { padding:10px; }
       .site-header { display:block; padding:14px; border-radius:22px; }
@@ -94,10 +95,16 @@
 
     <main id="comicPages" class="comic-pages"></main>
 
+    <section id="bottomReaderTools" class="reader-tools bottom-reader-tools">
+      <a id="bottomPrevBtn" href="#" class="tool-btn">← 上一篇</a>
+      <a href="index.html" class="tool-btn">返回目錄</a>
+      <a id="bottomNextBtn" href="#" class="tool-btn primary">下一篇 →</a>
+    </section>
+
     <footer>科學探險隊｜探索科學・啟發好奇・一齊冒險</footer>
   </div>
 
-  <script src="episodes-data.js?v=90"></script>
+  <script src="episodes-data.js?v=120"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const requestedEp = (params.get("ep") || "").toLowerCase();
@@ -112,6 +119,8 @@
     const comicPages = document.getElementById("comicPages");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
+    const bottomPrevBtn = document.getElementById("bottomPrevBtn");
+    const bottomNextBtn = document.getElementById("bottomNextBtn");
     const topBtn = document.getElementById("topBtn");
 
     function padPageNumber(num) { return String(num).padStart(2, "0"); }
@@ -131,15 +140,21 @@
       if (prev) {
         prevBtn.href = `reader.html?ep=${prev.id}`;
         prevBtn.style.display = "inline-block";
+        bottomPrevBtn.href = `reader.html?ep=${prev.id}`;
+        bottomPrevBtn.style.display = "inline-block";
       } else {
         prevBtn.style.display = "none";
+        bottomPrevBtn.style.display = "none";
       }
 
       if (next) {
         nextBtn.href = `reader.html?ep=${next.id}`;
         nextBtn.style.display = "inline-block";
+        bottomNextBtn.href = `reader.html?ep=${next.id}`;
+        bottomNextBtn.style.display = "inline-block";
       } else {
         nextBtn.style.display = "none";
+        bottomNextBtn.style.display = "none";
       }
     }
 
