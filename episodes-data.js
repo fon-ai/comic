@@ -6,11 +6,11 @@ const EPISODES_DATA = [
     "topic": "消化系統",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep01/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep02",
@@ -19,11 +19,11 @@ const EPISODES_DATA = [
     "topic": "呼吸系統",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep02/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep03",
@@ -32,11 +32,11 @@ const EPISODES_DATA = [
     "topic": "循環系統",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep03/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep04",
@@ -45,11 +45,11 @@ const EPISODES_DATA = [
     "topic": "骨骼、肌肉、關節",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep04/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep05",
@@ -58,11 +58,11 @@ const EPISODES_DATA = [
     "topic": "病菌、免疫、預防感染",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep05/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep06",
@@ -71,11 +71,11 @@ const EPISODES_DATA = [
     "topic": "皮膚、白血球、免疫防線",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep06/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep07",
@@ -84,11 +84,11 @@ const EPISODES_DATA = [
     "topic": "微生物、傳播、衛生習慣",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep07/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep08",
@@ -97,11 +97,11 @@ const EPISODES_DATA = [
     "topic": "體溫、免疫反應",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep08/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep09",
@@ -110,11 +110,11 @@ const EPISODES_DATA = [
     "topic": "睡眠、大腦、身體修復",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep09/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep10",
@@ -123,11 +123,11 @@ const EPISODES_DATA = [
     "topic": "營養、食物種類、健康",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep10/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep11",
@@ -136,11 +136,11 @@ const EPISODES_DATA = [
     "topic": "水分、身體平衡",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep11/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep12",
@@ -149,11 +149,11 @@ const EPISODES_DATA = [
     "topic": "體溫調節",
     "season": "第一季",
     "seasonTitle": "身體大冒險",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep12/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep13",
@@ -162,11 +162,11 @@ const EPISODES_DATA = [
     "topic": "眼睛、光、保護視力",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep13/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep14",
@@ -175,11 +175,11 @@ const EPISODES_DATA = [
     "topic": "耳朵、聲音、保護聽覺",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep14/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep15",
@@ -188,11 +188,11 @@ const EPISODES_DATA = [
     "topic": "牙齒、細菌、口腔衛生",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep15/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep16",
@@ -201,11 +201,11 @@ const EPISODES_DATA = [
     "topic": "皮膚感覺、神經、保護反應",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep16/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep17",
@@ -214,11 +214,11 @@ const EPISODES_DATA = [
     "topic": "大腦、神經、身體控制",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep17/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep18",
@@ -227,11 +227,11 @@ const EPISODES_DATA = [
     "topic": "大腦、荷爾蒙、情緒管理",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep18/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep19",
@@ -240,11 +240,11 @@ const EPISODES_DATA = [
     "topic": "平衡感、內耳、身體訊號",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/ep19/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep20",
@@ -253,11 +253,11 @@ const EPISODES_DATA = [
     "topic": "眼球、光線、用眼習慣",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "hidden",
+    "status": "published",
     "folder": "comics/ep20/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep21",
@@ -266,11 +266,11 @@ const EPISODES_DATA = [
     "topic": "免疫反應、致敏原",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "hidden",
+    "status": "published",
     "folder": "comics/ep21/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep22",
@@ -279,11 +279,11 @@ const EPISODES_DATA = [
     "topic": "皮膚修復、血液凝固",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "hidden",
+    "status": "published",
     "folder": "comics/ep22/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep23",
@@ -292,11 +292,11 @@ const EPISODES_DATA = [
     "topic": "成長、青春期、尊重身體",
     "season": "第二季",
     "seasonTitle": "感官與健康",
-    "status": "hidden",
+    "status": "published",
     "folder": "comics/ep23/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep24",
@@ -308,8 +308,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep24/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep25",
@@ -321,8 +321,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep25/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep26",
@@ -334,8 +334,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep26/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep27",
@@ -347,8 +347,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep27/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep28",
@@ -360,8 +360,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep28/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep29",
@@ -373,8 +373,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep29/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep30",
@@ -386,8 +386,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep30/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep31",
@@ -399,8 +399,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep31/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep32",
@@ -412,8 +412,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep32/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep33",
@@ -425,8 +425,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep33/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep34",
@@ -438,8 +438,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep34/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep35",
@@ -451,8 +451,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep35/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep36",
@@ -464,8 +464,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep36/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep37",
@@ -477,8 +477,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep37/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep38",
@@ -490,8 +490,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep38/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep39",
@@ -503,8 +503,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep39/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep40",
@@ -516,8 +516,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep40/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep41",
@@ -529,8 +529,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep41/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep42",
@@ -542,8 +542,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep42/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep43",
@@ -555,8 +555,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep43/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep44",
@@ -568,8 +568,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep44/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep45",
@@ -581,8 +581,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep45/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep46",
@@ -594,8 +594,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep46/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep47",
@@ -607,8 +607,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep47/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep48",
@@ -620,8 +620,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep48/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep49",
@@ -633,8 +633,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep49/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep50",
@@ -646,8 +646,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep50/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep51",
@@ -659,8 +659,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep51/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep52",
@@ -672,8 +672,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep52/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep53",
@@ -685,8 +685,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep53/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep54",
@@ -698,8 +698,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep54/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep55",
@@ -711,8 +711,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep55/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep56",
@@ -724,8 +724,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep56/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep57",
@@ -737,8 +737,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep57/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep58",
@@ -750,8 +750,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep58/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep59",
@@ -763,8 +763,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep59/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep60",
@@ -776,8 +776,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep60/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep61",
@@ -789,8 +789,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep61/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep62",
@@ -802,8 +802,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep62/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep63",
@@ -815,8 +815,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep63/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep64",
@@ -828,8 +828,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep64/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep65",
@@ -841,8 +841,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep65/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep66",
@@ -854,8 +854,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep66/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep67",
@@ -867,8 +867,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep67/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep68",
@@ -880,8 +880,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep68/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep69",
@@ -893,8 +893,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep69/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep70",
@@ -906,8 +906,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep70/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep71",
@@ -919,8 +919,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep71/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep72",
@@ -932,8 +932,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep72/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep73",
@@ -945,8 +945,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep73/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep74",
@@ -958,8 +958,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep74/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep75",
@@ -971,8 +971,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep75/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep76",
@@ -984,8 +984,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep76/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep77",
@@ -997,8 +997,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep77/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep78",
@@ -1010,8 +1010,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep78/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep79",
@@ -1023,8 +1023,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep79/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep80",
@@ -1036,8 +1036,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep80/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep81",
@@ -1049,8 +1049,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep81/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep82",
@@ -1062,8 +1062,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep82/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep83",
@@ -1075,8 +1075,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep83/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep84",
@@ -1088,8 +1088,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep84/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep85",
@@ -1101,8 +1101,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep85/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep86",
@@ -1114,8 +1114,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep86/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep87",
@@ -1127,8 +1127,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep87/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep88",
@@ -1140,8 +1140,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep88/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep89",
@@ -1153,8 +1153,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep89/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep90",
@@ -1166,8 +1166,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep90/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep91",
@@ -1179,8 +1179,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep91/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep92",
@@ -1192,8 +1192,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep92/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep93",
@@ -1205,8 +1205,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep93/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep94",
@@ -1218,8 +1218,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep94/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep95",
@@ -1231,8 +1231,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep95/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep96",
@@ -1244,8 +1244,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep96/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep97",
@@ -1257,8 +1257,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep97/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep98",
@@ -1270,8 +1270,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep98/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep99",
@@ -1283,8 +1283,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep99/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep100",
@@ -1296,8 +1296,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep100/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep101",
@@ -1309,8 +1309,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep101/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep102",
@@ -1322,8 +1322,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep102/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep103",
@@ -1335,8 +1335,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep103/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep104",
@@ -1348,8 +1348,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep104/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep105",
@@ -1361,8 +1361,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep105/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep106",
@@ -1374,8 +1374,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep106/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep107",
@@ -1387,8 +1387,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep107/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep108",
@@ -1400,8 +1400,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep108/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep109",
@@ -1413,8 +1413,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep109/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep110",
@@ -1426,8 +1426,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep110/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep111",
@@ -1439,8 +1439,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep111/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep112",
@@ -1452,8 +1452,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep112/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep113",
@@ -1465,8 +1465,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep113/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep114",
@@ -1478,8 +1478,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep114/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep115",
@@ -1491,8 +1491,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep115/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep116",
@@ -1504,8 +1504,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep116/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep117",
@@ -1517,8 +1517,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep117/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep118",
@@ -1530,8 +1530,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep118/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep119",
@@ -1543,8 +1543,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep119/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
   {
     "id": "ep120",
@@ -1556,8 +1556,8 @@ const EPISODES_DATA = [
     "status": "hidden",
     "folder": "comics/ep120/",
     "pageCount": 22,
-    "filePrefix": "p",
-    "fileExt": "jpg"
+    "filePrefix": "",
+    "fileExt": "png"
   },
 {
   "id": "bonus-p4-people-12",
