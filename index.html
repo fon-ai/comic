@@ -1,2175 +1,1611 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>《科學探險隊》漫畫目錄</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, #dff4ff 0, transparent 30%),
-        radial-gradient(circle at top right, #fff0c7 0, transparent 28%),
-        linear-gradient(180deg, #fffaf0 0%, #eef8ff 100%);
-      color: #2f2a25;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .page {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 18px;
-    }
-
-    .site-header {
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid #f1dfbd;
-      border-radius: 28px;
-      padding: 14px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      box-shadow: 0 8px 22px rgba(90, 70, 40, 0.08);
-      backdrop-filter: blur(8px);
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-      color: #2473b8;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #e96b6b;
-    }
-
-    .nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 700;
-      color: #5d5147;
-    }
-
-    .nav a.active {
-      background: #5aa7e8;
-      color: white;
-      box-shadow: 0 4px 10px rgba(70, 130, 200, 0.25);
-    }
-
-.hero {
-  margin-top: 22px;
-  min-height: 330px;
-  background:
-    linear-gradient(135deg, rgba(229, 247, 255, 0.92), rgba(255, 249, 227, 0.95));
-  border: 2px solid #d7ecff;
-  border-radius: 34px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(80, 100, 120, 0.12);
-}
-
-.hero-with-image {
-  padding: 0;
-}
-    
-.hero picture {
-  display: block;
-}
-    
-.hero-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 32px;
-}
-
-.hero-fallback {
-  display: none;
-  padding: 34px;
-  text-align: center;
-}
-
-.hero-image[src=""],
-.hero-image:not([src]) {
-  display: none;
-}
-
-.hero-image[src=""] + .hero-fallback,
-.hero-image:not([src]) + .hero-fallback {
-  display: block;
-}
-
-    .hero::before {
-      content: "✦  ⚗  ✧  🫧  ✦  🔬  ✧  🪐  ✦";
-      position: absolute;
-      inset: 20px;
-      font-size: 28px;
-      opacity: 0.18;
-      letter-spacing: 22px;
-      line-height: 2.6;
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .hero-label {
-      display: inline-block;
-      background: #2f80d0;
-      color: white;
-      padding: 8px 20px;
-      border-radius: 999px;
-      font-weight: 900;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 0 #1f5f9f;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(46px, 8vw, 86px);
-      color: #1f67ad;
-      text-shadow:
-        4px 4px 0 #ffffff,
-        7px 7px 0 rgba(230, 140, 120, 0.35);
-      letter-spacing: 4px;
-    }
-
-    .hero p {
-      display: inline-block;
-      margin-top: 22px;
-      background: rgba(255, 255, 255, 0.82);
-      border: 2px dashed #f0c982;
-      border-radius: 22px;
-      padding: 14px 26px;
-      font-size: 22px;
-      font-weight: 800;
-      color: #32618f;
-    }
-
-    .hero-characters {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .character-bubble {
-      background: rgba(255, 255, 255, 0.72);
-      border: 2px solid #e6d5b8;
-      border-radius: 24px;
-      padding: 12px 18px;
-      font-weight: 800;
-      color: #6b5542;
-      box-shadow: 0 6px 14px rgba(90, 70, 40, 0.08);
-    }
-
-    .info-strip {
-      margin-top: 20px;
-      background: rgba(255, 255, 255, 0.84);
-      border: 2px solid #efdcb9;
-      border-radius: 26px;
-      padding: 18px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(90, 70, 40, 0.08);
-    }
-
-    .info-box {
-      border-right: 1px dashed #e2cfae;
-      font-weight: 800;
-      color: #66584a;
-    }
-
-    .info-box:last-child {
-      border-right: none;
-    }
-
-    .info-box strong {
-      display: block;
-      margin-top: 6px;
-      font-size: 26px;
-      color: #2473b8;
-    }
-
-    .info-box .red {
-      color: #e85f67;
-    }
-
-    .controls {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .search-box {
-      width: 100%;
-      padding: 16px 20px;
-      border-radius: 999px;
-      border: 2px solid #d8cbb7;
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 18px;
-      outline: none;
-    }
-
-    .filters,
-    .season-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .filter-btn,
-    .season-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 11px 18px;
-      font-weight: 900;
-      cursor: pointer;
-      background: #ffffff;
-      color: #5e554d;
-      border: 2px solid #e8d8bb;
-      transition: 0.2s;
-    }
-
-    .filter-btn.active,
-    .season-btn.active {
-      background: #5aa7e8;
-      color: white;
-      border-color: #5aa7e8;
-    }
-
-    .section-title {
-      margin: 28px 0 12px;
-      font-size: 26px;
-      color: #2473b8;
-      font-weight: 900;
-    }
-
-    .episode-grid {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .episode-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 2px solid #eadcc5;
-      border-radius: 26px;
-      padding: 18px;
-      min-height: 196px;
-      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
-      position: relative;
-      overflow: hidden;
-      transition: 0.2s;
-    }
-
-    .episode-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(80, 90, 110, 0.14);
-    }
-
-    .episode-card::after {
-      content: "✦";
-      position: absolute;
-      right: 16px;
-      top: 12px;
-      color: rgba(255, 190, 80, 0.75);
-      font-size: 24px;
-    }
-
-    .episode-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      font-size: 34px;
-      background: #f6fbff;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      margin-bottom: 12px;
-    }
-
-    .ep-badge {
-      display: inline-block;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: #5aa7e8;
-      color: white;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .season-name {
-      display: block;
-      margin-bottom: 8px;
-      color: #9a7b54;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .episode-card h2 {
-      margin: 4px 0 6px;
-      font-size: 22px;
-      line-height: 1.25;
-      color: #263d5b;
-    }
-
-    .episode-card p {
-      margin: 0 0 14px;
-      color: #6c6257;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .read-btn {
-      display: inline-block;
-      background: #fff3f2;
-      color: #df626a;
-      border: 2px solid #f0b0b5;
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-weight: 900;
-    }
-
-    .card-life {
-      background: #fff4f1;
-      border-color: #f0c7c5;
-    }
-
-    .card-body {
-      background: #f0fbff;
-      border-color: #b9dff3;
-    }
-
-    .card-health {
-      background: #f5fff1;
-      border-color: #cce8bd;
-    }
-
-    .card-matter {
-      background: #fff9df;
-      border-color: #eadc9a;
-    }
-
-    .card-earth {
-      background: #f0f5ff;
-      border-color: #c4d5f4;
-    }
-
-    .card-tech {
-      background: #f7f2ff;
-      border-color: #d9c5f2;
-    }
-
-    .feature-row {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .feature-card {
-      background: rgba(255, 255, 255, 0.86);
-      border: 2px solid #eadcc5;
-      border-radius: 28px;
-      padding: 22px;
-      box-shadow: 0 8px 18px rgba(80, 90, 110, 0.08);
-    }
-
-    .feature-card h3 {
-      margin: 0 0 10px;
-      font-size: 24px;
-      color: #2473b8;
-    }
-
-    .feature-card p {
-      margin: 0;
-      line-height: 1.7;
-      color: #66584a;
-      font-weight: 700;
-    }
-
-    .empty-message {
-      margin-top: 24px;
-      background: rgba(255, 255, 255, 0.85);
-      border: 2px dashed #e6c996;
-      border-radius: 24px;
-      padding: 26px;
-      text-align: center;
-      color: #7a6752;
-      font-weight: 800;
-      display: none;
-    }
-
-    footer {
-      margin-top: 34px;
-      padding: 24px 0;
-      text-align: center;
-      color: #796b5e;
-      font-weight: 700;
-    }
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-}
-
-  .episode-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .info-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .info-box {
-    border-right: none;
-    border-bottom: 1px dashed #e2cfae;
-    padding-bottom: 12px;
-  }
-
-  .info-box:last-child {
-    border-bottom: none;
-  }
-
-  .feature-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 620px) {
-  .page {
-    padding: 10px;
-  }
-
-  .site-header {
-    position: static;
-    display: block;
-    padding: 14px;
-    border-radius: 22px;
-  }
-
-  .logo {
-    font-size: 24px;
-    margin-bottom: 12px;
-    text-align: center;
-    white-space: normal;
-  }
-
-  .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .nav a {
-    flex: 0 0 auto;
-    padding: 9px 14px;
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  .hero {
-    min-height: auto;
-    background: #fffaf0;
-    padding: 6px;
-    border-radius: 24px;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 20px;
-  }
-
-      .episode-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="page">
-
-    <header class="site-header">
-      <div class="logo">科學<span>探險隊</span> ✨</div>
-
-      <nav class="nav">
-        <a href="#">首頁</a>
-        <a href="#" class="active">漫畫目錄</a>
-        <a href="#">角色介紹</a>
-        <a href="#">科學小知識</a>
-        <a href="#">關於我們</a>
-      </nav>
-    </header>
-
-
-
-<section class="hero hero-with-image">
-  <picture>
-    <source
-      media="(max-width: 620px)"
-      srcset="images/index-banner-mobile.png"
-    />
-
-    <img
-      src="images/index-banner.png"
-      alt="《科學探險隊》漫畫目錄主視覺"
-      class="hero-image"
-    />
-  </picture>
-
-  <div class="hero-fallback">
-    <div class="hero-label">《科學探險隊》</div>
-    <h1>漫畫目錄</h1>
-    <p>跟住小晴、博士貓、小Q，一齊展開科學大冒險！</p>
-  </div>
-</section>
-
-    <section class="info-strip">
-      <div class="info-box">
-        我們的漫畫持續更新中！
-        <strong>每集一個科學冒險</strong>
-      </div>
-
-      <div class="info-box">
-        目前已更新
-        <strong id="publishedRange">EP01–EP09</strong>
-      </div>
-
-      <div class="info-box">
-        全系列預計
-        <strong class="red" id="totalCount">120集</strong>
-      </div>
-    </section>
-
-    <section class="controls">
-      <input
-        type="text"
-        id="searchInput"
-        class="search-box"
-        placeholder="搜尋主題，例如：呼吸、睡覺、洗手、免疫"
-      />
-
-      <div class="filters">
-        <button class="filter-btn active" data-category="全部">全部分類</button>
-        <button class="filter-btn" data-category="生命與環境">生命與環境</button>
-        <button class="filter-btn" data-category="物質與能量">物質與能量</button>
-        <button class="filter-btn" data-category="地球與太空">地球與太空</button>
-        <button class="filter-btn" data-category="科技與工程">科技與工程</button>
-        <button class="filter-btn" data-category="科學探究">科學探究</button><button class="filter-btn" data-category="課本番外篇">課本番外篇</button>
-      </div>
-
-      <div class="season-filters">
-        <button class="season-btn active" data-season="全部">全部季度</button>
-        <button class="season-btn" data-season="第一季">第一季</button>
-        <button class="season-btn" data-season="第二季">第二季</button>
-        <button class="season-btn" data-season="第三季">第三季</button>
-        <button class="season-btn" data-season="第四季">第四季</button>
-        <button class="season-btn" data-season="第五季">第五季</button>
-        <button class="season-btn" data-season="第六季">第六季</button>
-        <button class="season-btn" data-season="第七季">第七季</button>
-        <button class="season-btn" data-season="第八季">第八季</button>
-        <button class="season-btn" data-season="第九季">第九季</button>
-        <button class="season-btn" data-season="第十季">第十季</button>
-      </div>
-    </section>
-
-    <h2 class="section-title">📚 已推出集數</h2>
-    <main id="episodeGrid" class="episode-grid"></main>
-
-    <div id="emptyMessage" class="empty-message">
-      暫時未有符合條件的已推出集數。可以試試搜尋其他關鍵字，或者選擇「全部分類」。
-    </div>
-
-    <section class="feature-row">
-      <div class="feature-card">
-        <h3 id="latestTitle">⭐ 最新更新</h3>
-        <p id="latestDescription">
-          最新一集會在這裡顯示，方便讀者一打開目錄就知道可以先看哪一集。
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <h3>🚀 即將登場</h3>
-        <p>
-          EP10–EP120 已經放入目錄資料庫，但暫時隱藏。
-          每完成一集，只要把該集 status 改成 published，就會自動出現在漫畫目錄。
-        </p>
-      </div>
-    </section>
-
-    <footer>
-      科學探險隊｜探索科學・啟發好奇・一齊冒險
-    </footer>
-
-  </div>
-
-  <script>
-    const episodes = [
-      {
-        ep: "EP01",
-        title: "食物去了哪裡？",
-        topic: "消化系統",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep01.html",
-        icon: "🍎",
-        style: "card-life",
-        status: "published"
-      },
-      {
-        ep: "EP02",
-        title: "我們為什麼要呼吸？",
-        topic: "呼吸系統",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep02.html",
-        icon: "🫁",
-        style: "card-body",
-        status: "published"
-      },
-      {
-        ep: "EP03",
-        title: "心臟為什麼一直跳？",
-        topic: "循環系統",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep03.html",
-        icon: "❤️",
-        style: "card-life",
-        status: "published"
-      },
-      {
-        ep: "EP04",
-        title: "骨頭和肌肉怎樣幫我們動？",
-        topic: "骨骼、肌肉、關節",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep04.html",
-        icon: "🦴",
-        style: "card-body",
-        status: "published"
-      },
-      {
-        ep: "EP05",
-        title: "為什麼會生病？",
-        topic: "病菌、免疫、預防感染",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep05.html",
-        icon: "🦠",
-        style: "card-health",
-        status: "published"
-      },
-      {
-        ep: "EP06",
-        title: "身體怎樣保護自己？",
-        topic: "皮膚、白血球、免疫防線",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep06.html",
-        icon: "🛡️",
-        style: "card-health",
-        status: "published"
-      },
-      {
-        ep: "EP07",
-        title: "為什麼要洗手？",
-        topic: "微生物、傳播、衛生習慣",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep07.html",
-        icon: "🫧",
-        style: "card-body",
-        status: "published"
-      },
-      {
-        ep: "EP08",
-        title: "發燒是不是壞事？",
-        topic: "體溫、免疫反應",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep08.html",
-        icon: "🌡️",
-        style: "card-life",
-        status: "published"
-      },
-      {
-        ep: "EP09",
-        title: "為什麼要睡覺？",
-        topic: "睡眠、大腦、身體修復",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep09.html",
-        icon: "🌙",
-        style: "card-body",
-        status: "published"
-      },
-      {
-        ep: "EP10",
-        title: "為什麼要均衡飲食？",
-        topic: "營養、食物種類、健康",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep10.html",
-        icon: "🥗",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP11",
-        title: "為什麼要飲水？",
-        topic: "水分、身體平衡",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep11.html",
-        icon: "💧",
-        style: "card-body",
-        status: "hidden"
-      },
-      {
-        ep: "EP12",
-        title: "為什麼會流汗？",
-        topic: "體溫調節",
-        season: "第一季",
-        seasonTitle: "身體大冒險",
-        category: "生命與環境",
-        link: "ep12.html",
-        icon: "💦",
-        style: "card-body",
-        status: "hidden"
-      },
-
-      {
-        ep: "EP13",
-        title: "眼睛怎樣看見東西？",
-        topic: "眼睛、光、保護視力",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep13.html",
-        icon: "👀",
-        style: "card-body",
-        status: "hidden"
-      },
-      {
-        ep: "EP14",
-        title: "耳朵怎樣聽見聲音？",
-        topic: "耳朵、聲音、保護聽覺",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep14.html",
-        icon: "👂",
-        style: "card-body",
-        status: "hidden"
-      },
-      {
-        ep: "EP15",
-        title: "牙齒為什麼會蛀？",
-        topic: "牙齒、細菌、口腔衛生",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep15.html",
-        icon: "🦷",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP16",
-        title: "皮膚有什麼用？",
-        topic: "皮膚、保護、感覺",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep16.html",
-        icon: "✋",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP17",
-        title: "大腦怎樣指揮身體？",
-        topic: "大腦、神經、身體控制",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep17.html",
-        icon: "🧠",
-        style: "card-life",
-        status: "hidden"
-      },
-      {
-        ep: "EP18",
-        title: "為什麼會有情緒？",
-        topic: "大腦、荷爾蒙、情緒管理",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep18.html",
-        icon: "😊",
-        style: "card-life",
-        status: "hidden"
-      },
-      {
-        ep: "EP19",
-        title: "運動後身體發生什麼事？",
-        topic: "心跳、呼吸、能量需求",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep19.html",
-        icon: "🏃",
-        style: "card-body",
-        status: "hidden"
-      },
-      {
-        ep: "EP20",
-        title: "為什麼會近視？",
-        topic: "眼球、光線、用眼習慣",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep20.html",
-        icon: "👓",
-        style: "card-body",
-        status: "hidden"
-      },
-      {
-        ep: "EP21",
-        title: "為什麼會過敏？",
-        topic: "免疫反應、致敏原",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep21.html",
-        icon: "🌼",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP22",
-        title: "傷口為什麼會結痂？",
-        topic: "皮膚修復、血液凝固",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep22.html",
-        icon: "🩹",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP23",
-        title: "青春期身體為什麼會改變？",
-        topic: "成長、青春期、尊重身體",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep23.html",
-        icon: "🌱",
-        style: "card-life",
-        status: "hidden"
-      },
-      {
-        ep: "EP24",
-        title: "怎樣保持身心健康？",
-        topic: "運動、睡眠、情緒、生活習慣",
-        season: "第二季",
-        seasonTitle: "感官與健康",
-        category: "生命與環境",
-        link: "ep24.html",
-        icon: "🌈",
-        style: "card-health",
-        status: "hidden"
-      },
-
-      {
-        ep: "EP25",
-        title: "植物為什麼需要陽光？",
-        topic: "植物、光、水、空氣",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep25.html",
-        icon: "🌞",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP26",
-        title: "種子怎樣長成植物？",
-        topic: "種子、發芽、植物生長",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep26.html",
-        icon: "🌱",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP27",
-        title: "花為什麼會結果？",
-        topic: "開花植物、授粉、繁殖",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep27.html",
-        icon: "🌸",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP28",
-        title: "植物怎樣喝水？",
-        topic: "根、莖、葉、運輸水分",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep28.html",
-        icon: "🌿",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP29",
-        title: "葉子為什麼重要？",
-        topic: "葉、光合作用、製造養分",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep29.html",
-        icon: "🍃",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP30",
-        title: "動物有什麼共同特徵？",
-        topic: "動物分類、生命特徵",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep30.html",
-        icon: "🐾",
-        style: "card-life",
-        status: "hidden"
-      },
-      {
-        ep: "EP31",
-        title: "昆蟲是不是動物？",
-        topic: "昆蟲特徵、分類",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep31.html",
-        icon: "🐞",
-        style: "card-life",
-        status: "hidden"
-      },
-      {
-        ep: "EP32",
-        title: "魚為什麼能在水中生活？",
-        topic: "魚、鰓、適應環境",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep32.html",
-        icon: "🐟",
-        style: "card-body",
-        status: "hidden"
-      },
-      {
-        ep: "EP33",
-        title: "鳥為什麼會飛？",
-        topic: "鳥類、羽毛、身體結構",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep33.html",
-        icon: "🐦",
-        style: "card-body",
-        status: "hidden"
-      },
-      {
-        ep: "EP34",
-        title: "動物怎樣保護自己？",
-        topic: "保護色、防禦、適應",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep34.html",
-        icon: "🦎",
-        style: "card-life",
-        status: "hidden"
-      },
-      {
-        ep: "EP35",
-        title: "什麼是棲息地？",
-        topic: "生境、生物需要",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep35.html",
-        icon: "🏡",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP36",
-        title: "食物鏈是什麼？",
-        topic: "生產者、消費者、食物鏈",
-        season: "第三季",
-        seasonTitle: "植物與動物世界",
-        category: "生命與環境",
-        link: "ep36.html",
-        icon: "🔗",
-        style: "card-health",
-        status: "hidden"
-      },
-
-      {
-        ep: "EP37",
-        title: "如果一種動物消失會怎樣？",
-        topic: "生態平衡、食物網",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep37.html",
-        icon: "🕸️",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP38",
-        title: "微生物都是壞的嗎？",
-        topic: "有益微生物、有害微生物",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep38.html",
-        icon: "🧫",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP39",
-        title: "蜜蜂為什麼重要？",
-        topic: "授粉、生態角色",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep39.html",
-        icon: "🐝",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP40",
-        title: "森林為什麼像一個家？",
-        topic: "森林生態系、棲息地",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep40.html",
-        icon: "🌳",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP41",
-        title: "海洋裡有什麼秘密？",
-        topic: "海洋生態、食物鏈",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep41.html",
-        icon: "🌊",
-        style: "card-body",
-        status: "hidden"
-      },
-      {
-        ep: "EP42",
-        title: "動物怎樣適應環境？",
-        topic: "適應、身體特徵、行為",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep42.html",
-        icon: "🦊",
-        style: "card-life",
-        status: "hidden"
-      },
-      {
-        ep: "EP43",
-        title: "植物怎樣適應環境？",
-        topic: "植物適應、環境條件",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep43.html",
-        icon: "🌵",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP44",
-        title: "人類怎樣影響生態？",
-        topic: "人類活動、環境影響",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep44.html",
-        icon: "🏙️",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP45",
-        title: "保護生物多樣性有什麼用？",
-        topic: "生物多樣性、保育",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep45.html",
-        icon: "🦋",
-        style: "card-health",
-        status: "hidden"
-      },
-      {
-        ep: "EP46",
-        title: "寵物需要什麼照顧？",
-        topic: "動物需要、責任",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "生命與環境",
-        link: "ep46.html",
-        icon: "🐱",
-        style: "card-life",
-        status: "hidden"
-      },
-      {
-        ep: "EP47",
-        title: "怎樣觀察小生物？",
-        topic: "觀察、記錄、分類",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "科學探究",
-        link: "ep47.html",
-        icon: "🔍",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP48",
-        title: "小小生態任務：建一個迷你生境",
-        topic: "生態系統、探究活動",
-        season: "第四季",
-        seasonTitle: "生態與生命關係",
-        category: "科學探究",
-        link: "ep48.html",
-        icon: "🪴",
-        style: "card-tech",
-        status: "hidden"
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>《科學探險隊》漫畫目錄</title><style>
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif; background:radial-gradient(circle at top left,#dff4ff 0,transparent 30%),radial-gradient(circle at top right,#fff0c7 0,transparent 28%),linear-gradient(180deg,#fffaf0 0%,#eef8ff 100%); color:#2f2a25; }
+    a { text-decoration:none; color:inherit; }
+    .page { max-width:1180px; margin:0 auto; padding:18px; }
+    .site-header { background:rgba(255,255,255,.9); border:2px solid #f1dfbd; border-radius:28px; padding:14px 22px; display:flex; justify-content:space-between; align-items:center; gap:16px; box-shadow:0 8px 22px rgba(90,70,40,.08); }
+    .logo { font-size:28px; font-weight:900; color:#2473b8; letter-spacing:1px; white-space:nowrap; }
+    .logo span { color:#e96b6b; }
+    .nav { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav a { padding:10px 16px; border-radius:999px; font-weight:700; color:#5d5147; }
+    .nav a.active { background:#5aa7e8; color:white; box-shadow:0 4px 10px rgba(70,130,200,.25); }
+    .info-strip { margin-top:20px; background:rgba(255,255,255,.84); border:2px solid #efdcb9; border-radius:26px; padding:18px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; text-align:center; box-shadow:0 8px 20px rgba(90,70,40,.08); }
+    .info-box { border-right:1px dashed #e2cfae; font-weight:800; color:#66584a; }
+    .info-box:last-child { border-right:none; }
+    .info-box strong { display:block; margin-top:6px; font-size:26px; color:#2473b8; }
+    .controls { margin-top:24px; display:grid; gap:14px; }
+    .search-box { width:100%; padding:16px 20px; border-radius:999px; border:2px solid #d8cbb7; background:rgba(255,255,255,.9); font-size:18px; outline:none; }
+    .filters,.season-filters { display:flex; flex-wrap:wrap; gap:10px; }
+    .filter-btn,.season-btn { border:none; border-radius:999px; padding:11px 18px; font-weight:900; cursor:pointer; background:#fff; color:#5e554d; border:2px solid #e8d8bb; }
+    .filter-btn.active,.season-btn.active { background:#5aa7e8; color:white; border-color:#5aa7e8; }
+    .section-title { margin:28px 0 12px; font-size:26px; color:#2473b8; font-weight:900; }
+    .episode-grid,.notes-grid { margin-top:18px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .episode-card,.note-card { background:rgba(255,255,255,.88); border:2px solid #eadcc5; border-radius:26px; padding:18px; box-shadow:0 8px 18px rgba(80,90,110,.08); position:relative; overflow:hidden; }
+    .episode-card:hover { transform:translateY(-4px); box-shadow:0 14px 28px rgba(80,90,110,.14); }
+    .episode-icon,.note-icon { width:64px; height:64px; border-radius:20px; display:grid; place-items:center; font-size:34px; background:#f6fbff; border:2px solid rgba(255,255,255,.8); margin-bottom:12px; }
+    .ep-badge { display:inline-block; padding:5px 12px; border-radius:999px; background:#5aa7e8; color:white; font-weight:900; margin-bottom:8px; }
+    .season-name { display:block; margin-bottom:8px; color:#9a7b54; font-size:14px; font-weight:800; }
+    .episode-card h2,.note-card h2 { margin:4px 0 6px; font-size:22px; line-height:1.25; color:#263d5b; }
+    .episode-card p,.note-card p { margin:0 0 14px; color:#6c6257; font-weight:700; line-height:1.45; }
+    .read-btn,.activity-btn { display:inline-block; background:#fff3f2; color:#df626a; border:2px solid #f0b0b5; border-radius:999px; padding:8px 14px; font-weight:900; }
+    .card-life,.life,.food { background:#fff4f1; border-color:#f0c7c5; }
+    .card-body,.body { background:#f0fbff; border-color:#b9dff3; }
+    .card-health,.health { background:#f5fff1; border-color:#cce8bd; }
+    .card-matter,.matter { background:#fff9df; border-color:#eadc9a; }
+    .card-earth,.earth { background:#f0f5ff; border-color:#c4d5f4; }
+    .card-tech,.tech { background:#f7f2ff; border-color:#d9c5f2; }
+    .empty-message { margin-top:24px; background:rgba(255,255,255,.85); border:2px dashed #e6c996; border-radius:24px; padding:26px; text-align:center; color:#7a6752; font-weight:800; display:none; }
+    footer { margin-top:34px; padding:24px 0; text-align:center; color:#796b5e; font-weight:700; }
+    @media (max-width:900px){ .episode-grid,.notes-grid{grid-template-columns:repeat(2,1fr);} .info-strip{grid-template-columns:1fr;} .info-box{border-right:none;border-bottom:1px dashed #e2cfae;padding-bottom:12px;} .info-box:last-child{border-bottom:none;} }
+    @media (max-width:620px){ .page{padding:10px;} .site-header{display:block;padding:14px;border-radius:22px;} .logo{font-size:24px;margin-bottom:12px;text-align:center;white-space:normal;} .nav{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;} .nav a{flex:0 0 auto;padding:9px 14px;font-size:14px;white-space:nowrap;} .episode-grid,.notes-grid{grid-template-columns:1fr;} }
+
+.hero{margin-top:22px;border:2px solid #d7ecff;border-radius:34px;overflow:hidden;box-shadow:0 12px 30px rgba(80,100,120,.12);background:#fffaf0;} .hero img{display:block;width:100%;height:auto;}
+</style></head><body><div class="page"><header class="site-header"><div class="logo">科學<span>探險隊</span> ✨</div><nav class="nav"><a href="index.html" class="active">首頁</a><a href="index.html">漫畫目錄</a><a href="characters.html">角色介紹</a><a href="science-notes.html">科學小知識</a><a href="#">關於我們</a></nav></header><section class="hero"><picture><source media="(max-width:620px)" srcset="images/index-banner-mobile.png"/><img src="images/index-banner.png" alt="《科學探險隊》漫畫目錄主視覺"/></picture></section><section class="info-strip"><div class="info-box">我們的漫畫持續更新中！<strong>每集一個科學冒險</strong></div><div class="info-box">目前已更新<strong id="publishedRange">EP01–EP23</strong></div><div class="info-box">全系列預計<strong>120集</strong></div></section><section class="controls"><input id="searchInput" class="search-box" placeholder="搜尋主題，例如：呼吸、睡覺、洗手、近視"/><div class="filters"><button class="filter-btn active" data-category="全部">全部分類</button><button class="filter-btn" data-category="生命與環境">生命與環境</button><button class="filter-btn" data-category="物質與能量">物質與能量</button><button class="filter-btn" data-category="地球與太空">地球與太空</button><button class="filter-btn" data-category="科技與工程">科技與工程</button><button class="filter-btn" data-category="科學探究">科學探究</button><button class="filter-btn" data-category="課本番外篇">課本番外篇</button></div><div class="season-filters"><button class="season-btn active" data-season="全部">全部季度</button><button class="season-btn" data-season="第一季">第一季</button><button class="season-btn" data-season="第二季">第二季</button><button class="season-btn" data-season="第三季">第三季</button><button class="season-btn" data-season="第四季">第四季</button><button class="season-btn" data-season="第五季">第五季</button><button class="season-btn" data-season="第六季">第六季</button><button class="season-btn" data-season="第七季">第七季</button><button class="season-btn" data-season="第八季">第八季</button><button class="season-btn" data-season="第九季">第九季</button><button class="season-btn" data-season="第十季">第十季</button></div></section><h2 class="section-title">📚 已推出集數</h2><main id="episodeGrid" class="episode-grid"></main><div id="emptyMessage" class="empty-message">暫時未有符合條件的已推出集數。</div><footer>科學探險隊｜探索科學・啟發好奇・一齊冒險</footer></div><script>const episodes=[
+      {
+            "id": "ep01",
+            "ep": "EP01",
+            "title": "食物去了哪裡？",
+            "topic": "消化系統",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep01",
+            "icon": "🍎",
+            "style": "card-life",
+            "status": "published"
+      },
+      {
+            "id": "ep02",
+            "ep": "EP02",
+            "title": "我們為什麼要呼吸？",
+            "topic": "呼吸系統",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep02",
+            "icon": "🫁",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep03",
+            "ep": "EP03",
+            "title": "心臟為什麼一直跳？",
+            "topic": "循環系統",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep03",
+            "icon": "❤️",
+            "style": "card-life",
+            "status": "published"
+      },
+      {
+            "id": "ep04",
+            "ep": "EP04",
+            "title": "骨頭和肌肉怎樣幫我們動？",
+            "topic": "骨骼、肌肉、關節",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep04",
+            "icon": "🦴",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep05",
+            "ep": "EP05",
+            "title": "為什麼會生病？",
+            "topic": "病菌、免疫、預防感染",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep05",
+            "icon": "🦠",
+            "style": "card-health",
+            "status": "published"
+      },
+      {
+            "id": "ep06",
+            "ep": "EP06",
+            "title": "身體怎樣保護自己？",
+            "topic": "皮膚、白血球、免疫防線",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep06",
+            "icon": "🛡️",
+            "style": "card-health",
+            "status": "published"
+      },
+      {
+            "id": "ep07",
+            "ep": "EP07",
+            "title": "為什麼要洗手？",
+            "topic": "微生物、傳播、衛生習慣",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep07",
+            "icon": "🫧",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep08",
+            "ep": "EP08",
+            "title": "發燒是不是壞事？",
+            "topic": "體溫、免疫反應",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep08",
+            "icon": "🌡️",
+            "style": "card-life",
+            "status": "published"
+      },
+      {
+            "id": "ep09",
+            "ep": "EP09",
+            "title": "為什麼要睡覺？",
+            "topic": "睡眠、大腦、身體修復",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep09",
+            "icon": "🌙",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep10",
+            "ep": "EP10",
+            "title": "為什麼要均衡飲食？",
+            "topic": "營養、食物種類、健康",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep10",
+            "icon": "🥗",
+            "style": "card-health",
+            "status": "published"
+      },
+      {
+            "id": "ep11",
+            "ep": "EP11",
+            "title": "為什麼要飲水？",
+            "topic": "水分、身體平衡",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep11",
+            "icon": "💧",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep12",
+            "ep": "EP12",
+            "title": "為什麼會流汗？",
+            "topic": "體溫調節",
+            "season": "第一季",
+            "seasonTitle": "身體大冒險",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep12",
+            "icon": "💦",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep13",
+            "ep": "EP13",
+            "title": "眼睛怎樣看見東西？",
+            "topic": "眼睛、光、保護視力",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep13",
+            "icon": "👀",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep14",
+            "ep": "EP14",
+            "title": "耳朵怎樣聽見聲音？",
+            "topic": "耳朵、聲音、保護聽覺",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep14",
+            "icon": "👂",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep15",
+            "ep": "EP15",
+            "title": "牙齒為什麼會蛀？",
+            "topic": "牙齒、細菌、口腔衛生",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep15",
+            "icon": "🦷",
+            "style": "card-health",
+            "status": "published"
+      },
+      {
+            "id": "ep16",
+            "ep": "EP16",
+            "title": "為什麼會覺得痛、冷、熱？",
+            "topic": "皮膚感覺、神經、保護反應",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep16",
+            "icon": "✋",
+            "style": "card-health",
+            "status": "published"
+      },
+      {
+            "id": "ep17",
+            "ep": "EP17",
+            "title": "大腦怎樣指揮身體？",
+            "topic": "大腦、神經、身體控制",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep17",
+            "icon": "🧠",
+            "style": "card-life",
+            "status": "published"
+      },
+      {
+            "id": "ep18",
+            "ep": "EP18",
+            "title": "為什麼會有情緒？",
+            "topic": "大腦、荷爾蒙、情緒管理",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep18",
+            "icon": "😊",
+            "style": "card-life",
+            "status": "published"
+      },
+      {
+            "id": "ep19",
+            "ep": "EP19",
+            "title": "為什麼會頭暈？",
+            "topic": "平衡感、內耳、身體訊號",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep19",
+            "icon": "🌀",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep20",
+            "ep": "EP20",
+            "title": "為什麼會近視？",
+            "topic": "眼球、光線、用眼習慣",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep20",
+            "icon": "👓",
+            "style": "card-body",
+            "status": "published"
+      },
+      {
+            "id": "ep21",
+            "ep": "EP21",
+            "title": "為什麼會過敏？",
+            "topic": "免疫反應、致敏原",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep21",
+            "icon": "🌼",
+            "style": "card-health",
+            "status": "published"
+      },
+     {
+  "id": "ep22",
+  "ep": "EP22",
+  "title": "青春期身體為什麼會改變？女孩子篇",
+  "topic": "成長、月經、身體尊重",
+  "season": "第二季",
+  "seasonTitle": "感官與健康",
+  "category": "生命與環境",
+  "link": "reader.html?ep=ep22",
+  "icon": "🌸",
+  "style": "card-life",
+  "status": "published"
+},
+      {
+  "id": "ep23",
+  "ep": "EP23",
+  "title": "青春期身體為什麼會改變？男孩子篇",
+  "topic": "成長、變聲、夢遺、身體尊重",
+  "season": "第二季",
+  "seasonTitle": "感官與健康",
+  "category": "生命與環境",
+  "link": "reader.html?ep=ep23",
+  "icon": "🌱",
+  "style": "card-life",
+  "status": "published"
+},
+      {
+            "id": "ep24",
+            "ep": "EP24",
+            "title": "怎樣保持身心健康？",
+            "topic": "運動、睡眠、情緒、生活習慣",
+            "season": "第二季",
+            "seasonTitle": "感官與健康",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep24",
+            "icon": "🌈",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep25",
+            "ep": "EP25",
+            "title": "植物為什麼需要陽光？",
+            "topic": "植物、光、水、空氣",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep25",
+            "icon": "🌞",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep26",
+            "ep": "EP26",
+            "title": "種子怎樣長成植物？",
+            "topic": "種子、發芽、植物生長",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep26",
+            "icon": "🌱",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep27",
+            "ep": "EP27",
+            "title": "花為什麼會結果？",
+            "topic": "開花植物、授粉、繁殖",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep27",
+            "icon": "🌸",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep28",
+            "ep": "EP28",
+            "title": "植物怎樣喝水？",
+            "topic": "根、莖、葉、運輸水分",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep28",
+            "icon": "🌿",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep29",
+            "ep": "EP29",
+            "title": "葉子為什麼重要？",
+            "topic": "葉、光合作用、製造養分",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep29",
+            "icon": "🍃",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep30",
+            "ep": "EP30",
+            "title": "動物有什麼共同特徵？",
+            "topic": "動物分類、生命特徵",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep30",
+            "icon": "🐾",
+            "style": "card-life",
+            "status": "hidden"
+      },
+      {
+            "id": "ep31",
+            "ep": "EP31",
+            "title": "昆蟲是不是動物？",
+            "topic": "昆蟲特徵、分類",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep31",
+            "icon": "🐞",
+            "style": "card-life",
+            "status": "hidden"
+      },
+      {
+            "id": "ep32",
+            "ep": "EP32",
+            "title": "魚為什麼能在水中生活？",
+            "topic": "魚、鰓、適應環境",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep32",
+            "icon": "🐟",
+            "style": "card-body",
+            "status": "hidden"
+      },
+      {
+            "id": "ep33",
+            "ep": "EP33",
+            "title": "鳥為什麼會飛？",
+            "topic": "鳥類、羽毛、身體結構",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep33",
+            "icon": "🐦",
+            "style": "card-body",
+            "status": "hidden"
+      },
+      {
+            "id": "ep34",
+            "ep": "EP34",
+            "title": "動物怎樣保護自己？",
+            "topic": "保護色、防禦、適應",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep34",
+            "icon": "🦎",
+            "style": "card-life",
+            "status": "hidden"
+      },
+      {
+            "id": "ep35",
+            "ep": "EP35",
+            "title": "什麼是棲息地？",
+            "topic": "生境、生物需要",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep35",
+            "icon": "🏡",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep36",
+            "ep": "EP36",
+            "title": "食物鏈是什麼？",
+            "topic": "生產者、消費者、食物鏈",
+            "season": "第三季",
+            "seasonTitle": "植物與動物世界",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep36",
+            "icon": "🔗",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep37",
+            "ep": "EP37",
+            "title": "如果一種動物消失會怎樣？",
+            "topic": "生態平衡、食物網",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep37",
+            "icon": "🕸️",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep38",
+            "ep": "EP38",
+            "title": "微生物都是壞的嗎？",
+            "topic": "有益微生物、有害微生物",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep38",
+            "icon": "🧫",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep39",
+            "ep": "EP39",
+            "title": "蜜蜂為什麼重要？",
+            "topic": "授粉、生態角色",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep39",
+            "icon": "🐝",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep40",
+            "ep": "EP40",
+            "title": "森林為什麼像一個家？",
+            "topic": "森林生態系、棲息地",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep40",
+            "icon": "🌳",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep41",
+            "ep": "EP41",
+            "title": "海洋裡有什麼秘密？",
+            "topic": "海洋生態、食物鏈",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep41",
+            "icon": "🌊",
+            "style": "card-body",
+            "status": "hidden"
+      },
+      {
+            "id": "ep42",
+            "ep": "EP42",
+            "title": "動物怎樣適應環境？",
+            "topic": "適應、身體特徵、行為",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep42",
+            "icon": "🦊",
+            "style": "card-life",
+            "status": "hidden"
+      },
+      {
+            "id": "ep43",
+            "ep": "EP43",
+            "title": "植物怎樣適應環境？",
+            "topic": "植物適應、環境條件",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep43",
+            "icon": "🌵",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep44",
+            "ep": "EP44",
+            "title": "人類怎樣影響生態？",
+            "topic": "人類活動、環境影響",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep44",
+            "icon": "🏙️",
+            "style": "card-earth",
+            "status": "hidden"
+      },
+      {
+            "id": "ep45",
+            "ep": "EP45",
+            "title": "保護生物多樣性有什麼用？",
+            "topic": "生物多樣性、保育",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep45",
+            "icon": "🦋",
+            "style": "card-health",
+            "status": "hidden"
+      },
+      {
+            "id": "ep46",
+            "ep": "EP46",
+            "title": "寵物需要什麼照顧？",
+            "topic": "動物需要、責任",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "生命與環境",
+            "link": "reader.html?ep=ep46",
+            "icon": "🐱",
+            "style": "card-life",
+            "status": "hidden"
+      },
+      {
+            "id": "ep47",
+            "ep": "EP47",
+            "title": "怎樣觀察小生物？",
+            "topic": "觀察、記錄、分類",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep47",
+            "icon": "🔍",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep48",
+            "ep": "EP48",
+            "title": "小小生態任務：建一個迷你生境",
+            "topic": "生態系統、探究活動",
+            "season": "第四季",
+            "seasonTitle": "生態與生命關係",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep48",
+            "icon": "🪴",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep49",
+            "ep": "EP49",
+            "title": "第 49 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep49",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep50",
+            "ep": "EP50",
+            "title": "第 50 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep50",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep51",
+            "ep": "EP51",
+            "title": "第 51 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep51",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep52",
+            "ep": "EP52",
+            "title": "第 52 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep52",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep53",
+            "ep": "EP53",
+            "title": "第 53 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep53",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep54",
+            "ep": "EP54",
+            "title": "第 54 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep54",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep55",
+            "ep": "EP55",
+            "title": "第 55 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep55",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep56",
+            "ep": "EP56",
+            "title": "第 56 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep56",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep57",
+            "ep": "EP57",
+            "title": "第 57 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep57",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep58",
+            "ep": "EP58",
+            "title": "第 58 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep58",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep59",
+            "ep": "EP59",
+            "title": "第 59 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep59",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep60",
+            "ep": "EP60",
+            "title": "第 60 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep60",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep61",
+            "ep": "EP61",
+            "title": "第 61 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep61",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep62",
+            "ep": "EP62",
+            "title": "第 62 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep62",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep63",
+            "ep": "EP63",
+            "title": "第 63 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep63",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep64",
+            "ep": "EP64",
+            "title": "第 64 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep64",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep65",
+            "ep": "EP65",
+            "title": "第 65 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep65",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep66",
+            "ep": "EP66",
+            "title": "第 66 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep66",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep67",
+            "ep": "EP67",
+            "title": "第 67 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep67",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep68",
+            "ep": "EP68",
+            "title": "第 68 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep68",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep69",
+            "ep": "EP69",
+            "title": "第 69 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep69",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep70",
+            "ep": "EP70",
+            "title": "第 70 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep70",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep71",
+            "ep": "EP71",
+            "title": "第 71 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep71",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep72",
+            "ep": "EP72",
+            "title": "第 72 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep72",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep73",
+            "ep": "EP73",
+            "title": "第 73 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep73",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep74",
+            "ep": "EP74",
+            "title": "第 74 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep74",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep75",
+            "ep": "EP75",
+            "title": "第 75 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep75",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep76",
+            "ep": "EP76",
+            "title": "第 76 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep76",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep77",
+            "ep": "EP77",
+            "title": "第 77 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep77",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep78",
+            "ep": "EP78",
+            "title": "第 78 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep78",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep79",
+            "ep": "EP79",
+            "title": "第 79 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep79",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep80",
+            "ep": "EP80",
+            "title": "第 80 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep80",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep81",
+            "ep": "EP81",
+            "title": "第 81 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep81",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep82",
+            "ep": "EP82",
+            "title": "第 82 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep82",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep83",
+            "ep": "EP83",
+            "title": "第 83 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep83",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep84",
+            "ep": "EP84",
+            "title": "第 84 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep84",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep85",
+            "ep": "EP85",
+            "title": "第 85 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep85",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep86",
+            "ep": "EP86",
+            "title": "第 86 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep86",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep87",
+            "ep": "EP87",
+            "title": "第 87 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep87",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep88",
+            "ep": "EP88",
+            "title": "第 88 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep88",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep89",
+            "ep": "EP89",
+            "title": "第 89 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep89",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep90",
+            "ep": "EP90",
+            "title": "第 90 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep90",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep91",
+            "ep": "EP91",
+            "title": "第 91 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep91",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep92",
+            "ep": "EP92",
+            "title": "第 92 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep92",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep93",
+            "ep": "EP93",
+            "title": "第 93 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep93",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep94",
+            "ep": "EP94",
+            "title": "第 94 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep94",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep95",
+            "ep": "EP95",
+            "title": "第 95 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep95",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep96",
+            "ep": "EP96",
+            "title": "第 96 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep96",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep97",
+            "ep": "EP97",
+            "title": "第 97 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep97",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep98",
+            "ep": "EP98",
+            "title": "第 98 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep98",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep99",
+            "ep": "EP99",
+            "title": "第 99 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep99",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep100",
+            "ep": "EP100",
+            "title": "第 100 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep100",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep101",
+            "ep": "EP101",
+            "title": "第 101 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep101",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep102",
+            "ep": "EP102",
+            "title": "第 102 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep102",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep103",
+            "ep": "EP103",
+            "title": "第 103 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep103",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep104",
+            "ep": "EP104",
+            "title": "第 104 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep104",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep105",
+            "ep": "EP105",
+            "title": "第 105 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep105",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep106",
+            "ep": "EP106",
+            "title": "第 106 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep106",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep107",
+            "ep": "EP107",
+            "title": "第 107 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep107",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep108",
+            "ep": "EP108",
+            "title": "第 108 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep108",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep109",
+            "ep": "EP109",
+            "title": "第 109 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep109",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep110",
+            "ep": "EP110",
+            "title": "第 110 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep110",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep111",
+            "ep": "EP111",
+            "title": "第 111 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep111",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep112",
+            "ep": "EP112",
+            "title": "第 112 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep112",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep113",
+            "ep": "EP113",
+            "title": "第 113 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep113",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep114",
+            "ep": "EP114",
+            "title": "第 114 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep114",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep115",
+            "ep": "EP115",
+            "title": "第 115 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep115",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep116",
+            "ep": "EP116",
+            "title": "第 116 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep116",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep117",
+            "ep": "EP117",
+            "title": "第 117 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep117",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep118",
+            "ep": "EP118",
+            "title": "第 118 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep118",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep119",
+            "ep": "EP119",
+            "title": "第 119 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep119",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
+      },
+      {
+            "id": "ep120",
+            "ep": "EP120",
+            "title": "第 120 集",
+            "topic": "待更新",
+            "season": "待更新季度",
+            "seasonTitle": "待更新",
+            "category": "科學探究",
+            "link": "reader.html?ep=ep120",
+            "icon": "✨",
+            "style": "card-tech",
+            "status": "hidden"
       },
-
-      {
-        ep: "EP49",
-        title: "水為什麼會變成冰和水蒸氣？",
-        topic: "固體、液體、氣體、物態變化",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep49.html",
-        icon: "🧊",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP50",
-        title: "空氣真的存在嗎？",
-        topic: "空氣、佔空間、有重量",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep50.html",
-        icon: "💨",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP51",
-        title: "糖溶在水裡去了哪裡？",
-        topic: "溶解、溶質、溶劑",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep51.html",
-        icon: "🥄",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP52",
-        title: "鹽水怎樣變回鹽？",
-        topic: "蒸發、結晶",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep52.html",
-        icon: "🧂",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP53",
-        title: "怎樣分開混合物？",
-        topic: "過濾、篩分、磁力分離",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep53.html",
-        icon: "🧪",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP54",
-        title: "物件為什麼會浮或沉？",
-        topic: "浮沉、材料、密度概念",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep54.html",
-        icon: "🛟",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP55",
-        title: "材料有什麼不同？",
-        topic: "硬度、彈性、吸水性",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep55.html",
-        icon: "🧱",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP56",
-        title: "紙、金屬、塑膠有什麼用途？",
-        topic: "物料特性與用途",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep56.html",
-        icon: "📦",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP57",
-        title: "為什麼鐵會生鏽？",
-        topic: "氧氣、水、鏽蝕",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep57.html",
-        icon: "🔩",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP58",
-        title: "食物為什麼會變壞？",
-        topic: "腐壞、微生物、保存",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep58.html",
-        icon: "🍞",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP59",
-        title: "煮蛋為什麼不能變回生蛋？",
-        topic: "可逆變化、不可逆變化",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep59.html",
-        icon: "🥚",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP60",
-        title: "燃燒需要什麼？",
-        topic: "燃燒三要素",
-        season: "第五季",
-        seasonTitle: "物質變變變",
-        category: "物質與能量",
-        link: "ep60.html",
-        icon: "🔥",
-        style: "card-matter",
-        status: "hidden"
-      },
-
-      {
-        ep: "EP61",
-        title: "火為什麼危險？",
-        topic: "火警安全、燃燒、滅火",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep61.html",
-        icon: "🚒",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP62",
-        title: "熱會怎樣傳開？",
-        topic: "傳導、對流、輻射",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep62.html",
-        icon: "♨️",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP63",
-        title: "為什麼保溫瓶能保溫？",
-        topic: "熱傳遞、保溫設計",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep63.html",
-        icon: "🫙",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP64",
-        title: "光是怎樣走的？",
-        topic: "光的直線傳播",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep64.html",
-        icon: "💡",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP65",
-        title: "影子為什麼會變？",
-        topic: "光源、遮擋、距離",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep65.html",
-        icon: "🌗",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP66",
-        title: "鏡子為什麼會反光？",
-        topic: "反射、鏡面",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep66.html",
-        icon: "🪞",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP67",
-        title: "聲音是怎樣產生的？",
-        topic: "振動、聲音",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep67.html",
-        icon: "🎵",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP68",
-        title: "聲音怎樣傳到耳朵？",
-        topic: "聲音傳播、介質",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep68.html",
-        icon: "📣",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP69",
-        title: "磁石為什麼會吸東西？",
-        topic: "磁力、磁極",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep69.html",
-        icon: "🧲",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP70",
-        title: "電從哪裡來？",
-        topic: "電源、電能",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep70.html",
-        icon: "⚡",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP71",
-        title: "燈泡為什麼會亮？",
-        topic: "簡單電路",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep71.html",
-        icon: "🔦",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP72",
-        title: "為什麼不能亂玩插座？",
-        topic: "用電安全",
-        season: "第六季",
-        seasonTitle: "光、聲、熱、電、磁",
-        category: "物質與能量",
-        link: "ep72.html",
-        icon: "🔌",
-        style: "card-matter",
-        status: "hidden"
-      },
-
-      {
-        ep: "EP73",
-        title: "能量會變身嗎？",
-        topic: "能量轉換",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep73.html",
-        icon: "🔋",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP74",
-        title: "玩具車為什麼會動？",
-        topic: "能量、力與運動",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep74.html",
-        icon: "🚗",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP75",
-        title: "為什麼會摩擦？",
-        topic: "摩擦力",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep75.html",
-        icon: "🛞",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP76",
-        title: "怎樣令物件動得更快或更慢？",
-        topic: "推拉、力、速度",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep76.html",
-        icon: "🏎️",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP77",
-        title: "為什麼東西會掉下來？",
-        topic: "重力",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep77.html",
-        icon: "🍎",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP78",
-        title: "推和拉有什麼不同？",
-        topic: "力的作用",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep78.html",
-        icon: "👐",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP79",
-        title: "滑梯為什麼會滑？",
-        topic: "斜面、摩擦力",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep79.html",
-        icon: "🛝",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP80",
-        title: "船為什麼會浮起來？",
-        topic: "浮力、浮沉",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep80.html",
-        icon: "⛵",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP81",
-        title: "過山車為什麼不會掉下來？",
-        topic: "重力、速度、能量轉換",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "物質與能量",
-        link: "ep81.html",
-        icon: "🎢",
-        style: "card-matter",
-        status: "hidden"
-      },
-      {
-        ep: "EP82",
-        title: "橋為什麼不會塌？",
-        topic: "結構、支撐、承重",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "科技與工程",
-        link: "ep82.html",
-        icon: "🌉",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP83",
-        title: "高樓為什麼站得穩？",
-        topic: "重心、地基、抗風",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "科技與工程",
-        link: "ep83.html",
-        icon: "🏙️",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP84",
-        title: "升降機為什麼安全？",
-        topic: "滑輪、制動、安全裝置",
-        season: "第七季",
-        seasonTitle: "力與能量冒險",
-        category: "科技與工程",
-        link: "ep84.html",
-        icon: "🛗",
-        style: "card-tech",
-        status: "hidden"
-      },
-
-      {
-        ep: "EP85",
-        title: "地球裡面是什麼？",
-        topic: "地球結構",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep85.html",
-        icon: "🌍",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP86",
-        title: "石頭有什麼故事？",
-        topic: "岩石、礦物",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep86.html",
-        icon: "🪨",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP87",
-        title: "泥土從哪裡來？",
-        topic: "風化、泥土形成",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep87.html",
-        icon: "🌱",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP88",
-        title: "水去了哪裡？",
-        topic: "水循環",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep88.html",
-        icon: "💧",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP89",
-        title: "雲是怎樣形成的？",
-        topic: "蒸發、凝結、雲",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep89.html",
-        icon: "☁️",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP90",
-        title: "為什麼會下雨？",
-        topic: "降雨、水循環",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep90.html",
-        icon: "🌧️",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP91",
-        title: "風從哪裡來？",
-        topic: "空氣流動、氣壓概念",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep91.html",
-        icon: "🌬️",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP92",
-        title: "天氣預報怎樣來？",
-        topic: "氣象觀察、量度、天氣資料",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "科學探究",
-        link: "ep92.html",
-        icon: "📡",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP93",
-        title: "香港為什麼潮濕？",
-        topic: "濕度、季節、空氣中的水汽",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep93.html",
-        icon: "💦",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP94",
-        title: "回南天為什麼牆會出水？",
-        topic: "凝結、露點概念",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep94.html",
-        icon: "🧱",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP95",
-        title: "颱風是怎樣形成的？",
-        topic: "熱帶氣旋、氣壓、風",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep95.html",
-        icon: "🌀",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP96",
-        title: "山泥傾瀉為什麼會發生？",
-        topic: "雨水、斜坡、重力",
-        season: "第八季",
-        seasonTitle: "地球與天氣",
-        category: "地球與太空",
-        link: "ep96.html",
-        icon: "⛰️",
-        style: "card-earth",
-        status: "hidden"
-      },
-
-      {
-        ep: "EP97",
-        title: "地震為什麼會發生？",
-        topic: "地殼活動、地震",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep97.html",
-        icon: "🏚️",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP98",
-        title: "火山為什麼會爆發？",
-        topic: "火山活動、岩漿",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep98.html",
-        icon: "🌋",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP99",
-        title: "白天黑夜怎樣來？",
-        topic: "地球自轉",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep99.html",
-        icon: "🌗",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP100",
-        title: "為什麼會有四季？",
-        topic: "地球公轉、地軸",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep100.html",
-        icon: "🍂",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP101",
-        title: "月亮為什麼會變形？",
-        topic: "月相",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep101.html",
-        icon: "🌙",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP102",
-        title: "太陽對地球有多重要？",
-        topic: "太陽、能量、生命",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep102.html",
-        icon: "☀️",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP103",
-        title: "太陽系有什麼？",
-        topic: "太陽系、行星",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep103.html",
-        icon: "🪐",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP104",
-        title: "太空探測有什麼用？",
-        topic: "衛星、探測器、太空科技",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "科技與工程",
-        link: "ep104.html",
-        icon: "🛰️",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP105",
-        title: "海水為什麼會有潮汐？",
-        topic: "月球引力、潮汐",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep105.html",
-        icon: "🌊",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP106",
-        title: "地球會越來越熱嗎？",
-        topic: "全球暖化、溫室氣體",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep106.html",
-        icon: "🌡️",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP107",
-        title: "極端天氣為什麼變多？",
-        topic: "氣候變化、極端天氣",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep107.html",
-        icon: "⛈️",
-        style: "card-earth",
-        status: "hidden"
-      },
-      {
-        ep: "EP108",
-        title: "我們可以怎樣幫地球降溫？",
-        topic: "節能減碳、環保行動",
-        season: "第九季",
-        seasonTitle: "太空與地球變化",
-        category: "地球與太空",
-        link: "ep108.html",
-        icon: "🌱",
-        style: "card-earth",
-        status: "hidden"
-      },
-
-      {
-        ep: "EP109",
-        title: "科學家怎樣解決問題？",
-        topic: "觀察、提問、假設",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科學探究",
-        link: "ep109.html",
-        icon: "🔎",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP110",
-        title: "怎樣做一個公平測試？",
-        topic: "公平測試、只改變一個因素",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科學探究",
-        link: "ep110.html",
-        icon: "⚖️",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP111",
-        title: "怎樣觀察和記錄？",
-        topic: "觀察、量度、記錄",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科學探究",
-        link: "ep111.html",
-        icon: "📋",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP112",
-        title: "圖表怎樣幫我們看結果？",
-        topic: "表格、柱狀圖、折線圖",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科學探究",
-        link: "ep112.html",
-        icon: "📊",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP113",
-        title: "失敗的實驗有用嗎？",
-        topic: "改良、重複測試",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科學探究",
-        link: "ep113.html",
-        icon: "🔁",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP114",
-        title: "工程師怎樣設計好產品？",
-        topic: "工程設計、測試、改良",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科技與工程",
-        link: "ep114.html",
-        icon: "🛠️",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP115",
-        title: "自動門怎樣知道有人？",
-        topic: "感應器、輸入與輸出",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科技與工程",
-        link: "ep115.html",
-        icon: "🚪",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP116",
-        title: "機械人怎樣工作？",
-        topic: "感應器、控制、程式",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科技與工程",
-        link: "ep116.html",
-        icon: "🤖",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP117",
-        title: "AI 是什麼？",
-        topic: "人工智能、資料、模式",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科技與工程",
-        link: "ep117.html",
-        icon: "🧠",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP118",
-        title: "手機為什麼能傳訊息？",
-        topic: "訊號、通訊科技",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科技與工程",
-        link: "ep118.html",
-        icon: "📱",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP119",
-        title: "太陽能板怎樣發電？",
-        topic: "太陽能、能源轉換",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科技與工程",
-        link: "ep119.html",
-        icon: "☀️",
-        style: "card-tech",
-        status: "hidden"
-      },
-      {
-        ep: "EP120",
-        title: "小科學家畢業任務",
-        topic: "綜合探究、科學思維",
-        season: "第十季",
-        seasonTitle: "科技、工程與小科學家任務",
-        category: "科學探究",
-        link: "ep120.html",
-        icon: "🎓",
-        style: "card-tech",
-        status: "hidden"
-      }
-    ];
-
-    const episodeGrid = document.getElementById("episodeGrid");
-    const searchInput = document.getElementById("searchInput");
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const seasonButtons = document.querySelectorAll(".season-btn");
-    const emptyMessage = document.getElementById("emptyMessage");
-
-    let currentCategory = "全部";
-    let currentSeason = "全部";
-
-    function renderEpisodes() {
-      const keyword = searchInput.value.trim().toLowerCase();
-
-      const filteredEpisodes = episodes.filter((episode) => {
-        const isPublished = episode.status === "published";
-
-        const matchCategory =
-          currentCategory === "全部" || episode.category === currentCategory;
-
-        const matchSeason =
-          currentSeason === "全部" || episode.season === currentSeason;
-
-        const searchText = `
-          ${episode.ep}
-          ${episode.title}
-          ${episode.topic}
-          ${episode.category}
-          ${episode.season}
-          ${episode.seasonTitle}
-        `.toLowerCase();
-
-        const matchKeyword = searchText.includes(keyword);
-
-        return isPublished && matchCategory && matchSeason && matchKeyword;
-      });
-
-      episodeGrid.innerHTML = filteredEpisodes.map((episode) => {
-        return `
-          <a href="${episode.link}" class="episode-card ${episode.style}">
-            <div class="episode-icon">${episode.icon}</div>
-            <span class="season-name">${episode.season}｜${episode.seasonTitle}</span>
-            <div class="ep-badge">${episode.ep}</div>
-            <h2>${episode.title}</h2>
-            <p>${episode.topic}</p>
-            <span class="read-btn">📖 開始閱讀</span>
-          </a>
-        `;
-      }).join("");
-
-      emptyMessage.style.display = filteredEpisodes.length === 0 ? "block" : "none";
-    }
-
-    function updateStats() {
-      const publishedEpisodes = episodes.filter(
-        (episode) => episode.status === "published"
-      );
-
-      const firstEp = publishedEpisodes[0]?.ep || "EP--";
-      const lastEp = publishedEpisodes[publishedEpisodes.length - 1]?.ep || "EP--";
-
-      document.getElementById("publishedRange").textContent =
-        `${firstEp}–${lastEp}`;
-
-      document.getElementById("totalCount").textContent =
-        `${episodes.length}集`;
-
-      const latestEpisode = publishedEpisodes[publishedEpisodes.length - 1,
 {
   "id": "bonus-p4-people-12",
   "ep": "番外篇",
-  "title": "妹妹｜小四人民科｜第12課",
+
+  "title": "小四人民科｜第12課",
   "topic": "課本知識整理、重點溫習、生活應用",
   "season": "課本番外篇",
   "seasonTitle": "小四人民科",
@@ -2243,131 +1679,5 @@
   "icon": "📙",
   "style": "card-tech",
   "status": "published"
-},
-{
-  "id": "bonus-p4-science-12",
-  "ep": "番外篇",
-  "title": "小四科學科｜第12課",
-  "topic": "課本知識整理、重點溫習、生活應用",
-  "season": "課本番外篇",
-  "seasonTitle": "小四科學科",
-  "category": "課本番外篇",
-  "link": "reader.html?ep=bonus-p4-science-12",
-  "icon": "🔬",
-  "style": "card-tech",
-  "status": "published"
-},
-{
-  "id": "bonus-p4-science-13a",
-  "ep": "番外篇",
-  "title": "小四科學科｜第13課 上",
-  "topic": "課本知識整理、重點溫習、生活應用",
-  "season": "課本番外篇",
-  "seasonTitle": "小四科學科",
-  "category": "課本番外篇",
-  "link": "reader.html?ep=bonus-p4-science-13a",
-  "icon": "🔬",
-  "style": "card-tech",
-  "status": "published"
-},
-{
-  "id": "bonus-p4-science-13b",
-  "ep": "番外篇",
-  "title": "小四科學科｜第13課 下",
-  "topic": "課本知識整理、重點溫習、生活應用",
-  "season": "課本番外篇",
-  "seasonTitle": "小四科學科",
-  "category": "課本番外篇",
-  "link": "reader.html?ep=bonus-p4-science-13b",
-  "icon": "🔬",
-  "style": "card-tech",
-  "status": "published"
-},
-{
-  "id": "bonus-p4-science-14a",
-  "ep": "番外篇",
-  "title": "小四科學科｜第14課 上",
-  "topic": "課本知識整理、重點溫習、生活應用",
-  "season": "課本番外篇",
-  "seasonTitle": "小四科學科",
-  "category": "課本番外篇",
-  "link": "reader.html?ep=bonus-p4-science-14a",
-  "icon": "🧪",
-  "style": "card-tech",
-  "status": "published"
-},
-{
-  "id": "bonus-p4-science-14b",
-  "ep": "番外篇",
-  "title": "小四科學科｜第14課 下",
-  "topic": "課本知識整理、重點溫習、生活應用",
-  "season": "課本番外篇",
-  "seasonTitle": "小四科學科",
-  "category": "課本番外篇",
-  "link": "reader.html?ep=bonus-p4-science-14b",
-  "icon": "🧪",
-  "style": "card-tech",
-  "status": "published"
-},
-{
-  "id": "bonus-p4-science-water-a",
-  "ep": "番外篇",
-  "title": "小四科學科｜水的探究 上",
-  "topic": "課本知識整理、重點溫習、生活應用",
-  "season": "課本番外篇",
-  "seasonTitle": "小四科學科",
-  "category": "課本番外篇",
-  "link": "reader.html?ep=bonus-p4-science-water-a",
-  "icon": "💧",
-  "style": "card-tech",
-  "status": "published"
-},
-{
-  "id": "bonus-p4-science-water-b",
-  "ep": "番外篇",
-  "title": "小四科學科｜水的探究 下",
-  "topic": "課本知識整理、重點溫習、生活應用",
-  "season": "課本番外篇",
-  "seasonTitle": "小四科學科",
-  "category": "課本番外篇",
-  "link": "reader.html?ep=bonus-p4-science-water-b",
-  "icon": "💧",
-  "style": "card-tech",
-  "status": "published"
 }
-];
-
-      if (latestEpisode) {
-        document.getElementById("latestTitle").textContent =
-          `⭐ 最新更新：${latestEpisode.ep}`;
-
-        document.getElementById("latestDescription").textContent =
-          `《${latestEpisode.title}》｜${latestEpisode.topic}。點擊上方集數卡片即可開始閱讀。`;
-      }
-    }
-
-    searchInput.addEventListener("input", renderEpisodes);
-
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-        currentCategory = button.dataset.category;
-        renderEpisodes();
-      });
-    });
-
-    seasonButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        seasonButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-        currentSeason = button.dataset.season;
-        renderEpisodes();
-      });
-    });
-
-    updateStats();
-    renderEpisodes();
-  </script>
-</body>
-</html>
+];let currentCategory="全部",currentSeason="全部";const grid=document.getElementById("episodeGrid"),searchInput=document.getElementById("searchInput"),empty=document.getElementById("emptyMessage");function renderEpisodes(){const kw=searchInput.value.trim().toLowerCase();const filtered=episodes.filter(e=>e.status==="published"&&(currentCategory==="全部"||e.category===currentCategory)&&(currentSeason==="全部"||e.season===currentSeason)&&`${e.ep} ${e.title} ${e.topic} ${e.category} ${e.season} ${e.seasonTitle}`.toLowerCase().includes(kw));grid.innerHTML=filtered.map(e=>`<a href="${e.link}" class="episode-card ${e.style}"><div class="episode-icon">${e.icon}</div><span class="season-name">${e.season}｜${e.seasonTitle}</span><div class="ep-badge">${e.ep}</div><h2>${e.title}</h2><p>${e.topic}</p><span class="read-btn">📖 開始閱讀</span></a>`).join("");empty.style.display=filtered.length?"none":"block";const pub=episodes.filter(e=>e.status==="published");document.getElementById("publishedRange").textContent=`${pub[0]?.ep||"EP--"}–${pub[pub.length-1]?.ep||"EP--"}`;}searchInput.addEventListener("input",renderEpisodes);document.querySelectorAll(".filter-btn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentCategory=b.dataset.category;renderEpisodes();}));document.querySelectorAll(".season-btn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".season-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentSeason=b.dataset.season;renderEpisodes();}));renderEpisodes();</script></body></html>
