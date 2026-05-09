@@ -1568,7 +1568,7 @@ const EPISODES_DATA = [
   "seasonTitle": "小四人民科",
   "status": "published",
   "folder": "comics/bonus-p4-people-12/",
-  "pageCount": 15,
+  "pageCount": 22,
   "filePrefix": "",
   "fileExt": "png"
 },
