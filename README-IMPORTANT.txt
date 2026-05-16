@@ -1,27 +1,20 @@
 更新內容：
 
-1. Filter 已把番外篇分為「人文科番外篇」和「科學科番外篇」。
-2. 人文科第14課上下集已轉為 hidden。
-3. 人文科番外篇已按課號排序。
-4. reader.html 保留圖片 fallback，版本號改為 episodes-data.js?v=210。
+1. 已加入基本防右鍵儲存圖片功能：
+   - 對圖片按右鍵不會彈出瀏覽器選單
+   - 圖片不能拖拉儲存
+   - 手機 / iPad 長按圖片的 callout 會盡量被阻止
+   - reader.html 額外阻止 Ctrl+S / Cmd+S 的簡單儲存頁面動作
 
-人文科顯示順序：
-- 小四人文科｜第10課 上
-- 小四人文科｜第10課 下
-- 小四人文科｜第11課 上
-- 小四人文科｜第11課 下
-- 妹妹｜小四人文科｜第12課
-- 小四人文科｜第13課 上
-- 小四人文科｜第13課 下
-- 小四人文科｜第15課 上
-- 小四人文科｜第15課 下
-- 小四人文科｜第16課
+2. 已更新檔案：
+   - index.html
+   - science-notes.html
+   - reader.html
 
-已隱藏：
-- 小四人文科｜第14課 上
-- 小四人文科｜第14課 下
+3. episodes-data.js 沒有內容改動，只一併放入 ZIP 方便整包覆蓋。
 
-科學科顯示數量：7
+注意：
+這只能防止一般讀者右鍵另存圖片，不能 100% 防止截圖、瀏覽器開發者工具、下載網頁資源或手機截圖。
 
 Commit summary:
-Split bonus filters and sort humanities episodes
+Add basic image save protection
