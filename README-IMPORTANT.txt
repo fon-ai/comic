@@ -1,19 +1,27 @@
-這版按最後成功的 rebuilt_from_fixed_reader_with_fallback_ep27.zip 修改。
-reader.html 保留 fixed_reader_with_fallback 的 candidateImageSrcs 圖片 fallback 功能。
+更新內容：
 
-更新：
-1. 全站顯示文字已由「人民科」改為「人文科」。
-   舊 id / folder 如 bonus-p4-people-10a 保留不改，避免已上傳圖片資料夾失效。
-2. 新增：
-   - bonus-p4-humanities-15a｜小四人文科｜第15課 上｜14頁
-   - bonus-p4-humanities-15b｜小四人文科｜第15課 下｜14頁
-3. 確認：
-   - EP27｜種子怎樣去旅行？｜種子傳播、風、水、動物｜24頁
-4. reader.html 已改成 episodes-data.js?v=200
+1. Filter 已把番外篇分為「人文科番外篇」和「科學科番外篇」。
+2. 人文科第14課上下集已轉為 hidden。
+3. 人文科番外篇已按課號排序。
+4. reader.html 保留圖片 fallback，版本號改為 episodes-data.js?v=210。
 
-新圖片資料夾：
-comics/bonus-p4-humanities-15a/01.png 至 14.png
-comics/bonus-p4-humanities-15b/01.png 至 14.png
+人文科顯示順序：
+- 小四人文科｜第10課 上
+- 小四人文科｜第10課 下
+- 小四人文科｜第11課 上
+- 小四人文科｜第11課 下
+- 妹妹｜小四人文科｜第12課
+- 小四人文科｜第13課 上
+- 小四人文科｜第13課 下
+- 小四人文科｜第15課 上
+- 小四人文科｜第15課 下
+- 小四人文科｜第16課
+
+已隱藏：
+- 小四人文科｜第14課 上
+- 小四人文科｜第14課 下
+
+科學科顯示數量：7
 
 Commit summary:
-Add P4 humanities lesson 15 bonus episodes
+Split bonus filters and sort humanities episodes
