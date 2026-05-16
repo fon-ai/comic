@@ -50,2407 +50,2768 @@
       user-select: none;
     }
 
-</style></head><body><div class="page"><header class="site-header"><div class="logo">科學<span>探險隊</span> ✨</div><nav class="nav"><a href="index.html">首頁</a><a href="index.html">漫畫目錄</a><a href="characters.html">角色介紹</a><a href="science-notes.html" class="active">科學小知識</a><a href="#">關於我們</a></nav></header><section class="hero"><div class="hero-inner"><div><div class="hero-label">科學小知識</div><h1>小Q知識庫</h1><p>每集看完漫畫後，可以來這裡重溫核心概念、小任務和生活應用。</p></div><div class="hero-mascot"><img src="images/xiaoq.png" alt="小Q"><strong>小Q：資料投影準備好！</strong></div></div></section><section class="info-strip"><div class="info-box">目前小知識<strong id="notesCount">20集</strong></div><div class="info-box">每集重點<strong>2–3 個概念</strong></div><div class="info-box">全系列已預備<strong>120集</strong></div></section><section class="controls"><input id="searchInput" class="search-box" placeholder="搜尋小知識，例如：消化、氧氣、心臟、近視"/><div class="filters"><button class="filter-btn active" data-category="全部">全部</button><button class="filter-btn" data-category="身體系統">身體系統</button><button class="filter-btn" data-category="健康習慣">健康習慣</button><button class="filter-btn" data-category="免疫防護">免疫防護</button><button class="filter-btn" data-category="生命與環境">生命與環境</button><button class="filter-btn" data-category="物質與能量">物質與能量</button><button class="filter-btn" data-category="地球與太空">地球與太空</button><button class="filter-btn" data-category="科技與工程">科技與工程</button><button class="filter-btn" data-category="科學探究">科學探究</button></div></section><h2 class="section-title">📘 已推出小知識</h2><main id="notesGrid" class="notes-grid"></main><div id="emptyMessage" class="empty-message">暫時未有符合條件的小知識。</div><footer>科學探險隊｜探索科學・啟發好奇・一齊冒險</footer></div><script>const notes=[
-      {
-            "id": "ep01",
-            "ep": "EP01",
-            "title": "食物去了哪裡？",
-            "topic": "消化系統",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep01",
-            "icon": "🍎",
-            "style": "life",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「消化系統」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「消化系統」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「消化系統」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep02",
-            "ep": "EP02",
-            "title": "我們為什麼要呼吸？",
-            "topic": "呼吸系統",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep02",
-            "icon": "🫁",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「呼吸系統」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「呼吸系統」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「呼吸系統」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep03",
-            "ep": "EP03",
-            "title": "心臟為什麼一直跳？",
-            "topic": "循環系統",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep03",
-            "icon": "❤️",
-            "style": "life",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「循環系統」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「循環系統」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「循環系統」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep04",
-            "ep": "EP04",
-            "title": "骨頭和肌肉怎樣幫我們動？",
-            "topic": "骨骼、肌肉、關節",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep04",
-            "icon": "🦴",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「骨骼、肌肉、關節」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「骨骼」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「骨骼」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep05",
-            "ep": "EP05",
-            "title": "為什麼會生病？",
-            "topic": "病菌、免疫、預防感染",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "免疫防護",
-            "link": "reader.html?ep=ep05",
-            "icon": "🦠",
-            "style": "health",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「病菌、免疫、預防感染」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「病菌」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「病菌」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep06",
-            "ep": "EP06",
-            "title": "身體怎樣保護自己？",
-            "topic": "皮膚、白血球、免疫防線",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "免疫防護",
-            "link": "reader.html?ep=ep06",
-            "icon": "🛡️",
-            "style": "health",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「皮膚、白血球、免疫防線」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「皮膚」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「皮膚」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep07",
-            "ep": "EP07",
-            "title": "為什麼要洗手？",
-            "topic": "微生物、傳播、衛生習慣",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep07",
-            "icon": "🫧",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「微生物、傳播、衛生習慣」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「微生物」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「微生物」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep08",
-            "ep": "EP08",
-            "title": "發燒是不是壞事？",
-            "topic": "體溫、免疫反應",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "免疫防護",
-            "link": "reader.html?ep=ep08",
-            "icon": "🌡️",
-            "style": "life",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「體溫、免疫反應」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「體溫」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「體溫」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep09",
-            "ep": "EP09",
-            "title": "為什麼要睡覺？",
-            "topic": "睡眠、大腦、身體修復",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep09",
-            "icon": "🌙",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「睡眠、大腦、身體修復」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「睡眠」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「睡眠」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep10",
-            "ep": "EP10",
-            "title": "為什麼要均衡飲食？",
-            "topic": "營養、食物種類、健康",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep10",
-            "icon": "🥗",
-            "style": "health",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「營養、食物種類、健康」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「營養」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「營養」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep11",
-            "ep": "EP11",
-            "title": "為什麼要飲水？",
-            "topic": "水分、身體平衡",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep11",
-            "icon": "💧",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「水分、身體平衡」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「水分」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「水分」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep12",
-            "ep": "EP12",
-            "title": "為什麼會流汗？",
-            "topic": "體溫調節",
-            "season": "第一季",
-            "seasonTitle": "身體大冒險",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep12",
-            "icon": "💦",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「體溫調節」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「體溫調節」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「體溫調節」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep13",
-            "ep": "EP13",
-            "title": "眼睛怎樣看見東西？",
-            "topic": "眼睛、光、保護視力",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep13",
-            "icon": "👀",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「眼睛、光、保護視力」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「眼睛」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「眼睛」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep14",
-            "ep": "EP14",
-            "title": "耳朵怎樣聽見聲音？",
-            "topic": "耳朵、聲音、保護聽覺",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep14",
-            "icon": "👂",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「耳朵、聲音、保護聽覺」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「耳朵」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「耳朵」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep15",
-            "ep": "EP15",
-            "title": "牙齒為什麼會蛀？",
-            "topic": "牙齒、細菌、口腔衛生",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep15",
-            "icon": "🦷",
-            "style": "health",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「牙齒、細菌、口腔衛生」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「牙齒」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「牙齒」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep16",
-            "ep": "EP16",
-            "title": "為什麼會覺得痛、冷、熱？",
-            "topic": "皮膚感覺、神經、保護反應",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep16",
-            "icon": "✋",
-            "style": "health",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「皮膚感覺、神經、保護反應」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「皮膚感覺」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「皮膚感覺」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep17",
-            "ep": "EP17",
-            "title": "大腦怎樣指揮身體？",
-            "topic": "大腦、神經、身體控制",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep17",
-            "icon": "🧠",
-            "style": "life",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「大腦、神經、身體控制」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「大腦」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「大腦」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep18",
-            "ep": "EP18",
-            "title": "為什麼會有情緒？",
-            "topic": "大腦、荷爾蒙、情緒管理",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep18",
-            "icon": "😊",
-            "style": "life",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「大腦、荷爾蒙、情緒管理」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「大腦」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「大腦」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep19",
-            "ep": "EP19",
-            "title": "為什麼會頭暈？",
-            "topic": "平衡感、內耳、身體訊號",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "身體系統",
-            "link": "reader.html?ep=ep19",
-            "icon": "🌀",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「平衡感、內耳、身體訊號」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「平衡感」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「平衡感」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep20",
-            "ep": "EP20",
-            "title": "為什麼會近視？",
-            "topic": "眼球、光線、用眼習慣",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep20",
-            "icon": "👓",
-            "style": "body",
-            "status": "published",
-            "summary": "這一集會用故事和圖解認識「眼球、光線、用眼習慣」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「眼球」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「眼球」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep21",
-            "ep": "EP21",
-            "title": "為什麼會過敏？",
-            "topic": "免疫反應、致敏原",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "免疫防護",
-            "link": "reader.html?ep=ep21",
-            "icon": "🌼",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「免疫反應、致敏原」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「免疫反應」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「免疫反應」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep22",
-            "ep": "EP22",
-            "title": "傷口為什麼會結痂？",
-            "topic": "皮膚修復、血液凝固",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "免疫防護",
-            "link": "reader.html?ep=ep22",
-            "icon": "🩹",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「皮膚修復、血液凝固」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「皮膚修復」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「皮膚修復」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep23",
-            "ep": "EP23",
-            "title": "青春期身體為什麼會改變？",
-            "topic": "成長、青春期、尊重身體",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep23",
-            "icon": "🌱",
-            "style": "life",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「成長、青春期、尊重身體」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「成長」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「成長」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep24",
-            "ep": "EP24",
-            "title": "怎樣保持身心健康？",
-            "topic": "運動、睡眠、情緒、生活習慣",
-            "season": "第二季",
-            "seasonTitle": "感官與健康",
-            "category": "健康習慣",
-            "link": "reader.html?ep=ep24",
-            "icon": "🌈",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「運動、睡眠、情緒、生活習慣」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「運動」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「運動」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep25",
-            "ep": "EP25",
-            "title": "植物為什麼需要陽光？",
-            "topic": "植物、光、水、空氣",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep25",
-            "icon": "🌞",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「植物、光、水、空氣」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「植物」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「植物」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep26",
-            "ep": "EP26",
-            "title": "種子怎樣長成植物？",
-            "topic": "種子、發芽、植物生長",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep26",
-            "icon": "🌱",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「種子、發芽、植物生長」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「種子」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「種子」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep27",
-            "ep": "EP27",
-            "title": "花為什麼會結果？",
-            "topic": "開花植物、授粉、繁殖",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep27",
-            "icon": "🌸",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「開花植物、授粉、繁殖」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「開花植物」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「開花植物」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep28",
-            "ep": "EP28",
-            "title": "植物怎樣喝水？",
-            "topic": "根、莖、葉、運輸水分",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep28",
-            "icon": "🌿",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「根、莖、葉、運輸水分」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「根」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「根」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep29",
-            "ep": "EP29",
-            "title": "葉子為什麼重要？",
-            "topic": "葉、光合作用、製造養分",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep29",
-            "icon": "🍃",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「葉、光合作用、製造養分」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「葉」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「葉」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep30",
-            "ep": "EP30",
-            "title": "動物有什麼共同特徵？",
-            "topic": "動物分類、生命特徵",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep30",
-            "icon": "🐾",
-            "style": "life",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「動物分類、生命特徵」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「動物分類」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「動物分類」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep31",
-            "ep": "EP31",
-            "title": "昆蟲是不是動物？",
-            "topic": "昆蟲特徵、分類",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep31",
-            "icon": "🐞",
-            "style": "life",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「昆蟲特徵、分類」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「昆蟲特徵」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「昆蟲特徵」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep32",
-            "ep": "EP32",
-            "title": "魚為什麼能在水中生活？",
-            "topic": "魚、鰓、適應環境",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep32",
-            "icon": "🐟",
-            "style": "body",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「魚、鰓、適應環境」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「魚」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「魚」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep33",
-            "ep": "EP33",
-            "title": "鳥為什麼會飛？",
-            "topic": "鳥類、羽毛、身體結構",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep33",
-            "icon": "🐦",
-            "style": "body",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「鳥類、羽毛、身體結構」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「鳥類」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「鳥類」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep34",
-            "ep": "EP34",
-            "title": "動物怎樣保護自己？",
-            "topic": "保護色、防禦、適應",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep34",
-            "icon": "🦎",
-            "style": "life",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「保護色、防禦、適應」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「保護色」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「保護色」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep35",
-            "ep": "EP35",
-            "title": "什麼是棲息地？",
-            "topic": "生境、生物需要",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep35",
-            "icon": "🏡",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「生境、生物需要」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「生境」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「生境」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep36",
-            "ep": "EP36",
-            "title": "食物鏈是什麼？",
-            "topic": "生產者、消費者、食物鏈",
-            "season": "第三季",
-            "seasonTitle": "植物與動物世界",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep36",
-            "icon": "🔗",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「生產者、消費者、食物鏈」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「生產者」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「生產者」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep37",
-            "ep": "EP37",
-            "title": "如果一種動物消失會怎樣？",
-            "topic": "生態平衡、食物網",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep37",
-            "icon": "🕸️",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「生態平衡、食物網」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「生態平衡」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「生態平衡」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep38",
-            "ep": "EP38",
-            "title": "微生物都是壞的嗎？",
-            "topic": "有益微生物、有害微生物",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep38",
-            "icon": "🧫",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「有益微生物、有害微生物」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「有益微生物」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「有益微生物」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep39",
-            "ep": "EP39",
-            "title": "蜜蜂為什麼重要？",
-            "topic": "授粉、生態角色",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep39",
-            "icon": "🐝",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「授粉、生態角色」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「授粉」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「授粉」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep40",
-            "ep": "EP40",
-            "title": "森林為什麼像一個家？",
-            "topic": "森林生態系、棲息地",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep40",
-            "icon": "🌳",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「森林生態系、棲息地」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「森林生態系」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「森林生態系」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep41",
-            "ep": "EP41",
-            "title": "海洋裡有什麼秘密？",
-            "topic": "海洋生態、食物鏈",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep41",
-            "icon": "🌊",
-            "style": "body",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「海洋生態、食物鏈」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「海洋生態」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「海洋生態」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep42",
-            "ep": "EP42",
-            "title": "動物怎樣適應環境？",
-            "topic": "適應、身體特徵、行為",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep42",
-            "icon": "🦊",
-            "style": "life",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「適應、身體特徵、行為」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「適應」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「適應」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep43",
-            "ep": "EP43",
-            "title": "植物怎樣適應環境？",
-            "topic": "植物適應、環境條件",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep43",
-            "icon": "🌵",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「植物適應、環境條件」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「植物適應」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「植物適應」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep44",
-            "ep": "EP44",
-            "title": "人類怎樣影響生態？",
-            "topic": "人類活動、環境影響",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep44",
-            "icon": "🏙️",
-            "style": "earth",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「人類活動、環境影響」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「人類活動」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「人類活動」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep45",
-            "ep": "EP45",
-            "title": "保護生物多樣性有什麼用？",
-            "topic": "生物多樣性、保育",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep45",
-            "icon": "🦋",
-            "style": "health",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「生物多樣性、保育」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「生物多樣性」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「生物多樣性」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep46",
-            "ep": "EP46",
-            "title": "寵物需要什麼照顧？",
-            "topic": "動物需要、責任",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "生命與環境",
-            "link": "reader.html?ep=ep46",
-            "icon": "🐱",
-            "style": "life",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「動物需要、責任」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「動物需要」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「動物需要」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep47",
-            "ep": "EP47",
-            "title": "怎樣觀察小生物？",
-            "topic": "觀察、記錄、分類",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep47",
-            "icon": "🔍",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「觀察、記錄、分類」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「觀察」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「觀察」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep48",
-            "ep": "EP48",
-            "title": "小小生態任務：建一個迷你生境",
-            "topic": "生態系統、探究活動",
-            "season": "第四季",
-            "seasonTitle": "生態與生命關係",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep48",
-            "icon": "🪴",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「生態系統、探究活動」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「生態系統」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「生態系統」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep49",
-            "ep": "EP49",
-            "title": "第 49 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep49",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep50",
-            "ep": "EP50",
-            "title": "第 50 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep50",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep51",
-            "ep": "EP51",
-            "title": "第 51 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep51",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep52",
-            "ep": "EP52",
-            "title": "第 52 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep52",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep53",
-            "ep": "EP53",
-            "title": "第 53 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep53",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep54",
-            "ep": "EP54",
-            "title": "第 54 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep54",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep55",
-            "ep": "EP55",
-            "title": "第 55 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep55",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep56",
-            "ep": "EP56",
-            "title": "第 56 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep56",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep57",
-            "ep": "EP57",
-            "title": "第 57 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep57",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep58",
-            "ep": "EP58",
-            "title": "第 58 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep58",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep59",
-            "ep": "EP59",
-            "title": "第 59 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep59",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep60",
-            "ep": "EP60",
-            "title": "第 60 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep60",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep61",
-            "ep": "EP61",
-            "title": "第 61 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep61",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep62",
-            "ep": "EP62",
-            "title": "第 62 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep62",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep63",
-            "ep": "EP63",
-            "title": "第 63 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep63",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep64",
-            "ep": "EP64",
-            "title": "第 64 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep64",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep65",
-            "ep": "EP65",
-            "title": "第 65 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep65",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep66",
-            "ep": "EP66",
-            "title": "第 66 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep66",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep67",
-            "ep": "EP67",
-            "title": "第 67 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep67",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep68",
-            "ep": "EP68",
-            "title": "第 68 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep68",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep69",
-            "ep": "EP69",
-            "title": "第 69 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep69",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep70",
-            "ep": "EP70",
-            "title": "第 70 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep70",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep71",
-            "ep": "EP71",
-            "title": "第 71 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep71",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep72",
-            "ep": "EP72",
-            "title": "第 72 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep72",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep73",
-            "ep": "EP73",
-            "title": "第 73 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep73",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep74",
-            "ep": "EP74",
-            "title": "第 74 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep74",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep75",
-            "ep": "EP75",
-            "title": "第 75 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep75",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep76",
-            "ep": "EP76",
-            "title": "第 76 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep76",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep77",
-            "ep": "EP77",
-            "title": "第 77 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep77",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep78",
-            "ep": "EP78",
-            "title": "第 78 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep78",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep79",
-            "ep": "EP79",
-            "title": "第 79 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep79",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep80",
-            "ep": "EP80",
-            "title": "第 80 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep80",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep81",
-            "ep": "EP81",
-            "title": "第 81 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep81",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep82",
-            "ep": "EP82",
-            "title": "第 82 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep82",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep83",
-            "ep": "EP83",
-            "title": "第 83 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep83",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep84",
-            "ep": "EP84",
-            "title": "第 84 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep84",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep85",
-            "ep": "EP85",
-            "title": "第 85 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep85",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep86",
-            "ep": "EP86",
-            "title": "第 86 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep86",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep87",
-            "ep": "EP87",
-            "title": "第 87 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep87",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep88",
-            "ep": "EP88",
-            "title": "第 88 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep88",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep89",
-            "ep": "EP89",
-            "title": "第 89 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep89",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep90",
-            "ep": "EP90",
-            "title": "第 90 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep90",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep91",
-            "ep": "EP91",
-            "title": "第 91 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep91",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep92",
-            "ep": "EP92",
-            "title": "第 92 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep92",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep93",
-            "ep": "EP93",
-            "title": "第 93 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep93",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep94",
-            "ep": "EP94",
-            "title": "第 94 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep94",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep95",
-            "ep": "EP95",
-            "title": "第 95 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep95",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep96",
-            "ep": "EP96",
-            "title": "第 96 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep96",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep97",
-            "ep": "EP97",
-            "title": "第 97 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep97",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep98",
-            "ep": "EP98",
-            "title": "第 98 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep98",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep99",
-            "ep": "EP99",
-            "title": "第 99 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep99",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep100",
-            "ep": "EP100",
-            "title": "第 100 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep100",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep101",
-            "ep": "EP101",
-            "title": "第 101 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep101",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep102",
-            "ep": "EP102",
-            "title": "第 102 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep102",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep103",
-            "ep": "EP103",
-            "title": "第 103 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep103",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep104",
-            "ep": "EP104",
-            "title": "第 104 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep104",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep105",
-            "ep": "EP105",
-            "title": "第 105 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep105",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep106",
-            "ep": "EP106",
-            "title": "第 106 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep106",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep107",
-            "ep": "EP107",
-            "title": "第 107 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep107",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep108",
-            "ep": "EP108",
-            "title": "第 108 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep108",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep109",
-            "ep": "EP109",
-            "title": "第 109 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep109",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep110",
-            "ep": "EP110",
-            "title": "第 110 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep110",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep111",
-            "ep": "EP111",
-            "title": "第 111 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep111",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep112",
-            "ep": "EP112",
-            "title": "第 112 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep112",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep113",
-            "ep": "EP113",
-            "title": "第 113 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep113",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep114",
-            "ep": "EP114",
-            "title": "第 114 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep114",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep115",
-            "ep": "EP115",
-            "title": "第 115 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep115",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep116",
-            "ep": "EP116",
-            "title": "第 116 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep116",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep117",
-            "ep": "EP117",
-            "title": "第 117 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep117",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep118",
-            "ep": "EP118",
-            "title": "第 118 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep118",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep119",
-            "ep": "EP119",
-            "title": "第 119 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep119",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      },
-      {
-            "id": "ep120",
-            "ep": "EP120",
-            "title": "第 120 集",
-            "topic": "待更新",
-            "season": "待更新季度",
-            "seasonTitle": "待更新",
-            "category": "科學探究",
-            "link": "reader.html?ep=ep120",
-            "icon": "✨",
-            "style": "tech",
-            "status": "hidden",
-            "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
-            "points": [
-                  "認識「待更新」的基本概念。",
-                  "觀察生活中相關的例子。",
-                  "用比較、記錄或提問的方法整理發現。"
-            ],
-            "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
-      }
+</style></head><body><div class="page"><header class="site-header"><div class="logo">科學<span>探險隊</span> ✨</div><nav class="nav"><a href="index.html">首頁</a><a href="index.html">漫畫目錄</a><a href="characters.html">角色介紹</a><a href="science-notes.html" class="active">科學小知識</a><a href="#">關於我們</a></nav></header><section class="hero"><div class="hero-inner"><div><div class="hero-label">科學小知識</div><h1>小Q知識庫</h1><p>每集看完漫畫後，可以來這裡重溫核心概念、小任務和生活應用。</p></div><div class="hero-mascot"><img src="images/xiaoq.png" alt="小Q"><strong>小Q：資料投影準備好！</strong></div></div></section><section class="info-strip"><div class="info-box">目前小知識<strong id="notesCount">20集</strong></div><div class="info-box">每集重點<strong>2–3 個概念</strong></div><div class="info-box">全系列已預備<strong>120集</strong></div></section><section class="controls"><input id="searchInput" class="search-box" placeholder="搜尋小知識，例如：消化、氧氣、心臟、近視"/><div class="filters"><button class="filter-btn active" data-category="全部">全部</button><button class="filter-btn" data-category="身體系統">身體系統</button><button class="filter-btn" data-category="健康習慣">健康習慣</button><button class="filter-btn" data-category="免疫防護">免疫防護</button><button class="filter-btn" data-category="生命與環境">生命與環境</button><button class="filter-btn" data-category="物質與能量">物質與能量</button><button class="filter-btn" data-category="地球與太空">地球與太空</button><button class="filter-btn" data-category="科技與工程">科技與工程</button><button class="filter-btn" data-category="科學探究">科學探究</button><button class="filter-btn" data-category="人文科番外篇">人文科番外篇</button><button class="filter-btn" data-category="科學科番外篇">科學科番外篇</button></div></section><h2 class="section-title">📘 已推出小知識</h2><main id="notesGrid" class="notes-grid"></main><div id="emptyMessage" class="empty-message">暫時未有符合條件的小知識。</div><footer>科學探險隊｜探索科學・啟發好奇・一齊冒險</footer></div><script>const notes=[
+  {
+    "id": "ep01",
+    "ep": "EP01",
+    "title": "食物去了哪裡？",
+    "topic": "消化系統",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep01",
+    "icon": "🍎",
+    "style": "life",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「消化系統」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「消化系統」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「消化系統」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep02",
+    "ep": "EP02",
+    "title": "我們為什麼要呼吸？",
+    "topic": "呼吸系統",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep02",
+    "icon": "🫁",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「呼吸系統」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「呼吸系統」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「呼吸系統」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep03",
+    "ep": "EP03",
+    "title": "心臟為什麼一直跳？",
+    "topic": "循環系統",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep03",
+    "icon": "❤️",
+    "style": "life",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「循環系統」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「循環系統」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「循環系統」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep04",
+    "ep": "EP04",
+    "title": "骨頭和肌肉怎樣幫我們動？",
+    "topic": "骨骼、肌肉、關節",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep04",
+    "icon": "🦴",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「骨骼、肌肉、關節」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「骨骼」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「骨骼」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep05",
+    "ep": "EP05",
+    "title": "為什麼會生病？",
+    "topic": "病菌、免疫、預防感染",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "免疫防護",
+    "link": "reader.html?ep=ep05",
+    "icon": "🦠",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「病菌、免疫、預防感染」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「病菌」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「病菌」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep06",
+    "ep": "EP06",
+    "title": "身體怎樣保護自己？",
+    "topic": "皮膚、白血球、免疫防線",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "免疫防護",
+    "link": "reader.html?ep=ep06",
+    "icon": "🛡️",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「皮膚、白血球、免疫防線」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「皮膚」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「皮膚」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep07",
+    "ep": "EP07",
+    "title": "為什麼要洗手？",
+    "topic": "微生物、傳播、衛生習慣",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep07",
+    "icon": "🫧",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「微生物、傳播、衛生習慣」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「微生物」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「微生物」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep08",
+    "ep": "EP08",
+    "title": "發燒是不是壞事？",
+    "topic": "體溫、免疫反應",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "免疫防護",
+    "link": "reader.html?ep=ep08",
+    "icon": "🌡️",
+    "style": "life",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「體溫、免疫反應」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「體溫」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「體溫」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep09",
+    "ep": "EP09",
+    "title": "為什麼要睡覺？",
+    "topic": "睡眠、大腦、身體修復",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep09",
+    "icon": "🌙",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「睡眠、大腦、身體修復」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「睡眠」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「睡眠」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep10",
+    "ep": "EP10",
+    "title": "為什麼要均衡飲食？",
+    "topic": "營養、食物種類、健康",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep10",
+    "icon": "🥗",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「營養、食物種類、健康」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「營養」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「營養」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep11",
+    "ep": "EP11",
+    "title": "為什麼要飲水？",
+    "topic": "水分、身體平衡",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep11",
+    "icon": "💧",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「水分、身體平衡」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「水分」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「水分」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep12",
+    "ep": "EP12",
+    "title": "為什麼會流汗？",
+    "topic": "體溫調節",
+    "season": "第一季",
+    "seasonTitle": "身體大冒險",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep12",
+    "icon": "💦",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「體溫調節」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「體溫調節」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「體溫調節」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep13",
+    "ep": "EP13",
+    "title": "眼睛怎樣看見東西？",
+    "topic": "眼睛、光、保護視力",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep13",
+    "icon": "👀",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「眼睛、光、保護視力」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「眼睛」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「眼睛」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep14",
+    "ep": "EP14",
+    "title": "耳朵怎樣聽見聲音？",
+    "topic": "耳朵、聲音、保護聽覺",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep14",
+    "icon": "👂",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「耳朵、聲音、保護聽覺」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「耳朵」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「耳朵」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep15",
+    "ep": "EP15",
+    "title": "牙齒為什麼會蛀？",
+    "topic": "牙齒、細菌、口腔衛生",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep15",
+    "icon": "🦷",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「牙齒、細菌、口腔衛生」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「牙齒」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「牙齒」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep16",
+    "ep": "EP16",
+    "title": "為什麼會覺得痛、冷、熱？",
+    "topic": "皮膚感覺、神經、保護反應",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep16",
+    "icon": "✋",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「皮膚感覺、神經、保護反應」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「皮膚感覺」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「皮膚感覺」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep17",
+    "ep": "EP17",
+    "title": "大腦怎樣指揮身體？",
+    "topic": "大腦、神經、身體控制",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep17",
+    "icon": "🧠",
+    "style": "life",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「大腦、神經、身體控制」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「大腦」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「大腦」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep18",
+    "ep": "EP18",
+    "title": "為什麼會有情緒？",
+    "topic": "大腦、荷爾蒙、情緒管理",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep18",
+    "icon": "😊",
+    "style": "life",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「大腦、荷爾蒙、情緒管理」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「大腦」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「大腦」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep19",
+    "ep": "EP19",
+    "title": "為什麼會頭暈？",
+    "topic": "平衡感、內耳、身體訊號",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "身體系統",
+    "link": "reader.html?ep=ep19",
+    "icon": "🌀",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「平衡感、內耳、身體訊號」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「平衡感」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「平衡感」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep20",
+    "ep": "EP20",
+    "title": "為什麼會近視？",
+    "topic": "眼球、光線、用眼習慣",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep20",
+    "icon": "👓",
+    "style": "body",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「眼球、光線、用眼習慣」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「眼球」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「眼球」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep21",
+    "ep": "EP21",
+    "title": "為什麼會過敏？",
+    "topic": "免疫反應、致敏原",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "免疫防護",
+    "link": "reader.html?ep=ep21",
+    "icon": "🌼",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「免疫反應、致敏原」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「免疫反應」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「免疫反應」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep22",
+    "ep": "EP22",
+    "title": "傷口為什麼會結痂？",
+    "topic": "皮膚修復、血液凝固",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "免疫防護",
+    "link": "reader.html?ep=ep22",
+    "icon": "🩹",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「皮膚修復、血液凝固」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「皮膚修復」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「皮膚修復」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep23",
+    "ep": "EP23",
+    "title": "青春期身體為什麼會改變？",
+    "topic": "成長、青春期、尊重身體",
+    "season": "第二季",
+    "seasonTitle": "感官與健康",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep23",
+    "icon": "🌱",
+    "style": "life",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「成長、青春期、尊重身體」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「成長」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「成長」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep24",
+    "ep": "EP24",
+    "title": "怎樣保持身心健康？",
+    "topic": "運動、睡眠、情緒、生活習慣",
+    "season": "第三季",
+    "seasonTitle": "身心健康與生活",
+    "category": "健康習慣",
+    "link": "reader.html?ep=ep24",
+    "icon": "🌈",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「運動、睡眠、情緒、生活習慣」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「運動」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「運動」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep25",
+    "ep": "EP25",
+    "title": "植物為什麼需要陽光？",
+    "topic": "植物、光、水、空氣",
+    "season": "第四季",
+    "seasonTitle": "植物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep25",
+    "icon": "🌞",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「植物、光、水、空氣」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「植物」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「植物」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep26",
+    "ep": "EP26",
+    "title": "植物的一生是怎樣的？",
+    "topic": "種子、發芽、開花、結果",
+    "season": "第四季",
+    "seasonTitle": "植物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep26",
+    "icon": "🌱",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「種子、發芽、開花、結果」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「種子」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「種子」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep27",
+    "ep": "EP27",
+    "title": "種子怎樣去旅行？",
+    "topic": "種子傳播、風、水、動物",
+    "season": "第四季",
+    "seasonTitle": "植物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep27",
+    "icon": "🍃",
+    "style": "health",
+    "status": "published",
+    "summary": "這一集會用故事和圖解認識「種子傳播、風、水、動物」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「種子傳播」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「種子傳播」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep28",
+    "ep": "EP28",
+    "title": "植物怎樣喝水？",
+    "topic": "根、莖、葉、運輸水分",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep28",
+    "icon": "🌿",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「根、莖、葉、運輸水分」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「根」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「根」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep29",
+    "ep": "EP29",
+    "title": "葉子為什麼重要？",
+    "topic": "葉、光合作用、製造養分",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep29",
+    "icon": "🍃",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「葉、光合作用、製造養分」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「葉」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「葉」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep30",
+    "ep": "EP30",
+    "title": "動物有什麼共同特徵？",
+    "topic": "動物分類、生命特徵",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep30",
+    "icon": "🐾",
+    "style": "life",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「動物分類、生命特徵」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「動物分類」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「動物分類」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep31",
+    "ep": "EP31",
+    "title": "昆蟲是不是動物？",
+    "topic": "昆蟲特徵、分類",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep31",
+    "icon": "🐞",
+    "style": "life",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「昆蟲特徵、分類」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「昆蟲特徵」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「昆蟲特徵」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep32",
+    "ep": "EP32",
+    "title": "魚為什麼能在水中生活？",
+    "topic": "魚、鰓、適應環境",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep32",
+    "icon": "🐟",
+    "style": "body",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「魚、鰓、適應環境」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「魚」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「魚」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep33",
+    "ep": "EP33",
+    "title": "鳥為什麼會飛？",
+    "topic": "鳥類、羽毛、身體結構",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep33",
+    "icon": "🐦",
+    "style": "body",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「鳥類、羽毛、身體結構」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「鳥類」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「鳥類」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep34",
+    "ep": "EP34",
+    "title": "動物怎樣保護自己？",
+    "topic": "保護色、防禦、適應",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep34",
+    "icon": "🦎",
+    "style": "life",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「保護色、防禦、適應」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「保護色」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「保護色」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep35",
+    "ep": "EP35",
+    "title": "什麼是棲息地？",
+    "topic": "生境、生物需要",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep35",
+    "icon": "🏡",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「生境、生物需要」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「生境」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「生境」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep36",
+    "ep": "EP36",
+    "title": "食物鏈是什麼？",
+    "topic": "生產者、消費者、食物鏈",
+    "season": "第三季",
+    "seasonTitle": "植物與動物世界",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep36",
+    "icon": "🔗",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「生產者、消費者、食物鏈」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「生產者」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「生產者」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep37",
+    "ep": "EP37",
+    "title": "如果一種動物消失會怎樣？",
+    "topic": "生態平衡、食物網",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep37",
+    "icon": "🕸️",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「生態平衡、食物網」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「生態平衡」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「生態平衡」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep38",
+    "ep": "EP38",
+    "title": "微生物都是壞的嗎？",
+    "topic": "有益微生物、有害微生物",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep38",
+    "icon": "🧫",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「有益微生物、有害微生物」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「有益微生物」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「有益微生物」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep39",
+    "ep": "EP39",
+    "title": "蜜蜂為什麼重要？",
+    "topic": "授粉、生態角色",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep39",
+    "icon": "🐝",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「授粉、生態角色」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「授粉」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「授粉」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep40",
+    "ep": "EP40",
+    "title": "森林為什麼像一個家？",
+    "topic": "森林生態系、棲息地",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep40",
+    "icon": "🌳",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「森林生態系、棲息地」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「森林生態系」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「森林生態系」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep41",
+    "ep": "EP41",
+    "title": "海洋裡有什麼秘密？",
+    "topic": "海洋生態、食物鏈",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep41",
+    "icon": "🌊",
+    "style": "body",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「海洋生態、食物鏈」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「海洋生態」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「海洋生態」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep42",
+    "ep": "EP42",
+    "title": "動物怎樣適應環境？",
+    "topic": "適應、身體特徵、行為",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep42",
+    "icon": "🦊",
+    "style": "life",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「適應、身體特徵、行為」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「適應」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「適應」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep43",
+    "ep": "EP43",
+    "title": "植物怎樣適應環境？",
+    "topic": "植物適應、環境條件",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep43",
+    "icon": "🌵",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「植物適應、環境條件」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「植物適應」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「植物適應」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep44",
+    "ep": "EP44",
+    "title": "人類怎樣影響生態？",
+    "topic": "人類活動、環境影響",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep44",
+    "icon": "🏙️",
+    "style": "earth",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「人類活動、環境影響」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「人類活動」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「人類活動」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep45",
+    "ep": "EP45",
+    "title": "保護生物多樣性有什麼用？",
+    "topic": "生物多樣性、保育",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep45",
+    "icon": "🦋",
+    "style": "health",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「生物多樣性、保育」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「生物多樣性」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「生物多樣性」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep46",
+    "ep": "EP46",
+    "title": "寵物需要什麼照顧？",
+    "topic": "動物需要、責任",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "生命與環境",
+    "link": "reader.html?ep=ep46",
+    "icon": "🐱",
+    "style": "life",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「動物需要、責任」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「動物需要」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「動物需要」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep47",
+    "ep": "EP47",
+    "title": "怎樣觀察小生物？",
+    "topic": "觀察、記錄、分類",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep47",
+    "icon": "🔍",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「觀察、記錄、分類」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「觀察」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「觀察」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep48",
+    "ep": "EP48",
+    "title": "小小生態任務：建一個迷你生境",
+    "topic": "生態系統、探究活動",
+    "season": "第四季",
+    "seasonTitle": "生態與生命關係",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep48",
+    "icon": "🪴",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「生態系統、探究活動」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「生態系統」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「生態系統」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep49",
+    "ep": "EP49",
+    "title": "第 49 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep49",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep50",
+    "ep": "EP50",
+    "title": "第 50 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep50",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep51",
+    "ep": "EP51",
+    "title": "第 51 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep51",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep52",
+    "ep": "EP52",
+    "title": "第 52 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep52",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep53",
+    "ep": "EP53",
+    "title": "第 53 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep53",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep54",
+    "ep": "EP54",
+    "title": "第 54 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep54",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep55",
+    "ep": "EP55",
+    "title": "第 55 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep55",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep56",
+    "ep": "EP56",
+    "title": "第 56 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep56",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep57",
+    "ep": "EP57",
+    "title": "第 57 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep57",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep58",
+    "ep": "EP58",
+    "title": "第 58 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep58",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep59",
+    "ep": "EP59",
+    "title": "第 59 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep59",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep60",
+    "ep": "EP60",
+    "title": "第 60 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep60",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep61",
+    "ep": "EP61",
+    "title": "第 61 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep61",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep62",
+    "ep": "EP62",
+    "title": "第 62 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep62",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep63",
+    "ep": "EP63",
+    "title": "第 63 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep63",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep64",
+    "ep": "EP64",
+    "title": "第 64 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep64",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep65",
+    "ep": "EP65",
+    "title": "第 65 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep65",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep66",
+    "ep": "EP66",
+    "title": "第 66 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep66",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep67",
+    "ep": "EP67",
+    "title": "第 67 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep67",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep68",
+    "ep": "EP68",
+    "title": "第 68 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep68",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep69",
+    "ep": "EP69",
+    "title": "第 69 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep69",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep70",
+    "ep": "EP70",
+    "title": "第 70 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep70",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep71",
+    "ep": "EP71",
+    "title": "第 71 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep71",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep72",
+    "ep": "EP72",
+    "title": "第 72 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep72",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep73",
+    "ep": "EP73",
+    "title": "第 73 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep73",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep74",
+    "ep": "EP74",
+    "title": "第 74 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep74",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep75",
+    "ep": "EP75",
+    "title": "第 75 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep75",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep76",
+    "ep": "EP76",
+    "title": "第 76 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep76",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep77",
+    "ep": "EP77",
+    "title": "第 77 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep77",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep78",
+    "ep": "EP78",
+    "title": "第 78 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep78",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep79",
+    "ep": "EP79",
+    "title": "第 79 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep79",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep80",
+    "ep": "EP80",
+    "title": "第 80 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep80",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep81",
+    "ep": "EP81",
+    "title": "第 81 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep81",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep82",
+    "ep": "EP82",
+    "title": "第 82 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep82",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep83",
+    "ep": "EP83",
+    "title": "第 83 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep83",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep84",
+    "ep": "EP84",
+    "title": "第 84 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep84",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep85",
+    "ep": "EP85",
+    "title": "第 85 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep85",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep86",
+    "ep": "EP86",
+    "title": "第 86 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep86",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep87",
+    "ep": "EP87",
+    "title": "第 87 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep87",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep88",
+    "ep": "EP88",
+    "title": "第 88 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep88",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep89",
+    "ep": "EP89",
+    "title": "第 89 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep89",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep90",
+    "ep": "EP90",
+    "title": "第 90 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep90",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep91",
+    "ep": "EP91",
+    "title": "第 91 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep91",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep92",
+    "ep": "EP92",
+    "title": "第 92 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep92",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep93",
+    "ep": "EP93",
+    "title": "第 93 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep93",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep94",
+    "ep": "EP94",
+    "title": "第 94 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep94",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep95",
+    "ep": "EP95",
+    "title": "第 95 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep95",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep96",
+    "ep": "EP96",
+    "title": "第 96 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep96",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep97",
+    "ep": "EP97",
+    "title": "第 97 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep97",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep98",
+    "ep": "EP98",
+    "title": "第 98 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep98",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep99",
+    "ep": "EP99",
+    "title": "第 99 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep99",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep100",
+    "ep": "EP100",
+    "title": "第 100 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep100",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep101",
+    "ep": "EP101",
+    "title": "第 101 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep101",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep102",
+    "ep": "EP102",
+    "title": "第 102 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep102",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep103",
+    "ep": "EP103",
+    "title": "第 103 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep103",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep104",
+    "ep": "EP104",
+    "title": "第 104 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep104",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep105",
+    "ep": "EP105",
+    "title": "第 105 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep105",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep106",
+    "ep": "EP106",
+    "title": "第 106 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep106",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep107",
+    "ep": "EP107",
+    "title": "第 107 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep107",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep108",
+    "ep": "EP108",
+    "title": "第 108 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep108",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep109",
+    "ep": "EP109",
+    "title": "第 109 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep109",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep110",
+    "ep": "EP110",
+    "title": "第 110 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep110",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep111",
+    "ep": "EP111",
+    "title": "第 111 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep111",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep112",
+    "ep": "EP112",
+    "title": "第 112 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep112",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep113",
+    "ep": "EP113",
+    "title": "第 113 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep113",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep114",
+    "ep": "EP114",
+    "title": "第 114 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep114",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep115",
+    "ep": "EP115",
+    "title": "第 115 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep115",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep116",
+    "ep": "EP116",
+    "title": "第 116 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep116",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep117",
+    "ep": "EP117",
+    "title": "第 117 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep117",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep118",
+    "ep": "EP118",
+    "title": "第 118 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep118",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep119",
+    "ep": "EP119",
+    "title": "第 119 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep119",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "ep120",
+    "ep": "EP120",
+    "title": "第 120 集",
+    "topic": "待更新",
+    "season": "待更新季度",
+    "seasonTitle": "待更新",
+    "category": "科學探究",
+    "link": "reader.html?ep=ep120",
+    "icon": "✨",
+    "style": "tech",
+    "status": "hidden",
+    "summary": "這一集會用故事和圖解認識「待更新」，把生活中的問題變成容易明白的科學概念。",
+    "points": [
+      "認識「待更新」的基本概念。",
+      "觀察生活中相關的例子。",
+      "用比較、記錄或提問的方法整理發現。"
+    ],
+    "activity": "找一個與「待更新」有關的生活例子，畫下來或用一句話記錄。"
+  },
+  {
+    "id": "bonus-p4-people-10a",
+    "ep": "番外篇",
+    "title": "小四人文科｜第10課 上",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📘",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-10a",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第10課 上的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-10b",
+    "ep": "番外篇",
+    "title": "小四人文科｜第10課 下",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📘",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-10b",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第10課 下的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-11a",
+    "ep": "番外篇",
+    "title": "小四人文科｜第11課 上",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📘",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-11a",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第11課 上的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-11b",
+    "ep": "番外篇",
+    "title": "小四人文科｜第11課 下",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📘",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-11b",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第11課 下的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-12",
+    "ep": "番外篇",
+    "title": "妹妹｜小四人文科｜第12課",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📘",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-12",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理妹妹｜小四人文科｜第12課的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-13a",
+    "ep": "番外篇",
+    "title": "小四人文科｜第13課 上",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📘",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-13a",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第13課 上的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-13b",
+    "ep": "番外篇",
+    "title": "小四人文科｜第13課 下",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📘",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-13b",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第13課 下的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-14a",
+    "ep": "番外篇",
+    "title": "小四人文科｜第14課 上",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📗",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-14a",
+    "status": "hidden",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第14課 上的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-14b",
+    "ep": "番外篇",
+    "title": "小四人文科｜第14課 下",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📗",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-14b",
+    "status": "hidden",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第14課 下的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-humanities-15a",
+    "ep": "番外篇",
+    "title": "小四人文科｜第15課 上",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📕",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-humanities-15a",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第15課 上的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-humanities-15b",
+    "ep": "番外篇",
+    "title": "小四人文科｜第15課 下",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📕",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-humanities-15b",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第15課 下的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-people-16",
+    "ep": "番外篇",
+    "title": "小四人文科｜第16課",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "人文科番外篇",
+    "icon": "📙",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-people-16",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四人文科｜第16課的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四人文科"
+  },
+  {
+    "id": "bonus-p4-science-12",
+    "ep": "番外篇",
+    "title": "小四科學科｜第12課",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "科學科番外篇",
+    "icon": "🔬",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-science-12",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四科學科｜第12課的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四科學科"
+  },
+  {
+    "id": "bonus-p4-science-13a",
+    "ep": "番外篇",
+    "title": "小四科學科｜第13課 上",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "科學科番外篇",
+    "icon": "🔬",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-science-13a",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四科學科｜第13課 上的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四科學科"
+  },
+  {
+    "id": "bonus-p4-science-13b",
+    "ep": "番外篇",
+    "title": "小四科學科｜第13課 下",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "科學科番外篇",
+    "icon": "🔬",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-science-13b",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四科學科｜第13課 下的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四科學科"
+  },
+  {
+    "id": "bonus-p4-science-14a",
+    "ep": "番外篇",
+    "title": "小四科學科｜第14課 上",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "科學科番外篇",
+    "icon": "🧪",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-science-14a",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四科學科｜第14課 上的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四科學科"
+  },
+  {
+    "id": "bonus-p4-science-14b",
+    "ep": "番外篇",
+    "title": "小四科學科｜第14課 下",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "科學科番外篇",
+    "icon": "🧪",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-science-14b",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四科學科｜第14課 下的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四科學科"
+  },
+  {
+    "id": "bonus-p4-science-water-a",
+    "ep": "番外篇",
+    "title": "小四科學科｜水的探究 上",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "科學科番外篇",
+    "icon": "💧",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-science-water-a",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四科學科｜水的探究 上的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四科學科"
+  },
+  {
+    "id": "bonus-p4-science-water-b",
+    "ep": "番外篇",
+    "title": "小四科學科｜水的探究 下",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "category": "科學科番外篇",
+    "icon": "💧",
+    "style": "tech",
+    "link": "reader.html?ep=bonus-p4-science-water-b",
+    "status": "published",
+    "summary": "這個番外篇會用《科學探險隊》的漫畫形式，整理小四科學科｜水的探究 下的課文重點，幫助同學輕鬆溫習。",
+    "points": [
+      "用故事情境重溫課文重點。",
+      "把較難記的內容變成圖像和角色對話。",
+      "用小任務幫助同學檢查自己是否理解。"
+    ],
+    "activity": "看完番外篇後，試用三句話講出本課最重要的重點。",
+    "seasonTitle": "小四科學科"
+  }
 ];let currentCategory="全部";const grid=document.getElementById("notesGrid"),searchInput=document.getElementById("searchInput"),empty=document.getElementById("emptyMessage");function renderNotes(){const kw=searchInput.value.trim().toLowerCase();const filtered=notes.filter(n=>n.status==="published"&&(currentCategory==="全部"||n.category===currentCategory)&&`${n.ep} ${n.title} ${n.topic} ${n.category} ${n.summary} ${n.points.join(" ")}`.toLowerCase().includes(kw));grid.innerHTML=filtered.map(n=>`<article class="note-card ${n.style}"><div class="note-icon">${n.icon}</div><span class="ep-badge">${n.ep}</span><h2>${n.title}</h2><p>${n.topic}</p><p>${n.summary}</p><ul class="note-list">${n.points.map(p=>`<li>${p}</li>`).join("")}</ul><p><strong>小任務：</strong>${n.activity}</p><a href="${n.link}" class="read-btn">📖 閱讀漫畫</a></article>`).join("");empty.style.display=filtered.length?"none":"block";document.getElementById("notesCount").textContent=`${notes.filter(n=>n.status==="published").length}集`;}searchInput.addEventListener("input",renderNotes);document.querySelectorAll(".filter-btn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentCategory=b.dataset.category;renderNotes();}));renderNotes();</script>
   <script>
     // Basic image protection: blocks right-click menu, drag-save, and long-press callout on images.
