@@ -275,8 +275,8 @@ const EPISODES_DATA = [
   {
     "id": "ep22",
     "ep": "EP22",
-    "title": "傷口為什麼會結痂？",
-    "topic": "皮膚修復、血液凝固",
+    "title": "青春期身體為什麼會改變？女孩子篇",
+    "topic": "成長、月經、身體尊重",
     "season": "第二季",
     "seasonTitle": "感官與健康",
     "status": "published",
@@ -288,8 +288,8 @@ const EPISODES_DATA = [
   {
     "id": "ep23",
     "ep": "EP23",
-    "title": "青春期身體為什麼會改變？",
-    "topic": "成長、青春期、尊重身體",
+    "title": "青春期身體為什麼會改變？男孩子篇",
+    "topic": "成長、變聲、夢遺、身體尊重",
     "season": "第二季",
     "seasonTitle": "感官與健康",
     "status": "published",
@@ -1716,6 +1716,19 @@ const EPISODES_DATA = [
     "fileExt": "png"
   },
   {
+    "id": "bonus-p4-science-11",
+    "ep": "番外篇",
+    "title": "小四科學科｜第11課",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "season": "課本番外篇",
+    "seasonTitle": "小四科學科",
+    "status": "published",
+    "folder": "comics/bonus-p4-science-11/",
+    "pageCount": 24,
+    "filePrefix": "",
+    "fileExt": "png"
+  },
+  {
     "id": "bonus-p4-science-12",
     "ep": "番外篇",
     "title": "小四科學科｜第12課",
@@ -1748,7 +1761,7 @@ const EPISODES_DATA = [
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
-    "status": "published",
+    "status": "hidden",
     "folder": "comics/bonus-p4-science-13b/",
     "pageCount": 12,
     "filePrefix": "",
@@ -1777,6 +1790,32 @@ const EPISODES_DATA = [
     "status": "published",
     "folder": "comics/bonus-p4-science-14b/",
     "pageCount": 12,
+    "filePrefix": "",
+    "fileExt": "png"
+  },
+  {
+    "id": "bonus-p4-science-15",
+    "ep": "番外篇",
+    "title": "小四科學科｜第15課",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "season": "課本番外篇",
+    "seasonTitle": "小四科學科",
+    "status": "published",
+    "folder": "comics/bonus-p4-science-15/",
+    "pageCount": 22,
+    "filePrefix": "",
+    "fileExt": "png"
+  },
+  {
+    "id": "bonus-p4-science-16",
+    "ep": "番外篇",
+    "title": "小四科學科｜第16課",
+    "topic": "課本知識整理、重點溫習、生活應用",
+    "season": "課本番外篇",
+    "seasonTitle": "小四科學科",
+    "status": "published",
+    "folder": "comics/bonus-p4-science-16/",
+    "pageCount": 22,
     "filePrefix": "",
     "fileExt": "png"
   },
