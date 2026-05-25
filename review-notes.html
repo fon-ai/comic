@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>《科學探險隊》溫習筆記</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:radial-gradient(circle at top left,#dff4ff 0,transparent 30%),radial-gradient(circle at top right,#fff0c7 0,transparent 28%),linear-gradient(180deg,#fffaf0 0%,#eef8ff 100%);color:#2f2a25}a{text-decoration:none;color:inherit}.page{max-width:1180px;margin:0 auto;padding:18px}.site-header{background:rgba(255,255,255,.9);border:2px solid #f1dfbd;border-radius:28px;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 8px 22px rgba(90,70,40,.08);margin-bottom:22px}.logo{font-size:28px;font-weight:900;color:#2473b8;letter-spacing:1px;white-space:nowrap}.logo span{color:#e96b6b}.nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.nav a{padding:10px 16px;border-radius:999px;font-weight:700;color:#5d5147}.nav a.active{background:#5aa7e8;color:white;box-shadow:0 4px 10px rgba(70,130,200,.25)}.hero{background:linear-gradient(135deg,rgba(229,247,255,.96),rgba(255,249,227,.96));border:2px solid #d7ecff;border-radius:34px;padding:32px 26px;text-align:center;box-shadow:0 12px 30px rgba(80,100,120,.12);margin-bottom:22px}.hero-label{display:inline-block;background:#2f80d0;color:white;padding:8px 20px;border-radius:999px;font-weight:900;margin-bottom:14px;box-shadow:0 4px 0 #1f5f9f}h1{margin:0;font-size:clamp(34px,6vw,58px);color:#1f67ad;line-height:1.22;text-shadow:4px 4px 0 #fff,7px 7px 0 rgba(230,140,120,.28);letter-spacing:2px}.hero p{max-width:760px;margin:18px auto 0;background:rgba(255,255,255,.82);border:2px dashed #f0c982;border-radius:22px;padding:16px 20px;font-size:18px;font-weight:800;color:#32618f;line-height:1.8}.controls{margin:22px 0;display:grid;gap:14px}.search-box{width:100%;padding:16px 20px;border-radius:999px;border:2px solid #d8cbb7;background:rgba(255,255,255,.9);font-size:18px;outline:none}.filters{display:flex;flex-wrap:wrap;gap:10px}.filter-btn{border:none;border-radius:999px;padding:11px 18px;font-weight:900;cursor:pointer;background:#fff;color:#5e554d;border:2px solid #e8d8bb}.filter-btn.active{background:#5aa7e8;color:white;border-color:#5aa7e8}.section-title{margin:28px 0 12px;font-size:28px;color:#2473b8;font-weight:900}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:rgba(255,255,255,.9);border:2px solid #eadcc5;border-radius:28px;padding:20px;box-shadow:0 8px 18px rgba(80,90,110,.08)}.card.humanities{background:#fff4f1;border-color:#f0c7c5}.card.science{background:#f0fbff;border-color:#b9dff3}.icon{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:34px;background:rgba(255,255,255,.72);border:2px solid rgba(255,255,255,.9);margin-bottom:12px}.badge{display:inline-block;padding:5px 12px;border-radius:999px;background:#5aa7e8;color:white;font-weight:900;margin-bottom:8px}.card h2{margin:4px 0 8px;font-size:24px;line-height:1.28;color:#263d5b}.meta{margin:0 0 12px;color:#6c6257;font-weight:800;line-height:1.55}.read-btn{display:inline-block;background:#fff3f2;color:#df626a;border:2px solid #f0b0b5;border-radius:999px;padding:9px 15px;font-weight:900}.empty-message{margin-top:24px;background:rgba(255,255,255,.85);border:2px dashed #e6c996;border-radius:24px;padding:26px;text-align:center;color:#7a6752;font-weight:800;display:none}footer{margin-top:34px;padding:24px 0;text-align:center;color:#796b5e;font-weight:700}@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.page{padding:10px}.site-header{display:block;padding:14px;border-radius:22px}.logo{font-size:24px;margin-bottom:12px;text-align:center;white-space:normal}.nav{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}.nav a{flex:0 0 auto;padding:9px 14px;font-size:14px;white-space:nowrap}.grid{grid-template-columns:1fr}h1{font-size:36px}}
+</style></head><body><div class="page"><header class="site-header"><div class="logo">科學<span>探險隊</span> ✨</div><nav class="nav"><a href="index.html">首頁</a><a href="index.html">漫畫目錄</a><a href="characters.html">角色介紹</a><a href="science-notes.html">科學小知識</a><a href="review-notes.html" class="active">溫習筆記</a></nav></header>
+<section class="hero"><div class="hero-label">考前快速重溫</div><h1>溫習筆記</h1><p>這裡整理每一課的重點筆記。每課只有一套筆記，不分上、下集；頁數按實際圖片數量設定，方便同學用手機、iPad 或電腦快速溫習。</p></section>
+<section class="controls"><input id="searchInput" class="search-box" placeholder="搜尋科目或課號，例如：人文科、第12課、水的探究"/><div class="filters"><button class="filter-btn active" data-group="全部">全部</button><button class="filter-btn" data-group="人文科">小四人文科</button><button class="filter-btn" data-group="科學科">小四科學科</button></div></section>
+<h2 class="section-title">📘 已整理筆記</h2><main id="notesGrid" class="grid"></main><div id="emptyMessage" class="empty-message">暫時未有符合條件的溫習筆記。</div><footer>科學探險隊｜探索科學・啟發好奇・一齊冒險</footer></div>
+<script>
+const reviewNotes = [
+  {
+    "id": "notes-p4-humanities-10",
+    "title": "小四人文科｜第10課",
+    "subject": "小四人文科",
+    "lesson": 10,
+    "pages": 3,
+    "icon": "📘",
+    "group": "人文科",
+    "link": "reader.html?ep=notes-p4-humanities-10"
+  },
+  {
+    "id": "notes-p4-humanities-11",
+    "title": "小四人文科｜第11課",
+    "subject": "小四人文科",
+    "lesson": 11,
+    "pages": 2,
+    "icon": "📘",
+    "group": "人文科",
+    "link": "reader.html?ep=notes-p4-humanities-11"
+  },
+  {
+    "id": "notes-p4-humanities-12",
+    "title": "小四人文科｜第12課",
+    "subject": "小四人文科",
+    "lesson": 12,
+    "pages": 22,
+    "icon": "📘",
+    "group": "人文科",
+    "link": "reader.html?ep=notes-p4-humanities-12"
+  },
+  {
+    "id": "notes-p4-humanities-13",
+    "title": "小四人文科｜第13課",
+    "subject": "小四人文科",
+    "lesson": 13,
+    "pages": 2,
+    "icon": "📘",
+    "group": "人文科",
+    "link": "reader.html?ep=notes-p4-humanities-13"
+  },
+  {
+    "id": "notes-p4-humanities-15",
+    "title": "小四人文科｜第15課",
+    "subject": "小四人文科",
+    "lesson": 15,
+    "pages": 4,
+    "icon": "📘",
+    "group": "人文科",
+    "link": "reader.html?ep=notes-p4-humanities-15"
+  },
+  {
+    "id": "notes-p4-humanities-16",
+    "title": "小四人文科｜第16課",
+    "subject": "小四人文科",
+    "lesson": 16,
+    "pages": 4,
+    "icon": "📘",
+    "group": "人文科",
+    "link": "reader.html?ep=notes-p4-humanities-16"
+  },
+  {
+    "id": "notes-p4-science-11",
+    "title": "小四科學科｜第11課",
+    "subject": "小四科學科",
+    "lesson": 11,
+    "pages": 3,
+    "icon": "🔬",
+    "group": "科學科",
+    "link": "reader.html?ep=notes-p4-science-11"
+  },
+  {
+    "id": "notes-p4-science-12",
+    "title": "小四科學科｜第12課",
+    "subject": "小四科學科",
+    "lesson": 12,
+    "pages": 3,
+    "icon": "🔬",
+    "group": "科學科",
+    "link": "reader.html?ep=notes-p4-science-12"
+  },
+  {
+    "id": "notes-p4-science-13",
+    "title": "小四科學科｜第13課",
+    "subject": "小四科學科",
+    "lesson": 13,
+    "pages": 4,
+    "icon": "🔬",
+    "group": "科學科",
+    "link": "reader.html?ep=notes-p4-science-13"
+  },
+  {
+    "id": "notes-p4-science-14",
+    "title": "小四科學科｜第14課",
+    "subject": "小四科學科",
+    "lesson": 14,
+    "pages": 4,
+    "icon": "🔬",
+    "group": "科學科",
+    "link": "reader.html?ep=notes-p4-science-14"
+  },
+  {
+    "id": "notes-p4-science-15",
+    "title": "小四科學科｜第15課",
+    "subject": "小四科學科",
+    "lesson": 15,
+    "pages": 3,
+    "icon": "🔬",
+    "group": "科學科",
+    "link": "reader.html?ep=notes-p4-science-15"
+  },
+  {
+    "id": "notes-p4-science-16",
+    "title": "小四科學科｜第16課",
+    "subject": "小四科學科",
+    "lesson": 16,
+    "pages": 4,
+    "icon": "🔬",
+    "group": "科學科",
+    "link": "reader.html?ep=notes-p4-science-16"
+  },
+  {
+    "id": "notes-p4-science-water",
+    "title": "小四科學科｜水的探究",
+    "subject": "小四科學科",
+    "lesson": 99,
+    "pages": 4,
+    "icon": "💧",
+    "group": "科學科",
+    "link": "reader.html?ep=notes-p4-science-water"
+  }
+];
+let currentGroup="全部";const grid=document.getElementById("notesGrid"),searchInput=document.getElementById("searchInput"),emptyMessage=document.getElementById("emptyMessage");
+function render(){const kw=searchInput.value.trim().toLowerCase();const items=reviewNotes.filter(i=>(currentGroup==="全部"||i.group===currentGroup)&&`${i.title} ${i.subject} ${i.group} ${i.pages}頁`.toLowerCase().includes(kw));grid.innerHTML=items.map(i=>`<a href="${i.link}" class="card ${i.group==="人文科"?"humanities":"science"}"><div class="icon">${i.icon}</div><span class="badge">${i.subject}</span><h2>${i.title.replace("小四人文科｜","").replace("小四科學科｜","")}</h2><p class="meta">共 ${i.pages} 頁｜一套完整溫習筆記</p><span class="read-btn">📖 開始溫習</span></a>`).join("");emptyMessage.style.display=items.length?"none":"block";}
+document.querySelectorAll(".filter-btn").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");currentGroup=btn.dataset.group;render();}));searchInput.addEventListener("input",render);render();
+</script></body></html>
