@@ -1620,9 +1620,10 @@ const EPISODES_DATA = [
     "seasonTitle": "小四人文科",
     "status": "published",
     "folder": "comics/bonus-p4-people-12/",
-    "pageCount": 15,
+    "pageCount": 22,
     "filePrefix": "",
-    "fileExt": "png"
+    "fileExt": "png",
+    "pages": 22
   },
   {
     "id": "bonus-p4-people-13a",
@@ -1880,9 +1881,10 @@ const EPISODES_DATA = [
     "seasonTitle": "小四人文科",
     "status": "published",
     "folder": "comics/notes-p4-humanities-12/",
-    "pageCount": 22,
+    "pageCount": 3,
     "filePrefix": "",
-    "fileExt": "png"
+    "fileExt": "png",
+    "pages": 3
   },
   {
     "id": "notes-p4-humanities-13",
