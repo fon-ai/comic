@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>關於《科學探險隊》</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:radial-gradient(circle at top left,#dff4ff 0,transparent 30%),radial-gradient(circle at top right,#fff0c7 0,transparent 28%),linear-gradient(180deg,#fffaf0 0%,#eef8ff 100%);color:#2f2a25}
+    a{text-decoration:none;color:inherit}
+    .page{max-width:1080px;margin:0 auto;padding:18px}
+    .site-header{background:rgba(255,255,255,.9);border:2px solid #f1dfbd;border-radius:28px;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 8px 22px rgba(90,70,40,.08);margin-bottom:22px}
+    .logo{font-size:28px;font-weight:900;color:#2473b8;letter-spacing:1px;white-space:nowrap}
+    .logo span{color:#e96b6b}
+    .nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{padding:10px 16px;border-radius:999px;font-weight:700;color:#5d5147}
+    .nav a.active{background:#5aa7e8;color:white;box-shadow:0 4px 10px rgba(70,130,200,.25)}
+    .hero{background:linear-gradient(135deg,rgba(229,247,255,.96),rgba(255,249,227,.96));border:2px solid #d7ecff;border-radius:34px;padding:34px 28px;text-align:center;box-shadow:0 12px 30px rgba(80,100,120,.12);margin-bottom:22px}
+    .hero-label{display:inline-block;background:#2f80d0;color:white;padding:8px 20px;border-radius:999px;font-weight:900;margin-bottom:14px;box-shadow:0 4px 0 #1f5f9f}
+    h1{margin:0;font-size:clamp(34px,6vw,56px);color:#1f67ad;line-height:1.22;text-shadow:4px 4px 0 #fff,7px 7px 0 rgba(230,140,120,.28);letter-spacing:2px}
+    .hero p{max-width:760px;margin:18px auto 0;background:rgba(255,255,255,.82);border:2px dashed #f0c982;border-radius:22px;padding:16px 20px;font-size:18px;font-weight:800;color:#32618f;line-height:1.8}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:rgba(255,255,255,.88);border:2px solid #eadcc5;border-radius:28px;padding:24px;box-shadow:0 8px 18px rgba(80,90,110,.08)}
+    .card h2{margin:0 0 12px;font-size:26px;color:#2473b8}
+    .card p,.card li{font-size:17px;line-height:1.9;font-weight:700;color:#5e554d}
+    .card ul{padding-left:1.2em;margin:0}
+    .full{grid-column:1/-1}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:900;background:#5aa7e8;color:#fff;box-shadow:0 4px 0 #2473b8}
+    .btn.secondary{background:#fff3f2;color:#df626a;box-shadow:none;border:2px solid #f0b0b5}
+    footer{margin-top:34px;padding:24px 0;text-align:center;color:#796b5e;font-weight:700}
+    .footer-disclaimer{max-width:920px;margin:10px auto 0;padding:10px 14px;border-radius:18px;background:rgba(255,255,255,.65);border:1px dashed rgba(120,100,70,.28);font-size:13px;line-height:1.7;color:#74695d;font-weight:700}
+    @media(max-width:720px){.page{padding:10px}.site-header{display:block;padding:14px;border-radius:22px}.logo{font-size:24px;margin-bottom:12px;text-align:center;white-space:normal}.nav{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}.nav a{flex:0 0 auto;padding:9px 14px;font-size:14px;white-space:nowrap}.grid{grid-template-columns:1fr}.hero{padding:26px 16px;border-radius:24px}h1{font-size:34px}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="logo">科學<span>探險隊</span> ✨</div>
+      <nav class="nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html">漫畫目錄</a>
+        <a href="characters.html">角色介紹</a>
+        <a href="science-notes.html">科學小知識</a>
+        <a href="review-notes.html">溫習筆記</a>
+        <a href="about.html" class="active">關於我們</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-label">關於我們</div>
+      <h1>關於《科學探險隊》</h1>
+      <p>《科學探險隊》是一個原創兒童科普漫畫及溫習輔助項目，希望用好懂、好笑、角色冒險的方式，幫助小朋友建立概念。</p>
+    </section>
+
+    <main class="grid">
+      <section class="card">
+        <h2>📚 免費閱讀</h2>
+        <p>網站內容會繼續免費閱讀，包括科普漫畫、課本番外篇和溫習筆記。內容按常見課程主題及課次整理，方便家長和學生尋找相關內容。</p>
+      </section>
+
+      <section class="card">
+        <h2>💛 自願支持</h2>
+        <p>如果這些內容幫到你和小朋友，歡迎在 Linktree 自願支持創作。支持並非購買教材、課程或官方學習產品，而是幫助我繼續製作免費內容。</p>
+        <div class="btn-row">
+          <a class="btn" href="https://linktr.ee/dream.room.888" target="_blank" rel="noopener">前往 Linktree</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>🔎 回報錯漏</h2>
+        <p>內容會盡力核對，但仍可能有錯字、知識錯漏或圖片問題。如發現需要修正的地方，歡迎到 Threads 私訊我。</p>
+        <div class="btn-row">
+          <a class="btn secondary" href="https://www.threads.com/@dream.room.888" target="_blank" rel="noopener">到 Threads 私訊</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>🌱 內容定位</h2>
+        <p>本網站並非學校、出版社或任何官方教材。內容以原創文字、角色、圖像和整理方式呈現，目標是幫助小朋友理解概念及考前重溫。</p>
+      </section>
+
+      <section class="card full">
+        <h2>📝 重要聲明</h2>
+        <ul>
+          <li>《科學探險隊》為原創科普漫畫及溫習輔助內容。</li>
+          <li>本網站並非任何學校、出版社或官方教材配套。</li>
+          <li>按課次整理只為方便家長和學生尋找相關內容。</li>
+          <li>內容會盡力核對，如發現錯漏，歡迎到 Threads 私訊回報更正。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      科學探險隊｜探索科學・啟發好奇・一齊冒險
+      <div class="footer-disclaimer">《科學探險隊》為原創科普漫畫及溫習輔助內容，並非學校、出版社或任何官方教材。內容會盡力核對，如發現錯漏，歡迎到 Threads 私訊回報更正。</div>
+    </footer>
+  </div>
+</body>
+</html>

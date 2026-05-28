@@ -1562,7 +1562,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-people-10a",
     "ep": "番外篇",
-    "title": "小四人文科｜第10課 上",
+    "title": "小四人文科｜第10課 上｜唐朝大事記 上",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1575,7 +1575,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-people-10b",
     "ep": "番外篇",
-    "title": "小四人文科｜第10課 下",
+    "title": "小四人文科｜第10課 下｜唐朝大事記 下",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1588,7 +1588,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-people-11a",
     "ep": "番外篇",
-    "title": "小四人文科｜第11課 上",
+    "title": "小四人文科｜第11課 上｜宋、元放大鏡 上",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1601,7 +1601,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-people-11b",
     "ep": "番外篇",
-    "title": "小四人文科｜第11課 下",
+    "title": "小四人文科｜第11課 下｜宋、元放大鏡 下",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1614,7 +1614,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-people-12",
     "ep": "番外篇",
-    "title": "妹妹｜小四人文科｜第12課",
+    "title": "小四人文科｜第12課｜香港故事之旅",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1628,7 +1628,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-people-13a",
     "ep": "番外篇",
-    "title": "小四人文科｜第13課 上",
+    "title": "小四人文科｜第13課 上｜香港社會的變遷 上",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1641,7 +1641,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-people-13b",
     "ep": "番外篇",
-    "title": "小四人文科｜第13課 下",
+    "title": "小四人文科｜第13課 下｜香港社會的變遷 下",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1680,7 +1680,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-humanities-15a",
     "ep": "番外篇",
-    "title": "小四人文科｜第15課 上",
+    "title": "小四人文科｜第15課 上｜資訊素養 上",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1693,7 +1693,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-humanities-15b",
     "ep": "番外篇",
-    "title": "小四人文科｜第15課 下",
+    "title": "小四人文科｜第15課 下｜資訊素養 下",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1706,7 +1706,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-people-16",
     "ep": "番外篇",
-    "title": "小四人文科｜第16課",
+    "title": "小四人文科｜第16課｜認清傳媒",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四人文科",
@@ -1719,7 +1719,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-science-11",
     "ep": "番外篇",
-    "title": "小四科學科｜第11課",
+    "title": "小四科學科｜第11課｜能源",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
@@ -1732,7 +1732,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-science-12",
     "ep": "番外篇",
-    "title": "小四科學科｜第12課",
+    "title": "小四科學科｜第12課｜閉合電路",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
@@ -1745,7 +1745,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-science-13a",
     "ep": "番外篇",
-    "title": "小四科學科｜第13課 上",
+    "title": "小四科學科｜第13課 上｜金屬和非金屬大搜查",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
@@ -1758,7 +1758,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-science-13b",
     "ep": "番外篇",
-    "title": "小四科學科｜第13課 下",
+    "title": "小四科學科｜第13課 下｜金屬和非金屬大搜查",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
@@ -1771,7 +1771,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-science-14a",
     "ep": "番外篇",
-    "title": "小四科學科｜第14課 上",
+    "title": "小四科學科｜第14課 上｜物質的變化",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
@@ -1784,7 +1784,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-science-14b",
     "ep": "番外篇",
-    "title": "小四科學科｜第14課 下",
+    "title": "小四科學科｜第14課 下｜物質的變化",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
@@ -1797,7 +1797,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-science-15",
     "ep": "番外篇",
-    "title": "小四科學科｜第15課",
+    "title": "小四科學科｜第15課｜光的特性",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
@@ -1810,7 +1810,7 @@ const EPISODES_DATA = [
   {
     "id": "bonus-p4-science-16",
     "ep": "番外篇",
-    "title": "小四科學科｜第16課",
+    "title": "小四科學科｜第16課｜摩擦力",
     "topic": "課本知識整理、重點溫習、生活應用",
     "season": "課本番外篇",
     "seasonTitle": "小四科學科",
